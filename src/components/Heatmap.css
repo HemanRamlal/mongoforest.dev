@@ -1,0 +1,54 @@
+.heatmap{
+  display:flex;
+  flex-direction:column;
+}
+.heatmap main{
+  flex-grow:0;
+  display:inline-block;
+  margin:var(--dimension-md) auto;
+}
+.heatmap-controls{
+  display:flex;
+  align-self:flex-end;
+  font:var(--font-sm) "Poppins";
+  justify-content:flex-end;
+}
+
+.heatmap-control{
+  display:flex;
+  justify-content: center;
+  align-items:center;
+}
+
+.heatmap-control > *{
+  margin:5px;
+}
+
+.heatmap-control select{
+  padding:3px;
+  font : var(--font-sm) "Poppins";
+}
+
+.heatmap-visualizer{
+  align-self: center;
+  border-bottom: 1px solid var(--monochrome-color-sw);
+}
+.heatmap-stats{
+  display:flex;
+  align-self:center;
+}
+
+.heatmap-stats .heatmap-stat{
+  display:flex;
+  flex-direction:column;
+  margin:var(--dimension-md);
+  margin-top:var(--dimension-sm);
+}
+
+.heatmap-stat-value{
+  font:var(--font-xl) "Space Grotesk";
+}
+.heatmap-stat-label{
+  font: var(--font-md) "Poppins";
+}
+

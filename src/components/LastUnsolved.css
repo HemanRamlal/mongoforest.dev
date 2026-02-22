@@ -1,0 +1,62 @@
+.lastUnsolved {
+  max-width: 350px;
+  border-radius: 5px;
+  border: 1px solid var(--monochrome-color-sw);
+  box-shadow: var(--shadow-raised);
+  padding: var(--dimension-md);
+  margin:auto;
+}
+.lastUnsolved .heading{
+}
+
+.lastUnsolved-list {
+  margin:var(--dimension-sm) 0;
+  color: var(--monochrome-color);
+}
+
+.lastUnsolved-nolist {
+  color: var(--monochrome-color-ss);
+  font-family: monospace;
+  padding: 20px;
+}
+
+.unsolved,
+.unsolved-header {
+  padding: var(--dimension-xs);
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  border-bottom: 1px solid var(--monochrome-color-sw);
+}
+
+.unsolved:nth-child(even) {
+  background: var(--monochrome-color-fill);
+}
+
+.unsolved:nth-child(odd) {
+  background: var(--monochrome-color-sw);
+}
+
+.unsolved-header {
+  font-weight: bold;
+  background: var(--monochrome-color-sw);
+}
+
+.unsolved-problem-header,
+.unsolved-problem {
+  flex-grow: 1;
+  display: flex;
+}
+
+.unsolved-since {
+  padding: var(--dimension-xxs);
+}
+
+.unsolved-problem-id {
+
+  padding: var(--dimension-xxs);
+}
+
+.unsolved-problem-name {
+
+  padding: var(--dimension-xxs);
+}

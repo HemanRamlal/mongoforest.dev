@@ -1,0 +1,33 @@
+.control-button {
+  color:inherit;
+  border-radius: 4px;
+  padding: 7px;
+  font-size:1.05rem;
+  letter-spacing:0.12rem;
+  display: inline-block;
+  font-weight: bold;
+  font-family: monospace;
+  letter-spacing:0.1rem;
+  background: #f4f4f4;
+  border: 1px solid #999;
+  cursor : pointer;
+}
+.control-button-overlay{
+    cursor : pointer;
+    user-select: none;
+}
+.control-button:hover {
+  background-color: #fff;
+  border-color: #888;
+  transform: scale(1.035);
+}
+
+.control-button:active{
+  transform:scale(0.96);
+}
+.control-button:disabled, .control-button:disabled:hover, .control-button:disabled:active{
+  cursor : default;
+  transform: scale(1);
+  background: #efefef;
+  border: 1px solid #999;
+}

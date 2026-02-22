@@ -1,0 +1,42 @@
+.editable-avatar, .editable-avatar-input, .editable-avatar-img, .editable-avatar-loading-overlay{
+  height:100px;
+  width:100px;
+  padding:10px;
+}
+
+.editable-avatar-loading-overlay{
+  position:absolute;
+  font-size:3rem;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:2;
+  background-color:rgba(0, 0, 0, 0.2);
+  color:white;
+}
+
+.editable-avatar{
+  position:relative;
+}
+
+.editable-avatar-input, .editable-avatar-img{
+  position:absolute;
+}
+
+.editable-avatar-input, .editable-avatar-indicator{
+  z-index:1;
+  opacity:0;
+}
+.editable-avatar-indicator{
+  top:0px;
+  right:0px;
+  position:absolute;
+  transition: opacity 0.2s;
+}
+.editable-avatar-input:hover{
+  cursor:pointer;
+}
+.editable-avatar:hover .editable-avatar-indicator{
+  opacity:1;
+
+}

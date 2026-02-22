@@ -1,0 +1,260 @@
+
+.problem-view{
+  height:800px;
+  display:flex;
+}
+.problem-view *{
+  overflow:auto;
+}
+.testcase-container{
+  margin:var(--dimension-xs);
+  margin-bottom:var(--dimension-xl);
+}
+.testcase-label{
+  font-weight:bold;
+  color:var(--monochrome-color-tw);
+  font:var(--font-sm) "poppins";
+}
+.submission-read, .submission-write{
+  min-width:420px;
+  width:30%;
+  padding:var(--dimension-md);
+  margin:var(--dimension-sm);
+  border:1px solid var(--monochrome-color-sw);
+  background-color:var(--monochrome-color-anti-brand);
+  border-radius:var(--dimension-xxs);
+}
+.submission-read .problem-head{
+  display:flex;
+  margin-bottom:var(--dimension-md);
+}
+.submission-read .problem-id, .submission-read .problem-title{
+  font:var(--font-md) "Work Sans";
+  text-align:center;
+  font-weight:bold;
+  padding-left:var(--dimension-xxs);
+  color:var(--monochrome-color-tw);
+}
+
+.schema-view{
+  margin-top:var(--dimension-xl);
+}
+.schema-view .schema-name{
+  font-weight:bolder;
+  font:var(--font-xs) "poppins";
+  color:var(--monochrome-color-ts);
+  padding:var(--dimension-xs);
+  padding-bottom:0;
+  cursor:help;
+}
+.schema-description{
+  font:var(--font-sm) "poppins";
+}
+.submissions .submissions-list{
+  display:grid;
+  grid-template-columns:auto auto auto 1fr;
+}
+.submissions .submission-head{
+  font-size:0.9rem;
+  font-weight:600;
+  color:gray;
+  border-bottom:1px solid lightgray;
+}
+.submissions .submission-item{
+  display:grid;
+  grid-template-columns:subgrid;
+  grid-column:1/-1;
+}
+.submissions .submission-item>*{
+  padding:var(--dimension-xs);
+  text-align:center;
+}
+.submissions .submission-item .submission-id .num{
+  color:var(--monochrome-color-tw);
+  border:1px solid var(--monochrome-color-sw);
+  border-radius:5px;
+  padding:0px;
+  vertical-align:center;
+}
+.submissions .submission-item .submission-timestamp{
+  text-align:right;
+}
+.d-none{
+  display:none;
+}
+.read-tabs{
+  display:flex;
+  justify-content:space-between;
+}
+.read-tabs > *{
+  font:var(--font-sm) "Poppins";
+  flex-grow:1;
+  text-align:center;
+  padding:var(--dimension-xs);
+  border:1px solid var(--monochrome-color-sw);
+  border-right:none;
+  background-color: var(--monochrome-color-sw);
+  color:var(--monochrome-color-ts);
+}
+.read-tabs > *:last-child{
+  border-right:1px solid var(--monochrome-color-sw);
+}
+.read-tabs .active-tab{
+  border-bottom:none;
+  color:var(--monochrome-color-brand);
+  background-color:var(--monochrome-color-fill);
+}
+.read-display{
+  border:1px solid var(--monochrome-color-sw);
+  border-top:none;
+  padding:var(--dimension-sm);
+}
+
+.submission-write{
+  flex-grow:1;
+}
+
+.submission-write .control-panel{
+  display:flex;
+}
+
+.run-btn, .run-btn:active{
+  background:var(--secondary-color);
+}
+.submit-btn, .submit-btn:active{
+  background:var(--primary-color);
+}
+
+.disabled-btn {
+  opacity:0.8;
+  cursor:none;
+}
+
+.run-btn, .submit-btn{
+  margin:var(--dimension-xxs);
+  padding:var(--dimension-xxs) var(--dimension-xs);
+  font:var(--font-xs) "Poppins";
+  text-align:center;
+  color:white;
+  letter-spacing:2px;
+}
+
+.run-btn:hover, .submit-btn:hover{
+  opacity:0.8;
+  cursor:pointer;
+}
+.outputs-viewer .outputs-summary{
+  margin:20px 0px;
+  font-family: "Poppins";
+  text-align:center;
+}
+.outputs-summary.summary-green{
+  color:#28a745;
+}
+.outputs-summary.summary-red{
+  color:#dc3545;
+}
+.outputs-viewer .output-container{
+  margin:50px 0px;
+}
+.output-label{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.output-serial{
+  margin:var(--dimension-xs);
+  font-weight:600;
+  color:gray;
+  font-family:sans;
+  font-size:0.9rem;
+}
+.output-stats{
+  display:flex;
+  align-items:center;
+}
+.output-stats > *{
+  margin:var(--dimension-xs);
+}
+.submissions .verdict-ac ,
+.submissions .verdict-wa ,
+.submissions .verdict-tle ,
+.submissions .verdict-rte ,
+.submissions .verdict-unknown {
+  padding:3px;
+  border-radius:3px;
+  font-weight:600;
+  font-family:"Space Grotesk";
+  font-weight:0.9rem;
+  margin:5px;
+  color:white;
+}
+
+.submissions .verdict-ac {
+  background: #28a745;
+}
+
+.submissions .verdict-wa {
+  background: #dc3545;
+}
+
+.submissions .verdict-tle {
+  background: #ffc107;
+}
+
+.submissions .verdict-rte {
+  background: #fd7e14;
+}
+
+.submissions .verdict-unknown {
+  background: #6c757d;
+}
+
+.outputs-viewer .verdict-ac ,
+.outputs-viewer .verdict-wa ,
+.outputs-viewer .verdict-tle ,
+.outputs-viewer .verdict-rte ,
+.outputs-viewer .verdict-unknown {
+  padding:5px;
+  border-radius:5px;
+  font-weight:600;
+  font-family:"Space Grotesk";
+  color:white;
+}
+
+.outputs-viewer .verdict-ac {
+  background: #28a745;
+}
+
+.outputs-viewer .verdict-wa {
+  background: #dc3545;
+}
+
+.outputs-viewer .verdict-tle {
+  background: #ffc107;
+}
+
+.outputs-viewer .verdict-rte {
+  background: #fd7e14;
+}
+
+.outputs-viewer .verdict-unknown {
+  background: #6c757d;
+}
+
+@media (width <= 1000px){
+  .problem-view{
+    flex-direction:column;
+    align-items:center;
+  }
+  .submission-read{
+    height:800px;
+  }
+  .problem-view > *{
+    width:80%;
+  }
+  .submission-write{
+    height:auto;
+    overflow:visible;
+  }
+}

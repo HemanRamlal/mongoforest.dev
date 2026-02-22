@@ -1,0 +1,12 @@
+<svg viewBox="0 0 20 20" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+  <!-- Outer frame -->
+  <path d="M5 4h10M5 16h10" stroke="#E67E22" stroke-width="1"/>
+  <path d="M6 4c0 3.2 4 4.2 4 6s-4 2.8-4 6M14 4c0 3.2-4 4.2-4 6s4 2.8 4 6" stroke="#E67E22" stroke-width="0.9" fill="none"/>
+
+  <!-- Top half-filled sand -->
+  <path d="M7.3 5 Q10 6.5, 12.7 5 Q10 6.6, 7.3 5" fill="#F4A261" opacity="0.8"/>
+
+  <!-- Bottom quarter-filled sand -->
+  <path d="M7.7 15 Q10 14, 12.3 15 Q10 14.4, 7.7 15" fill="#F4A261" opacity="0.8"/>
+</svg>
+

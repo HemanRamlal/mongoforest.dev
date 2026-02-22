@@ -1,0 +1,105 @@
+.edit-profile{
+  margin-top:50px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  font-family:"Poppins";
+}
+.edit-profile .username-display{
+  text-align:center;
+  padding-left:20px;
+  width:100%;
+  font-size:0.9rem;
+}
+.avatar-display, .avatar-display-view, .editable-section, .form-controls{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.editable-section{
+  flex-direction:column;
+  align-items:flex-start;
+}
+.form-controls{
+  justify-content:flex-end;
+}
+.avatar-display{
+  position:relative;
+  padding:5px;
+}
+.avatar-display-edit{
+  position:absolute;
+}
+.avatar-display-view{
+  flex-direction:column;
+}
+.avatar-display:hover{
+  background:var(--monochrome-color-fill);
+  box-shadow:var(--shadow-raised);
+}
+.avatar-display:active{
+  background:white;
+  box-shadow:none;
+}
+.avatar-display-view > img{
+  width:120px;
+  height:120px;
+}
+.avatar-display-view > span{
+  margin-top:10px;
+  font-size:0.9rem;
+}
+.avatar-display-edit-backend, .avatar-display-edit-frontend{
+  position:absolute;
+  display:inline-block;
+  top:10px;
+  left:20px;
+  height:40px;
+  width:40px;
+  margin:0;
+  padding:0;
+  border:0;
+}
+.avatar-display-edit-backend{
+  height:100%;
+  width:100%;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+}
+.avatar-display-edit-backend{
+  opacity:0;
+  z-index:9999;
+}
+.avatar-display-edit{
+  font-size:2rem;
+  color:var(--primary-color);
+  transition-property:color;
+  transition-duration:0.2s;
+}
+.avatar-display-edit:hover{
+  color:var(--secondary-color);
+}
+.editable-section *{
+  margin: 10px 10px;
+}
+.editable-section input{
+  font-size:17px;
+  padding:5px;
+  border:1px solid gray;
+  border-radius:0px;
+}
+.editable-section > *{
+  display:flex;
+  width:100%;
+  justify-content:space-between;
+}
+.editable-section input:focus{
+  border:1px solid black;
+  border-radius:0px;
+}
+.form-controls{
+  margin:25px 7px;
+}

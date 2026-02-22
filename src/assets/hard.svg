@@ -1,0 +1,23 @@
+<svg viewBox="0 0 20 20" width="20" height="20" xmlns="http://www.w3.org/2000/svg">
+  <!-- Canopy: Organic overlapping foliage -->
+  <circle cx="9" cy="6" r="4" fill="#6ACB5B"/>
+  <circle cx="6" cy="7" r="3.5" fill="#5EBB51"/>
+  <circle cx="12.5" cy="6.5" r="4" fill="#5EBB51"/>
+  <circle cx="8" cy="8.5" r="3.2" fill="#4FA645"/>
+  <circle cx="11.5" cy="9" r="3" fill="#4FA645"/>
+  <circle cx="10" cy="4.5" r="2.5" fill="#73D167"/>
+  <circle cx="13.8" cy="8" r="2.3" fill="#4FA645"/>
+  <circle cx="5.2" cy="8.3" r="2.2" fill="#4FA645"/>
+  
+  <!-- Trunk -->
+  <path d="M9.5 11C9 13 9 15 10 17C11 15 11 13 10.5 11Z" fill="#8C5B3A" stroke="#6A3F26" stroke-width="0.6"/>
+
+  <!-- Realistic Roots -->
+  <path d="M9.5 17C9 18 8 19 7 19" stroke="#6A3F26" stroke-width="0.5" stroke-linecap="round"/>
+  <path d="M10.5 17C11 18 12 19 13 19" stroke="#6A3F26" stroke-width="0.5" stroke-linecap="round"/>
+  <path d="M10 17C10 18 9.2 19 8.5 19" stroke="#6A3F26" stroke-width="0.5" stroke-linecap="round"/>
+  <path d="M10 17C10 18 10.8 19 11.5 19" stroke="#6A3F26" stroke-width="0.5" stroke-linecap="round"/>
+  <path d="M9.7 17.2C9.2 18 9 18.5 9 19" stroke="#6A3F26" stroke-width="0.4" stroke-linecap="round"/>
+  <path d="M10.3 17.2C10.8 18 11 18.5 11 19" stroke="#6A3F26" stroke-width="0.4" stroke-linecap="round"/>
+</svg>
+

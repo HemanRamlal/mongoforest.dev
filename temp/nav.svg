@@ -1,0 +1,47 @@
+<svg width="100%" height="80" viewBox="0 0 1200 80" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <rect x="0" y="0" width="1200" height="80" fill="#2d3748" />
+
+  <g id="logo-section">
+    <a xlink:href="/" aria-label="Homepage">
+      <circle cx="50" cy="40" r="20" fill="#4299e1"/>
+      <text x="80" y="47" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white">Logo</text>
+    </a>
+  </g>
+
+  <g id="nav-links" font-family="Arial, sans-serif" font-size="18" fill="white" text-anchor="middle">
+    <a xlink:href="/practice">
+      <text x="350" y="45">Practice</text>
+    </a>
+    <a xlink:href="/learn">
+      <text x="450" y="45">Learn</text>
+    </a>
+    <a xlink:href="/announcements">
+      <text x="580" y="45">Announcements</text>
+    </a>
+  </g>
+
+  <g id="upgrade-button">
+     <a xlink:href="/upgrade">
+        <rect x="690" y="25" width="140" height="30" rx="5" fill="#f6ad55" />
+        <text x="760" y="45" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1a202c" text-anchor="middle">Upgrade Plan</text>
+     </a>
+  </g>
+
+  <g id="user-controls" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle">
+    
+    <a xlink:href="/problem-of-the-day" aria-label="Problem of the Day">
+        <path d="M900 30 h24 v24 h-24 z M904 34 h16 M904 38 h16 M904 42 h10" stroke="white" stroke-width="1.5" fill="none"/>
+    </a>
+
+    <g id="streak-count" aria-label="Current streak: 7">
+        <path d="M965 30 C 960 35, 970 40, 965 50 C 975 40, 980 35, 975 30 Z" fill="#f56565"/>
+        <text x="995" y="45" font-weight="bold">7</text>
+    </g>
+
+    <a xlink:href="/profile" aria-label="User Profile">
+        <circle cx="1050" cy="40" r="15" fill="#a0aec0" />
+    </a>
+    
+  </g>
+
+</svg>

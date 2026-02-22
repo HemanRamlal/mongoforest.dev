@@ -1,0 +1,54 @@
+@keyframes flash{
+  0%{
+    opacity:1;
+  }
+  50%{
+    opacity:0.5;
+  }
+  100%{
+    opacity:1;
+  }
+}
+
+.leaderboard-fallback{
+  max-width:450px;
+  margin: 20px auto;
+}
+
+.leaderboard-fallback .head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.leaderboard-fallback .head .square-flash{
+  height:120px;
+  width:120px;
+}
+
+.leaderboard-fallback .head .rect-flash{
+  height:35px;
+  width:300px;
+}
+
+
+.leaderboard-fallback .body .rect-flash{
+  height:35px;
+  width:450px;
+}
+.leaderboard-main .leaderboard-fallback{
+  width:100%;
+}
+.leaderboard-fallback > .rect-flash{
+  height:35px;
+  width:100%;
+}
+
+
+.rect-flash, .square-flash{
+  margin:10px;
+  background:#e9e9e9;
+  animation-name : flash;
+  animation-duration : 666ms;
+  animation-iteration-count:infinite;
+}

@@ -1,0 +1,17 @@
+.container-1-2{
+  display:flex;
+  margin:auto;
+  justify-content:center;
+}
+@media (width <= 1200px){
+  .container-1-2{
+    flex-direction:column;
+  }
+  .container-1-2 .left{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:start;
+  }
+
+}

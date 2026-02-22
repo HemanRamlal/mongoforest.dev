@@ -1,0 +1,169 @@
+{
+  "2025-05-10": [
+    {
+      "submission_id": "sub_001",
+      "problem_id": "073",
+      "problem_title": "Aggregation with Lookup Stage",
+      "problem_slug": "aggregation-with-lookup-stage",
+      "verdict": "AC",
+      "met": 95,
+      "jet": 72
+    },
+    {
+      "submission_id": "sub_002",
+      "problem_id": "047",
+      "problem_title": "Simple Array Pull Operation",
+      "problem_slug": "simple-array-pull-operation",
+      "verdict": "WA",
+      "met": 110,
+      "jet": 65
+    },
+    {
+      "submission_id": "sub_003",
+      "problem_id": "124",
+      "problem_title": "Update Multiple Fields in Document",
+      "problem_slug": "update-multiple-fields-in-document",
+      "verdict": "TLE",
+      "met": 150,
+      "jet": 90
+    }
+  ],
+  "2025-05-12": [
+    {
+      "submission_id": "sub_004",
+      "problem_id": "089",
+      "problem_title": "Complex Array Manipulations",
+      "problem_slug": "complex-array-manipulations",
+      "verdict": "RTE",
+      "met": 88,
+      "jet": 77
+    },
+    {
+      "submission_id": "sub_005",
+      "problem_id": "034",
+      "problem_title": "Insert One Document",
+      "problem_slug": "insert-one-document",
+      "verdict": "AC",
+      "met": 105,
+      "jet": 92
+    }
+  ],
+  "2025-05-15": [
+    {
+      "submission_id": "sub_006",
+      "problem_id": "170",
+      "problem_title": "Existence Check with $exists",
+      "problem_slug": "existence-check-with-exists",
+      "verdict": "AC",
+      "met": 120,
+      "jet": 85
+    }
+  ],
+  "2025-05-20": [
+    {
+      "submission_id": "sub_007",
+      "problem_id": "103",
+      "problem_title": "Graph-like Data Queries",
+      "problem_slug": "graph-like-data-queries",
+      "verdict": "WA",
+      "met": 130,
+      "jet": 70
+    },
+    {
+      "submission_id": "sub_008",
+      "problem_id": "025",
+      "problem_title": "Using Comparison Operators",
+      "problem_slug": "using-comparison-operators",
+      "verdict": "AC",
+      "met": 115,
+      "jet": 95
+    },
+    {
+      "submission_id": "sub_009",
+      "problem_id": "090",
+      "problem_title": "Advanced Geospatial Queries",
+      "problem_slug": "advanced-geospatial-queries",
+      "verdict": "TLE",
+      "met": 170,
+      "jet": 80
+    },
+    {
+      "submission_id": "sub_010",
+      "problem_id": "058",
+      "problem_title": "Array Update with Conditions",
+      "problem_slug": "array-update-with-conditions",
+      "verdict": "RTE",
+      "met": 95,
+      "jet": 60
+    }
+  ],
+  "2025-06-01": [
+    {
+      "submission_id": "sub_011",
+      "problem_id": "144",
+      "problem_title": "Find Documents with $in Operator",
+      "problem_slug": "find-documents-with-in-operator",
+      "verdict": "AC",
+      "met": 100,
+      "jet": 88
+    },
+    {
+      "submission_id": "sub_012",
+      "problem_id": "011",
+      "problem_title": "Count Distinct Values in Field",
+      "problem_slug": "count-distinct-values-in-field",
+      "verdict": "WA",
+      "met": 125,
+      "jet": 75
+    }
+  ],
+  "2025-06-05": [
+    {
+      "submission_id": "sub_013",
+      "problem_id": "040",
+      "problem_title": "Finding Empty Array Fields",
+      "problem_slug": "finding-empty-array-fields",
+      "verdict": "AC",
+      "met": 110,
+      "jet": 90
+    },
+    {
+      "submission_id": "sub_014",
+      "problem_id": "181",
+      "problem_title": "Aggregation with $bucket",
+      "problem_slug": "aggregation-with-bucket",
+      "verdict": "TLE",
+      "met": 180,
+      "jet": 65
+    },
+    {
+      "submission_id": "sub_015",
+      "problem_id": "159",
+      "problem_title": "Transaction Operations",
+      "problem_slug": "transaction-operations",
+      "verdict": "RTE",
+      "met": 98,
+      "jet": 82
+    }
+  ],
+  "2025-06-10": [
+    {
+      "submission_id": "sub_016",
+      "problem_id": "001",
+      "problem_title": "Find Documents by Field Value",
+      "problem_slug": "find-documents-by-field-value",
+      "verdict": "AC",
+      "met": 105,
+      "jet": 95
+    },
+    {
+      "submission_id": "sub_017",
+      "problem_id": "118",
+      "problem_title": "Complex Data Integration Patterns",
+      "problem_slug": "complex-data-integration-patterns",
+      "verdict": "WA",
+      "met": 120,
+      "jet": 70
+    }
+  ]
+}

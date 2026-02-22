@@ -1,0 +1,19 @@
+.animated-underline{
+  position:relative;
+}
+.animated-underline>div::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:100%;
+  height:1px;
+  transform:scaleX(0);
+  transform-origin:bottom center;
+  background-color:black;
+  transition-duration:0.3s;
+}
+
+.animated-underline:hover>div::after{
+  transform:scaleX(1);
+}

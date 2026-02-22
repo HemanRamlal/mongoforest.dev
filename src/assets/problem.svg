@@ -1,0 +1,58 @@
+<svg width="20" height="20" viewBox="0 0 212 212" xmlns="http://www.w3.org/2000/svg">
+  <!-- 
+    This SVG replicates the 4-piece puzzle image.
+    - Each piece is 100x100 units within the viewBox.
+    - There's a small visual gap between them.
+    - Each piece consists of two paths: a darker one for the shadow and a lighter one for the main body.
+    - The paths are constructed with lines (L) and arcs (A) to create the rounded corners, tabs (outies), and holes (innies).
+  -->
+  <defs>
+    <!-- Define colors for easy reuse -->
+    <style>
+      .red-shadow { fill: #D34F48; }
+      .red-main   { fill: #F1635C; }
+
+      .yellow-shadow { fill: #E0A93B; }
+      .yellow-main   { fill: #F7C44F; }
+
+      .green-shadow { fill: #80B849; }
+      .green-main   { fill: #99D35A; }
+
+      .blue-shadow { fill: #4389BB; }
+      .blue-main   { fill: #56A4D7; }
+    </style>
+  </defs>
+
+  <!-- Group for the Top-Left Red Piece -->
+  <g transform="translate(4, 4)">
+    <!-- Shadow Path -->
+    <path class="red-shadow" d="M 10 0 A 10 10 0 0 1 0 10 L 0 90 A 10 10 0 0 1 10 100 L 42.5 100 A 15 15 0 0 0 57.5 100 L 90 100 A 10 10 0 0 1 100 90 L 100 57.5 A 15 15 0 1 0 100 42.5 L 100 10 A 10 10 0 0 1 90 0 Z"/>
+    <!-- Main Piece Path -->
+    <path class="red-main" transform="translate(-4, -4)" d="M 10 0 A 10 10 0 0 1 0 10 L 0 90 A 10 10 0 0 1 10 100 L 42.5 100 A 15 15 0 0 0 57.5 100 L 90 100 A 10 10 0 0 1 100 90 L 100 57.5 A 15 15 0 1 0 100 42.5 L 100 10 A 10 10 0 0 1 90 0 Z"/>
+  </g>
+
+  <!-- Group for the Top-Right Yellow Piece -->
+  <g transform="translate(108, 4)">
+    <!-- Shadow Path -->
+    <path class="yellow-shadow" d="M 10 0 A 10 10 0 0 1 0 10 L 0 42.5 A 15 15 0 0 0 0 57.5 L 0 90 A 10 10 0 0 1 10 100 L 42.5 100 A 15 15 0 0 0 57.5 100 L 90 100 A 10 10 0 0 1 100 90 L 100 10 A 10 10 0 0 1 90 0 Z"/>
+    <!-- Main Piece Path -->
+    <path class="yellow-main" transform="translate(-4, -4)" d="M 10 0 A 10 10 0 0 1 0 10 L 0 42.5 A 15 15 0 0 0 0 57.5 L 0 90 A 10 10 0 0 1 10 100 L 42.5 100 A 15 15 0 0 0 57.5 100 L 90 100 A 10 10 0 0 1 100 90 L 100 10 A 10 10 0 0 1 90 0 Z"/>
+  </g>
+
+  <!-- Group for the Bottom-Left Green Piece -->
+  <g transform="translate(4, 108)">
+    <!-- Shadow Path -->
+    <path class="green-shadow" d="M 10 0 A 10 10 0 0 1 0 10 L 0 90 A 10 10 0 0 1 10 100 L 90 100 A 10 10 0 0 1 100 90 L 100 57.5 A 15 15 0 0 0 100 42.5 L 100 10 A 10 10 0 0 1 90 0 L 57.5 0 A 15 15 0 1 0 42.5 0 Z"/>
+    <!-- Main Piece Path -->
+    <path class="green-main" transform="translate(-4, -4)" d="M 10 0 A 10 10 0 0 1 0 10 L 0 90 A 10 10 0 0 1 10 100 L 90 100 A 10 10 0 0 1 100 90 L 100 57.5 A 15 15 0 0 0 100 42.5 L 100 10 A 10 10 0 0 1 90 0 L 57.5 0 A 15 15 0 1 0 42.5 0 Z"/>
+  </g>
+
+  <!-- Group for the Bottom-Right Blue Piece -->
+  <g transform="translate(108, 108)">
+    <!-- Shadow Path -->
+    <path class="blue-shadow" d="M 10 0 A 10 10 0 0 1 0 10 L 0 42.5 A 15 15 0 1 0 0 57.5 L 0 90 A 10 10 0 0 1 10 100 L 90 100 A 10 10 0 0 1 100 90 L 100 10 A 10 10 0 0 1 90 0 L 57.5 0 A 15 15 0 1 0 42.5 0 Z"/>
+    <!-- Main Piece Path -->
+    <path class="blue-main" transform="translate(-4, -4)" d="M 10 0 A 10 10 0 0 1 0 10 L 0 42.5 A 15 15 0 1 0 0 57.5 L 0 90 A 10 10 0 0 1 10 100 L 90 100 A 10 10 0 0 1 100 90 L 100 10 A 10 10 0 0 1 90 0 L 57.5 0 A 15 15 0 1 0 42.5 0 Z"/>
+  </g>
+</svg>
+

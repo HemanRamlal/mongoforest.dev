@@ -1,0 +1,61 @@
+.find-your-account, .reset-password{
+  display:flex;
+  flex-direction:column;
+  max-width:600px;
+  margin:auto;
+  align-items:center;
+}
+.recovery-header{
+  padding-top:50px;
+  text-align:center;
+  font-family:"Space Grotesk";
+  font-size:1.7rem;
+  margin:10px;
+}
+.recovery-body{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.recovery-body>*{
+  margin:10px;
+}
+.fields, .recovery-submit{
+  font-size:1.2rem;
+}
+.find-your-account .email-field > input{
+  height:28px;
+  font-size:1.2rem;
+}
+.recovery-body .recovery-submit{
+  cursor:pointer;
+  padding:10px;
+  border : 1px solid var(--primary-color);
+  background : var(--primary-color);
+  color:white;
+  text-align:center;
+}
+.recovery-body .recovery-submit:hover{
+  background : var(--primary-color-tw);
+  transition-duration: 200ms;
+}
+.recovery-body .recovery-submit:active{
+  transform:scale(0.96);
+  transition-duration:200ms;
+}
+.recovery-body .recovery-submit-disabled, .recovery-body .recovery-submit-disabled:hover, .recovery-body .recovery-submit-disabled:active{
+  background: var(--primary-color-tw);
+  cursor:auto;
+  transform:none;
+  color:gray;
+}
+
+.fields > *{
+  display : flex;
+  justify-content:space-between;
+  margin:10px;
+}
+
+.fields > * > *{
+  margin:5px;
+}

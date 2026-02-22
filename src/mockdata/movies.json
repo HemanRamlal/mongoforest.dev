@@ -1,0 +1,226 @@
+[
+  {
+    "id": 1,
+    "title": "Movies Released in 1893",
+    "url": "https://w3resource.com/mongodb-exercises/mongodb-movies-collection-exercise-1.php",
+    "statement": "Find all movies released in 1893 from the 'movies' collection.",
+    "explanation": "The said query in MongoDBretrieves information of all movies that released in the year 1893 from the 'movies' collection.The query searches the 'movies' collection and retrieves documents where the 'year' field is equal to 1893.",
+    "solution": "db.movies.find({ year: 1893 })"
+  },
+  {
+    "id": 2,
+    "title": "Movies with Runtime Greater Than 120 Minutes",
+    "url": "https://w3resource.com/mongodb-exercises/mongodb-movies-collection-exercise-2.php",
+    "statement": "Find all movies with runtime greater than 120 minutes.",
+    "explanation": "The said query in MongoDBretrieves all movies with full information from the 'movies' collection that have a runtime greater than 120 minutes.In the find() method the $gt operator finds documents where the \"runtime\" field is greater than 120.",
+    "solution": "db.movies.find({ \"runtime\": { $gt: 120 } })"
+  },
+  {
+    "id": 3,
+    "title": "Movies with Genre 'Short'",
+    "url": "https://w3resource.com/mongodb-exercises/mongodb-movies-collection-exercise-3.php",
+    "statement": "Find all movies with the genre 'Short'.",
+    "explanation": "The said query in MongoDBretrieves all movies with full information from the 'movies' collection that have the \"Short\" genre.In the find() method the query searches for movies where the \"genres\" field contains the value \"Short\".",
+    "solution": "db.movies.find({ \"genres\": \"Short\" })"
+  },
+  {
+    "id": 4,
+    "title": "Movies Directed by William K.L. Dickson",
+    "url": "https://w3resource.com/mongodb-exercises/mongodb-movies-collection-exercise-4.php",
+    "statement": "Find all movies directed by William K.L. Dickson.",
+    "explanation": "The said query in MongoDBretrieves all movies with full information from the 'movies' collection that were directed by \"William K.L. Dickson\".The find() method finds documents where the value of the 'directors' field contains \"William K.L. Dickson\".",
+    "solution": "db.movies.find({ directors: \"William K.L. Dickson\" })"
+  },
+  {
+    "id": 5,
+    "title": "Movies Released in the USA",
+    "url": "https://w3resource.com/mongodb-exercises/mongodb-movies-collection-exercise-5.php",
+    "statement": "Find all movies released in the USA.",
+    "explanation": "The said query in MongoDBretrieves all movies with full information from the 'movies' collection that were released in the USA.The find() method searches the 'movies' collection for documents where the value of the 'countries' field is \"USA\". It retrieves all movies released in the USA.",
+    "solution": "db.movies.find({ countries: \"USA\" })"
+  },
+  {
+    "id": 6,
+    "title": "Movies Rated as 'UNRATED'",
+    "url": "https://w3resource.com/mongodb-exercises/mongodb-movies-collection-exercise-6.php",
+    "statement": "Find all movies rated as 'UNRATED'.",
+    "explanation": "The said query in MongoDBretrieves movies from the 'movies' collection that have complete information and are rated as \"UNRATED\".The find() method filters documents where the value of the 'rated' field is equal to \"UNRATED\".",
+    "solution": "db.movies.find({ rated: \"UNRATED\" })"
+  },
+  {
+    "id": 7,
+    "title": "Movies with More Than 1000 IMDb Votes",
+    "url": "https://w3resource.com/mongodb-exercises/mongodb-movies-collection-exercise-7.php",
+    "statement": "Find all movies with more than 1000 IMDb votes.",
+    "explanation": "The said query in MongoDBretrieves movies from the 'movies' collection that have complete information and have received more than 1000 votes on IMDb.The find() method filters documents where the value of the 'imdb.votes' field is greater than 1000.",
+    "solution": "db.movies.find({ \"imdb.votes\": { $gt: 1000 } })"
+  },
+  {
+    "id": 8,
+    "title": "Movies with IMDb Rating Higher Than 7",
+    "url": "https://w3resource.com/mongodb-exercises/mongodb-movies-collection-exercise-8.php",
+    "statement": "Find all movies with IMDb rating higher than 7.",
+    "explanation": "The said query in MongoDBretrieves movies from the 'movies' collection that have complete information and have an IMDb rating higher than 7.In the find() method the $gt operator filters documents where the value of the 'imdb.rating' field is greater than 7.",
+    "solution": "db.movies.find({ \"imdb.rating\": { $gt: 7 } })"
+  },
+  {
+    "id": 9,
+    "title": "Movies with Tomatoes Viewer Rating Higher Than 4",
+    "url": "https://w3resource.com/mongodb-exercises/mongodb-movies-collection-exercise-9.php",
+    "statement": "Find all movies with Tomatoes viewer rating higher than 4.",
+    "explanation": "The said query in MongoDBretrieves movies from the 'movies' collection that have a viewer rating greater than 4 on Tomatoes.In the find() method the $gt operator filters documents where the viewer rating of a movies greater than 4.",
+    "solution": "db.movies.find({\n  \"tomatoes.viewer.rating\": { $gt: 4 }\n})"
+  },
+  {
+    "id": 10,
+    "title": "Movies That Have Received an Award",
+    "url": "https://w3resource.com/mongodb-exercises/mongodb-movies-collection-exercise-10.php",
+    "statement": "Find all movies that have received an award.",
+    "explanation": "The said query in MongoDB retrieves movies from the 'movies' collection in MongoDB that have received an award.In the find() method the $exists operator filters movies that have the \"awards\" field present.",
+    "solution": "db.movies.find(\n{'awards.wins': {$gt: 0}\n})"
+  },
+  {
+    "id": 11,
+    "title": "Movies with At Least One Award Nomination (Selected Fields)",
+    "url": "https://w3resource.com/mongodb-exercises/mongodb-movies-collection-exercise-11.php",
+    "statement": "Find all movies with at least one award nomination, including selected fields.",
+    "explanation": "The said query in MongoDB returns movies with their title, languages, released date, directors, writers, awards, year, genres, runtime, cast, and countries fields from the 'movies' collection in MongoDB that have at least one nomination.In the find() method the $gt filters movies that have at least one nomination and the nominations field are within the awards subdocument. The projection includes the title, languages, released date, directors, writers, awards, year, genres, runtime, cast, and countries fields from the documents of the collection 'movies'.",
+    "solution": "db.movies.find({\n  \"awards.nominations\": { $gt: 0 }\n}, {\n  \"title\": 1,\n  \"languages\": 1,\n  \"released\": 1,\n  \"directors\": 1,\n  \"writers\": 1,\n  \"awards\": 1,\n  \"year\": 1,\n  \"genres\": 1,\n  \"runtime\": 1,\n  \"cast\": 1,\n  \"countries\": 1\n})"
+  },
+  {
+    "id": 12,
+    "title": "Movies with Charles Kayser in the Cast (Selected Fields)",
+    "url": "https://w3resource.com/mongodb-exercises/mongodb-movies-collection-exercise-12.php",
+    "statement": "Find all movies with Charles Kayser in the cast, including selected fields.",
+    "explanation": "The said query in MongoDB returns movies with their title, languages, released, directors, writers, awards, year, genres, runtime, cast, countries fields from the 'movies' collection in MongoDB that have Charles Kayser in the cast.The find method filters the documents where the \"cast\" field contains the value \"Charles Kayser\".The second argument is the projection that includes title, languages, released, directors, writers, awards, year, genres, runtime, cast, countries in the result by specifying the value 1.",
+    "solution": "db.movies.find({\n  \"cast\": \"Charles Kayser\"\n}, {\n  \"title\": 1,\n  \"languages\": 1,\n  \"released\": 1,\n  \"directors\": 1,\n  \"writers\": 1,\n  \"awards\": 1,\n  \"year\": 1,\n  \"genres\": 1,\n  \"runtime\": 1,\n  \"cast\": 1,\n  \"countries\": 1\n})"
+  },
+  {
+    "id": 13,
+    "title": "Movies Released on May 9, 1893 (Selected Fields)",
+    "url": "https://w3resource.com/mongodb-exercises/mongodb-movies-collection-exercise-13.php",
+    "statement": "Find all movies released on May 9, 1893, including selected fields.",
+    "explanation": "The said query in MongoDB returns movies with their 'title', 'languages', 'released', 'directors', 'writers', and 'countries' fields from the 'movies' collection in MongoDB that were released on May 9, 1893.The find() method searches for documents where the 'released' field is equal to the specified date, May 9, 1893. The ISODate() function is used to create a date object in MongoDB'sISODate format.The second parameter that includes the fields 'title', 'languages', 'released', 'directors', 'writers', and 'countries' in the output, so they are set to 1 in the projection object.",
+    "solution": "db.movies.find({\nreleased: ISODate(\"1893-05-09T00:00:00.000Z\")\n},\n{\ntitle: 1,\nlanguages: 1,\nreleased: 1,\ndirectors: 1,\nwriters: 1,\ncountries: 1\n})"
+  },
+  {
+    "id": 14,
+    "title": "Movies with 'Scene' in the Title (Selected Fields)",
+    "url": "https://w3resource.com/mongodb-exercises/mongodb-movies-collection-exercise-14.php",
+    "statement": "Find all movies with 'scene' in the title, including selected fields.",
+    "explanation": "The said query in MongoDB returns movies with the title, languages, released, directors, writers, and countries fields from the 'movies' collection in MongoDB that have the word \"scene\" in the title.The $regex operator in the find() method retrieves movies with the word \"scene\" in the title. The $regex operator is a case-insensitive regular expression that matches the /scene/ pattern represents the word \"scene\".The projection object by setting 1 includes the fields title, languages, released, directors, writers, and countries in the result.",
+    "solution": "db.movies.find(\n{ title: { $regex: /scene/i } },\n{ title: 1, languages: 1, released: 1, directors: 1, writers: 1, countries: 1 }\n)"
+  },
+  {
+    "id": 15,
+    "title": "Movies with Tomatoes Viewer Rating Between 3 and 4 (Selected Fields)",
+    "url": "https://w3resource.com/mongodb-exercises/mongodb-movies-collection-exercise-15.php",
+    "statement": "Find all movies with Tomatoes viewer rating between 3 and 4, including selected fields.",
+    "explanation": "The said query in MongoDB returns movies with the title, languages, released, directors, viewer, writers, and countries fields from the 'movies' collection in MongoDB that have a viewer rating of at least 3 and less than 4 on Tomatoes.In the find() method the $gte and the $lt operator checks for viewer ratings in the 'tomatoes' field greater than or equal to 3 and less than 4.The projection object sets 1 to the fields title, languages, released, directors, tomatoes.viewer, writers, and countries to include them in the result set.",
+    "solution": "db.movies.find(\n{ 'tomatoes.viewer.rating': { $gte: 3, $lt: 4 } },\n{ title: 1, languages: 1, released: 1, directors: 1, 'tomatoes.viewer': 1, writers: 1, countries: 1 }\n)"
+  },
+  {
+    "id": 16,
+    "title": "Movies Released Before 1900 (Selected Fields)",
+    "url": "https://w3resource.com/mongodb-exercises/mongodb-movies-collection-exercise-16.php",
+    "statement": "Find all movies released before 1900, including selected fields.",
+    "explanation": "The said query in MongoDB returns movies with the title, languages, release date, year, directors, writers, and countries fields from the 'movies' collection in MongoDB that were released before the year 1900.In the find() method the $lt operator selects movies with a year less than 1900 and a type equal to \"movie\".The projection parameter includes the fields title, languages, released, year, directors, writers, and countries in the result.",
+    "solution": "db.movies.find(\n  {\nyear: { $lt: 1900 },\ntype: \"movie\"\n  },\n  {\ntitle: 1,\nlanguages: 1,\nreleased: 1,\nyear: 1,\ndirectors: 1,\nwriters: 1,\ncountries: 1\n  }\n)"
+  },
+  {
+    "id": 17,
+    "title": "Movies with 'Fire' in the Fullplot (Selected Fields)",
+    "url": "https://w3resource.com/mongodb-exercises/mongodb-movies-collection-exercise-17.php",
+    "statement": "Find all movies with 'fire' in the fullplot, including selected fields.",
+    "explanation": "The said query in MongoDB returns movies with the title, languages, fullplot, released, directors, writers, and countries fields from the 'movies' collection in MongoDB that have the word \"fire\" in their fullplot field.In the find() method the $regex operator performs a case-insensitive regular expression search for those movies that have the word \"fire\" in their fullplot field.The projection parameter includes title, languages, fullplot, released, directors, writers, and countries in the output.",
+    "solution": "db.movies.find({\nfullplot: { $regex: /fire/i } \n}, \n{ \ntitle: 1, \nlanguages: 1, \nfullplot: 1, \nreleased: 1, \ndirectors: 1, \nwriters: 1, \ncountries: 1 \n})"
+  },
+  {
+    "id": 18,
+    "title": "Movies with 'Beer' in the Plot (Selected Fields)",
+    "url": "https://w3resource.com/mongodb-exercises/mongodb-movies-collection-exercise-18.php",
+    "statement": "Find all movies with 'beer' in the plot, including selected fields.",
+    "explanation": "The said query in MongoDB returns movies with the title, languages, fullplot, released, directors, writers, and countries fields from the 'movies' collection in MongoDB that mention the word \"beer\" in their plot field.In the find() method the $regex operator performs a case-insensitive regular expression search for the word \"beer\" in the plot field.The parameter in the projection stage includes title, languages, plot, released, directors, writers, and countries field in the output.",
+    "solution": "db.movies.find(\n{ \nplot: { $regex: /beer/i } \n}, \n{ \ntitle: 1, \nlanguages: 1, \nplot: 1, \nreleased: 1, \ndirectors: 1, \nwriters: 1, \ncountries: 1 \n})"
+  },
+  {
+    "id": 19,
+    "title": "Movies with 'Metal' in the Fullplot (Selected Fields)",
+    "url": "https://w3resource.com/mongodb-exercises/mongodb-movies-collection-exercise-19.php",
+    "statement": "Find all movies with 'metal' in the fullplot, including selected fields.",
+    "explanation": "The said query in MongoDB returns movies with the 'title', 'languages', 'fullplot', 'released', 'directors', 'writers', and 'countries' fields from the 'movies' collection in MongoDB where the 'fullplot' field contains the word \"metal\".In the find() method a regular expression (/metal/) matches document where the 'fullplot' field contains the word \"metal\".The 'i' flag makes the regular expression case-insensitive.In the second parameter the fields with value '1' indicates the inclusion of the 'title', 'languages', 'fullplot', 'released', 'directors', 'writers', and 'countries' fields in the output.",
+    "solution": "db.movies.find(\n{ fullplot: /metal/i },\n{ title: 1, languages: 1, fullplot: 1, released: 1, directors: 1, writers: 1, countries: 1 }\n);"
+  },
+  {
+    "id": 20,
+    "title": "Movies with Runtime Between 60 and 90 Minutes (Selected Fields)",
+    "url": "https://w3resource.com/mongodb-exercises/mongodb-movies-collection-exercise-20.php",
+    "statement": "Find all movies with runtime between 60 and 90 minutes, including selected fields.",
+    "explanation": "The said query in MongoDB returns movies with the 'title', 'languages', 'released', 'runtime', 'directors', 'writers', and 'countries' fields from the 'movies' collection in MongoDB that meet the runtime between 60 and 90 minutes.The $gte and $lte operators in the find() method matches movies with a runtime between 60 and 90 minutes.In the second parameter the fields with value '1' indicates the inclusion of the 'title', 'languages', 'released', 'runtime', 'directors', 'writers', and 'countries' fields to the output.",
+    "solution": "db.movies.find(\n{ runtime: { $gte: 60, $lte: 90 } },\n{ title: 1, languages: 1, released: 1, runtime: 1, directors: 1, writers: 1, countries: 1 }\n);"
+  },
+  {
+    "id": 21,
+    "title": "Top 5 Movies with the Highest IMDb Ratings (Selected Fields)",
+    "url": "https://w3resource.com/mongodb-exercises/mongodb-movies-collection-exercise-21.php",
+    "statement": "Find the top 5 movies with the highest IMDb ratings, including selected fields.",
+    "explanation": "The said query in MongoDB returns movies with the title, languages, released, runtime, directors, writers, countries, and imdb fields from the 'movies' collection in MongoDB that retrieves the top 5 movies with the highest IMDb ratings.The second parameter of the find method assigned a value of 1 for the fields, indicates the inclusion of the fields title, languages, released, runtime, directors, writers, countries, and imdb in the output.The sort method sorts the retrieved documents in descending order based on the imdb field.The limit method restricts the result to only the top 5 documents.",
+    "solution": "db.movies.find({}, {\ntitle: 1,\nlanguages: 1,\nreleased: 1,\nruntime: 1,\ndirectors: 1,\nwriters: 1,\ncountries: 1,\nimdb: 1\n}).sort({ imdb: -1 }).limit(5)"
+  },
+  {
+    "id": 22,
+    "title": "Average Runtime of Movies for Each Country",
+    "url": "https://w3resource.com/mongodb-exercises/mongodb-movies-collection-exercise-22.php",
+    "statement": "Calculate the average runtime of movies for each country.",
+    "explanation": "The said query in MongoDB returns movies from the 'movies' collection in MongoDB that have the average runtime of movies based on each country.The $match stage filters the documents where the \"type\" field is equal to \"movie\" and the $group stage groups the documents by the \"countries\" field.Inside the $group stage, the $avg aggregation operator calculates the average runtime of movies in each group. The result of the average runtime calculation is stored in the field \"averageRuntime\".The result of this aggregation pipeline is a list of groups and each group represents a unique combination of countries. For each group the query includes the countries, and the \"averageRuntime\".",
+    "solution": "db.movies.aggregate([\n  {\n    $match: { type: 'movie' }\n  },\n  {\n    $group: {\n      _id: '$countries',\naverageRuntime: { $avg: '$runtime' }\n    }\n  }\n])"
+  },
+  {
+    "id": 23,
+    "title": "Most Common Genre Among Movies",
+    "url": "https://w3resource.com/mongodb-exercises/mongodb-movies-collection-exercise-23.php",
+    "statement": "Find the most common genre among movies.",
+    "explanation": "The said query in MongoDB returns the most frequently occurring genre from the 'movies' collection in MongoDB.The $unwind stage separates document for each element in the \"genres\" array and count the occurrences of each genre individually in each group.The $group stage groups the documents based on the \"genres\" field. The _id field is used to specify the grouping key.Inside the $group stage, the $sum aggregation operator increments the count for each occurrence of a genre. The 1 passed to $sum represents adding 1 for each document, effectively counting the occurrences of each genre.The $sort stage sorts the documents based on the \"count\" field in descending order.The $limit stage limits only the first document, effectively retrieving the genre with the highest count.",
+    "solution": "db.movies.aggregate([\n  {\n    $unwind: '$genres'\n  },\n  {\n    $group: {\n      _id: '$genres',\ncount: { $sum: 1 }\n    }\n  },\n  {\n    $sort: { count: -1 }\n  },\n  {\n    $limit: 1\n  }\n])"
+  },
+  {
+    "id": 24,
+    "title": "Movies Released in the Year with the Highest Average IMDb Rating",
+    "url": "https://w3resource.com/mongodb-exercises/mongodb-movies-collection-exercise-24.php",
+    "statement": "Find movies released in the year with the highest average IMDb rating.",
+    "explanation": "The said query in MongoDB retrieve movies with the highest average rating for each year from the 'movies' collection in MongoDB.The \"$avg\" operator calculates the average value of the \"imdb.rating\" field for each group and stores it in the \"averageRating\" field.The \"$push\" operator creates an array \"movies\" containing all the documents in the group.The $sort stage sorts the groups descending order to ensure that the group with the highest average rating will be at the top.The $limit stage limits to retrieve the group with the highest average rating.The $unwind stage unwinds the \"movies\" array in multiple documents.",
+    "solution": "db.movies.aggregate([\n  {\n    $group: {\n      _id: \"$year\",\naverageRating: { $avg: \"$imdb.rating\" },\nmovies: { $push: \"$$ROOT\" }\n    }\n  },\n  {\n    $sort: { averageRating: -1 }\n  },\n  {\n    $limit: 1\n  },\n  {\n    $unwind: \"$movies\"\n  },\n  {\n    $replaceRoot: { newRoot: \"$movies\" }\n  }\n])"
+  },
+  {
+    "id": 25,
+    "title": "Top 10 Directors with the Most Movies",
+    "url": "https://w3resource.com/mongodb-exercises/mongodb-movies-collection-exercise-25.php",
+    "statement": "Find the top 10 directors with the most movies.",
+    "explanation": "The said query in MongoDB retrieve the top 10 directors with the highest movie counts from the 'movies' collection in MongoDB.The $group operator groups the movies by the \"directors\" field.The $sum operator calculates the total number of movies per director.The $sort operator sorts the grouped data based on the movieCount field in descending order (-1). That means the directors with the highest movie counts will appear at the beginning of the result set.The $limit operator limits the output to only include the top 10 directors with the highest movie counts.",
+    "solution": "db.movies.aggregate([\n  {\n    $group: {\n      _id: \"$directors\",\nmovieCount: { $sum: 1 }\n    }\n  },\n  {\n    $sort: { movieCount: -1 }\n  },\n  {\n    $limit: 10\n  }\n])"
+  },
+  {
+    "id": 26,
+    "title": "Average IMDb Rating for Each Rating Category",
+    "url": "https://w3resource.com/mongodb-exercises/mongodb-movies-collection-exercise-26.php",
+    "statement": "Find the average IMDb rating for each rating category.",
+    "explanation": "The said query in MongoDB returns a result containing the average ratings for each rating category from the 'movies' collection in MongoDB.The $group stage groups the movies based on the value of the \"rated\" field.The $avg operator creates a new field called \"averageRating\" that calculates the average IMDb rating for each group.",
+    "solution": "db.movies.aggregate([\n  {\n    $group: {\n      _id: \"$rated\",\naverageRating: { $avg: \"$imdb.rating\" }\n    }\n  }\n])"
+  },
+  {
+    "id": 27,
+    "title": "Oldest Movie with At Least One Award Win",
+    "url": "https://w3resource.com/mongodb-exercises/mongodb-movies-collection-exercise-27.php",
+    "statement": "Find the oldest movie with at least one award win.",
+    "explanation": "The said query in MongoDB that retrieves the movie with the earliest year of release that has won at least one award from the 'movies' collection in MongoDB.The find() method searches for documents where the \"awards.wins\" field has a value greater than zero.The sort() method sorts the documents based on the field \"year\" in ascending order indicated by the value of 1.The limit() method limits to return only one that is the earliest movie, based on the \"year\" field.",
+    "solution": "db.movies.find({ \"awards.wins\": { $gt: 0 } }).sort({ year: 1 }).limit(1)"
+  },
+  {
+    "id": 28,
+    "title": "Movie with the Highest IMDb and Tomatoes Viewer Rating",
+    "url": "https://w3resource.com/mongodb-exercises/mongodb-movies-collection-exercise-28.php",
+    "statement": "Find the movie with the highest IMDb rating and Tomatoes viewer rating.",
+    "explanation": "The said query in MongoDB that retrieves the movie with the highest IMDb rating and Tomato viewer rating from the 'movies' collection in MongoDB.The stage $project reshapes the documents in the collection and includes the fields \"_id\", \"title\", \"imdbRating\", and \"tomatoViewerRating\" in the output.The $sort stage sorts the documents based on the \"imdbRating\" and \"tomatoViewerRating\" fields in descending order to arrange the movies with the highest IMDb rating and Tomato viewer rating will be placed at the top.The $limit stage limits the result to only one document to return only the top-rated movie.",
+    "solution": "db.movies.aggregate([\n  {\n    $project: {\n      _id: 1,\ntitle: 1,\nimdbRating: \"$imdb.rating\",\ntomatoViewerRating: \"$tomatoes.viewer.rating\"\n    }\n  },\n  {\n    $sort: {\nimdbRating: -1,\ntomatoViewerRating: -1\n    }\n  },\n  {\n    $limit: 1\n  }\n])"
+  }
+]

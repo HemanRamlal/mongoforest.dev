@@ -1,0 +1,1602 @@
+[
+  {
+    "id": "001",
+    "title": "Find Documents by Field Value",
+    "slug": "find-documents-by-field-value",
+    "difficulty": "easy",
+    "accuracy": 92.1,
+    "status": "solved"
+  },
+  {
+    "id": "002",
+    "title": "Count Documents in Collection",
+    "slug": "count-documents-in-collection",
+    "difficulty": "easy",
+    "accuracy": 89.7,
+    "status": "notAttempted"
+  },
+  {
+    "id": "003",
+    "title": "Insert Multiple Documents",
+    "slug": "insert-multiple-documents",
+    "difficulty": "easy",
+    "accuracy": 94.3,
+    "status": "attempted"
+  },
+  {
+    "id": "004",
+    "title": "Update a Field in Document",
+    "slug": "update-a-field-in-document",
+    "difficulty": "easy",
+    "accuracy": 91.5,
+    "status": "solved"
+  },
+  {
+    "id": "005",
+    "title": "Delete a Document by ID",
+    "slug": "delete-a-document-by-id",
+    "difficulty": "easy",
+    "accuracy": 87.4,
+    "status": "notAttempted"
+  },
+  {
+    "id": "006",
+    "title": "Find Documents with Specific Field",
+    "slug": "find-documents-with-specific-field",
+    "difficulty": "easy",
+    "accuracy": 93.2,
+    "status": "attempted"
+  },
+  {
+    "id": "007",
+    "title": "Sort Documents by Field",
+    "slug": "sort-documents-by-field",
+    "difficulty": "easy",
+    "accuracy": 90.8,
+    "status": "solved"
+  },
+  {
+    "id": "008",
+    "title": "Limit Number of Documents Returned",
+    "slug": "limit-number-of-documents-returned",
+    "difficulty": "easy",
+    "accuracy": 88.6,
+    "status": "notAttempted"
+  },
+  {
+    "id": "009",
+    "title": "Skip Documents in Query Results",
+    "slug": "skip-documents-in-query-results",
+    "difficulty": "easy",
+    "accuracy": 86.3,
+    "status": "attempted"
+  },
+  {
+    "id": "010",
+    "title": "Find Distinct Values in Field",
+    "slug": "find-distinct-values-in-field",
+    "difficulty": "easy",
+    "accuracy": 92.7,
+    "status": "solved"
+  },
+  {
+    "id": "011",
+    "title": "Count Distinct Values in Field",
+    "slug": "count-distinct-values-in-field",
+    "difficulty": "easy",
+    "accuracy": 89.1,
+    "status": "notAttempted"
+  },
+  {
+    "id": "012",
+    "title": "Group Documents by Field",
+    "slug": "group-documents-by-field",
+    "difficulty": "easy",
+    "accuracy": 95.0,
+    "status": "attempted"
+  },
+  {
+    "id": "013",
+    "title": "Find Documents with Multiple Conditions",
+    "slug": "find-documents-with-multiple-conditions",
+    "difficulty": "easy",
+    "accuracy": 91.8,
+    "status": "solved"
+  },
+  {
+    "id": "014",
+    "title": "Update Multiple Documents",
+    "slug": "update-multiple-documents",
+    "difficulty": "easy",
+    "accuracy": 88.4,
+    "status": "notAttempted"
+  },
+  {
+    "id": "015",
+    "title": "Delete Multiple Documents",
+    "slug": "delete-multiple-documents",
+    "difficulty": "easy",
+    "accuracy": 85.1,
+    "status": "attempted"
+  },
+  {
+    "id": "016",
+    "title": "Find Documents with Logical OR",
+    "slug": "find-documents-with-logical-or",
+    "difficulty": "easy",
+    "accuracy": 93.5,
+    "status": "solved"
+  },
+  {
+    "id": "017",
+    "title": "Find Documents with Logical AND",
+    "slug": "find-documents-with-logical-and",
+    "difficulty": "easy",
+    "accuracy": 90.3,
+    "status": "notAttempted"
+  },
+  {
+    "id": "018",
+    "title": "Find Documents with Logical NOT",
+    "slug": "find-documents-with-logical-not",
+    "difficulty": "easy",
+    "accuracy": 87.2,
+    "status": "attempted"
+  },
+  {
+    "id": "019",
+    "title": "Find Documents with Array Field",
+    "slug": "find-documents-with-array-field",
+    "difficulty": "easy",
+    "accuracy": 90.2,
+    "status": "solved"
+  },
+  {
+    "id": "020",
+    "title": "Finding Documents with Array Element",
+    "slug": "finding-documents-with-array-element",
+    "difficulty": "easy",
+    "accuracy": 94.1,
+    "status": "notAttempted"
+  },
+  {
+    "id": "021",
+    "title": "Embedded Document Query",
+    "slug": "embedded-document-query",
+    "difficulty": "easy",
+    "accuracy": 91.6,
+    "status": "attempted"
+  },
+  {
+    "id": "022",
+    "title": "Query with Field Exists Condition",
+    "slug": "query-with-field-exists-condition",
+    "difficulty": "easy",
+    "accuracy": 89.3,
+    "status": "solved"
+  },
+  {
+    "id": "023",
+    "title": "Finding with Range Queries",
+    "slug": "finding-with-range-queries",
+    "difficulty": "easy",
+    "accuracy": 92.8,
+    "status": "notAttempted"
+  },
+  {
+    "id": "024",
+    "title": "Simple Text Search",
+    "slug": "simple-text-search",
+    "difficulty": "easy",
+    "accuracy": 88.5,
+    "status": "attempted"
+  },
+  {
+    "id": "025",
+    "title": "Using Comparison Operators",
+    "slug": "using-comparison-operators",
+    "difficulty": "easy",
+    "accuracy": 93.9,
+    "status": "solved"
+  },
+  {
+    "id": "026",
+    "title": "Update with Increment",
+    "slug": "update-with-increment",
+    "difficulty": "easy",
+    "accuracy": 90.7,
+    "status": "notAttempted"
+  },
+  {
+    "id": "027",
+    "title": "Find and Replace Document",
+    "slug": "find-and-replace-document",
+    "difficulty": "easy",
+    "accuracy": 87.9,
+    "status": "attempted"
+  },
+  {
+    "id": "028",
+    "title": "Replace One Document",
+    "slug": "replace-one-document",
+    "difficulty": "easy",
+    "accuracy": 92.3,
+    "status": "solved"
+  },
+  {
+    "id": "029",
+    "title": "Basic Document Sorting",
+    "slug": "basic-document-sorting",
+    "difficulty": "easy",
+    "accuracy": 95.2,
+    "status": "notAttempted"
+  },
+  {
+    "id": "030",
+    "title": "Simple Array Filtering",
+    "slug": "simple-array-filtering",
+    "difficulty": "easy",
+    "accuracy": 89.8,
+    "status": "attempted"
+  },
+  {
+    "id": "031",
+    "title": "Project Selected Fields",
+    "slug": "project-selected-fields",
+    "difficulty": "easy",
+    "accuracy": 93.1,
+    "status": "solved"
+  },
+  {
+    "id": "032",
+    "title": "Exclude Fields in Results",
+    "slug": "exclude-fields-in-results",
+    "difficulty": "easy",
+    "accuracy": 91.2,
+    "status": "notAttempted"
+  },
+  {
+    "id": "033",
+    "title": "Count Documents with Filter",
+    "slug": "count-documents-with-filter",
+    "difficulty": "easy",
+    "accuracy": 88.7,
+    "status": "attempted"
+  },
+  {
+    "id": "034",
+    "title": "Insert One Document",
+    "slug": "insert-one-document",
+    "difficulty": "easy",
+    "accuracy": 94.6,
+    "status": "solved"
+  },
+  {
+    "id": "035",
+    "title": "Update One Document",
+    "slug": "update-one-document",
+    "difficulty": "easy",
+    "accuracy": 90.9,
+    "status": "notAttempted"
+  },
+  {
+    "id": "036",
+    "title": "Delete One Document",
+    "slug": "delete-one-document",
+    "difficulty": "easy",
+    "accuracy": 87.3,
+    "status": "attempted"
+  },
+  {
+    "id": "037",
+    "title": "Find with Type Check",
+    "slug": "find-with-type-check",
+    "difficulty": "easy",
+    "accuracy": 92.5,
+    "status": "solved"
+  },
+  {
+    "id": "038",
+    "title": "Update Multiple Fields",
+    "slug": "update-multiple-fields",
+    "difficulty": "easy",
+    "accuracy": 89.6,
+    "status": "notAttempted"
+  },
+  {
+    "id": "039",
+    "title": "Find with Regex Pattern",
+    "slug": "find-with-regex-pattern",
+    "difficulty": "easy",
+    "accuracy": 86.8,
+    "status": "attempted"
+  },
+  {
+    "id": "040",
+    "title": "Finding Empty Array Fields",
+    "slug": "finding-empty-array-fields",
+    "difficulty": "easy",
+    "accuracy": 93.7,
+    "status": "solved"
+  },
+  {
+    "id": "041",
+    "title": "Finding Non-Empty Arrays",
+    "slug": "finding-non-empty-arrays",
+    "difficulty": "easy",
+    "accuracy": 90.4,
+    "status": "notAttempted"
+  },
+  {
+    "id": "042",
+    "title": "Query with Multiple OR Conditions",
+    "slug": "query-with-multiple-or-conditions",
+    "difficulty": "easy",
+    "accuracy": 87.6,
+    "status": "attempted"
+  },
+  {
+    "id": "043",
+    "title": "Query with Multiple AND Conditions",
+    "slug": "query-with-multiple-and-conditions",
+    "difficulty": "easy",
+    "accuracy": 94.9,
+    "status": "solved"
+  },
+  {
+    "id": "044",
+    "title": "Find by Date Range",
+    "slug": "find-by-date-range",
+    "difficulty": "easy",
+    "accuracy": 91.1,
+    "status": "notAttempted"
+  },
+  {
+    "id": "045",
+    "title": "Update Document Timestamps",
+    "slug": "update-document-timestamps",
+    "difficulty": "easy",
+    "accuracy": 88.2,
+    "status": "attempted"
+  },
+  {
+    "id": "046",
+    "title": "Simple Array Push Operation",
+    "slug": "simple-array-push-operation",
+    "difficulty": "easy",
+    "accuracy": 93.4,
+    "status": "solved"
+  },
+  {
+    "id": "047",
+    "title": "Simple Array Pull Operation",
+    "slug": "simple-array-pull-operation",
+    "difficulty": "easy",
+    "accuracy": 90.6,
+    "status": "notAttempted"
+  },
+  {
+    "id": "048",
+    "title": "Find Documents with Empty Field",
+    "slug": "find-documents-with-empty-field",
+    "difficulty": "easy",
+    "accuracy": 87.8,
+    "status": "attempted"
+  },
+  {
+    "id": "049",
+    "title": "Find Documents with Non-Empty Field",
+    "slug": "find-documents-with-non-empty-field",
+    "difficulty": "easy",
+    "accuracy": 94.4,
+    "status": "solved"
+  },
+  {
+    "id": "050",
+    "title": "Multi-Field Sorting",
+    "slug": "multi-field-sorting",
+    "difficulty": "easy",
+    "accuracy": 91.3,
+    "status": "notAttempted"
+  },
+  {
+    "id": "051",
+    "title": "Insert with Custom ID",
+    "slug": "insert-with-custom-id",
+    "difficulty": "easy",
+    "accuracy": 88.9,
+    "status": "attempted"
+  },
+  {
+    "id": "052",
+    "title": "Query on Nested Array Fields",
+    "slug": "query-on-nested-array-fields",
+    "difficulty": "medium",
+    "accuracy": 82.7,
+    "status": "solved"
+  },
+  {
+    "id": "053",
+    "title": "Update Nested Document Fields",
+    "slug": "update-nested-document-fields",
+    "difficulty": "medium",
+    "accuracy": 80.5,
+    "status": "notAttempted"
+  },
+  {
+    "id": "054",
+    "title": "Simple Aggregation Pipeline",
+    "slug": "simple-aggregation-pipeline",
+    "difficulty": "medium",
+    "accuracy": 77.9,
+    "status": "attempted"
+  },
+  {
+    "id": "055",
+    "title": "Find with Projection Expressions",
+    "slug": "find-with-projection-expressions",
+    "difficulty": "medium",
+    "accuracy": 83.4,
+    "status": "solved"
+  },
+  {
+    "id": "056",
+    "title": "Basic Array Element Match",
+    "slug": "basic-array-element-match",
+    "difficulty": "medium",
+    "accuracy": 81.1,
+    "status": "notAttempted"
+  },
+  {
+    "id": "057",
+    "title": "Update Array Elements by Position",
+    "slug": "update-array-elements-by-position",
+    "difficulty": "medium",
+    "accuracy": 78.4,
+    "status": "attempted"
+  },
+  {
+    "id": "058",
+    "title": "Array Update with Conditions",
+    "slug": "array-update-with-conditions",
+    "difficulty": "medium",
+    "accuracy": 85.2,
+    "status": "solved"
+  },
+  {
+    "id": "059",
+    "title": "Finding Documents with Null Values",
+    "slug": "finding-documents-with-null-values",
+    "difficulty": "medium",
+    "accuracy": 82.9,
+    "status": "notAttempted"
+  },
+  {
+    "id": "060",
+    "title": "Group and Count Documents",
+    "slug": "group-and-count-documents",
+    "difficulty": "medium",
+    "accuracy": 79.3,
+    "status": "attempted"
+  },
+  {
+    "id": "061",
+    "title": "Find with Multiple Sort Criteria",
+    "slug": "find-with-multiple-sort-criteria",
+    "difficulty": "medium",
+    "accuracy": 84.8,
+    "status": "solved"
+  },
+  {
+    "id": "062",
+    "title": "Basic Array Field Updates",
+    "slug": "basic-array-field-updates",
+    "difficulty": "medium",
+    "accuracy": 81.6,
+    "status": "notAttempted"
+  },
+  {
+    "id": "063",
+    "title": "Aggregation with Multiple Stages",
+    "slug": "aggregation-with-multiple-stages",
+    "difficulty": "medium",
+    "accuracy": 78.7,
+    "status": "attempted"
+  },
+  {
+    "id": "064",
+    "title": "Advanced Document Projections",
+    "slug": "advanced-document-projections",
+    "difficulty": "medium",
+    "accuracy": 86.1,
+    "status": "solved"
+  },
+  {
+    "id": "065",
+    "title": "Filtered Array Updates",
+    "slug": "filtered-array-updates",
+    "difficulty": "medium",
+    "accuracy": 83.3,
+    "status": "notAttempted"
+  },
+  {
+    "id": "066",
+    "title": "Complex Query Filtering",
+    "slug": "complex-query-filtering",
+    "difficulty": "medium",
+    "accuracy": 80.2,
+    "status": "attempted"
+  },
+  {
+    "id": "067",
+    "title": "Update Operators in Arrays",
+    "slug": "update-operators-in-arrays",
+    "difficulty": "medium",
+    "accuracy": 84.5,
+    "status": "solved"
+  },
+  {
+    "id": "068",
+    "title": "Date-based Aggregation",
+    "slug": "date-based-aggregation",
+    "difficulty": "medium",
+    "accuracy": 82.1,
+    "status": "notAttempted"
+  },
+  {
+    "id": "069",
+    "title": "Nested Document Arrays Query",
+    "slug": "nested-document-arrays-query",
+    "difficulty": "medium",
+    "accuracy": 79.8,
+    "status": "attempted"
+  },
+  {
+    "id": "070",
+    "title": "Conditional Query Expressions",
+    "slug": "conditional-query-expressions",
+    "difficulty": "medium",
+    "accuracy": 85.7,
+    "status": "solved"
+  },
+  {
+    "id": "071",
+    "title": "Advanced Array Element Matching",
+    "slug": "advanced-array-element-matching",
+    "difficulty": "medium",
+    "accuracy": 83.8,
+    "status": "notAttempted"
+  },
+  {
+    "id": "072",
+    "title": "Complex Projection Operations",
+    "slug": "complex-projection-operations",
+    "difficulty": "medium",
+    "accuracy": 80.9,
+    "status": "attempted"
+  },
+  {
+    "id": "073",
+    "title": "Aggregation with Lookup Stage",
+    "slug": "aggregation-with-lookup-stage",
+    "difficulty": "medium",
+    "accuracy": 86.3,
+    "status": "solved"
+  },
+  {
+    "id": "074",
+    "title": "Multiple Collection Operations",
+    "slug": "multiple-collection-operations",
+    "difficulty": "medium",
+    "accuracy": 83.6,
+    "status": "notAttempted"
+  },
+  {
+    "id": "075",
+    "title": "Working with Subdocuments",
+    "slug": "working-with-subdocuments",
+    "difficulty": "medium",
+    "accuracy": 80.6,
+    "status": "attempted"
+  },
+  {
+    "id": "076",
+    "title": "Array of Subdocuments Query",
+    "slug": "array-of-subdocuments-query",
+    "difficulty": "medium",
+    "accuracy": 85.4,
+    "status": "solved"
+  },
+  {
+    "id": "077",
+    "title": "Computed Field Projections",
+    "slug": "computed-field-projections",
+    "difficulty": "medium",
+    "accuracy": 82.3,
+    "status": "notAttempted"
+  },
+  {
+    "id": "078",
+    "title": "Aggregation Pipeline Variables",
+    "slug": "aggregation-pipeline-variables",
+    "difficulty": "medium",
+    "accuracy": 79.5,
+    "status": "attempted"
+  },
+  {
+    "id": "079",
+    "title": "Conditional Update Operations",
+    "slug": "conditional-update-operations",
+    "difficulty": "medium",
+    "accuracy": 84.9,
+    "status": "solved"
+  },
+  {
+    "id": "080",
+    "title": "Advanced Array Operations",
+    "slug": "advanced-array-operations",
+    "difficulty": "medium",
+    "accuracy": 81.8,
+    "status": "notAttempted"
+  },
+  {
+    "id": "081",
+    "title": "Complex Document Structure Updates",
+    "slug": "complex-document-structure-updates",
+    "difficulty": "medium",
+    "accuracy": 78.2,
+    "status": "attempted"
+  },
+  {
+    "id": "082",
+    "title": "Aggregation with Unwind",
+    "slug": "aggregation-with-unwind",
+    "difficulty": "medium",
+    "accuracy": 83.7,
+    "status": "solved"
+  },
+  {
+    "id": "083",
+    "title": "Document Validation in Updates",
+    "slug": "document-validation-in-updates",
+    "difficulty": "medium",
+    "accuracy": 80.4,
+    "status": "notAttempted"
+  },
+  {
+    "id": "084",
+    "title": "Multi-stage Data Transformation",
+    "slug": "multi-stage-data-transformation",
+    "difficulty": "hard",
+    "accuracy": 72.3,
+    "status": "attempted"
+  },
+  {
+    "id": "085",
+    "title": "Aggregation with Multiple Groupings",
+    "slug": "aggregation-with-multiple-groupings",
+    "difficulty": "hard",
+    "accuracy": 74.1,
+    "status": "solved"
+  },
+  {
+    "id": "086",
+    "title": "Complex Join Operations",
+    "slug": "complex-join-operations",
+    "difficulty": "hard",
+    "accuracy": 71.6,
+    "status": "notAttempted"
+  },
+  {
+    "id": "087",
+    "title": "Nested Pipeline in Aggregation",
+    "slug": "nested-pipeline-in-aggregation",
+    "difficulty": "hard",
+    "accuracy": 68.7,
+    "status": "attempted"
+  },
+  {
+    "id": "088",
+    "title": "Advanced Text Search Queries",
+    "slug": "advanced-text-search-queries",
+    "difficulty": "hard",
+    "accuracy": 73.4,
+    "status": "solved"
+  },
+  {
+    "id": "089",
+    "title": "Complex Array Manipulations",
+    "slug": "complex-array-manipulations",
+    "difficulty": "hard",
+    "accuracy": 70.8,
+    "status": "notAttempted"
+  },
+  {
+    "id": "090",
+    "title": "Advanced Geospatial Queries",
+    "slug": "advanced-geospatial-queries",
+    "difficulty": "hard",
+    "accuracy": 67.9,
+    "status": "attempted"
+  },
+  {
+    "id": "091",
+    "title": "Optimizing Query Performance",
+    "slug": "optimizing-query-performance",
+    "difficulty": "hard",
+    "accuracy": 72.7,
+    "status": "solved"
+  },
+  {
+    "id": "092",
+    "title": "Complex Update Strategies",
+    "slug": "complex-update-strategies",
+    "difficulty": "hard",
+    "accuracy": 69.5,
+    "status": "notAttempted"
+  },
+  {
+    "id": "093",
+    "title": "Advanced Transaction Operations",
+    "slug": "advanced-transaction-operations",
+    "difficulty": "hard",
+    "accuracy": 66.3,
+    "status": "attempted"
+  },
+  {
+    "id": "094",
+    "title": "Multi-collection Data Analysis",
+    "slug": "multi-collection-data-analysis",
+    "difficulty": "hard",
+    "accuracy": 71.9,
+    "status": "solved"
+  },
+  {
+    "id": "095",
+    "title": "Advanced Schema Validation",
+    "slug": "advanced-schema-validation",
+    "difficulty": "hard",
+    "accuracy": 68.9,
+    "status": "notAttempted"
+  },
+  {
+    "id": "096",
+    "title": "Complex Conditional Aggregation",
+    "slug": "complex-conditional-aggregation",
+    "difficulty": "hard",
+    "accuracy": 65.7,
+    "status": "attempted"
+  },
+  {
+    "id": "097",
+    "title": "Time Series Data Analysis",
+    "slug": "time-series-data-analysis",
+    "difficulty": "hard",
+    "accuracy": 73.2,
+    "status": "solved"
+  },
+  {
+    "id": "098",
+    "title": "Complex Document Restructuring",
+    "slug": "complex-document-restructuring",
+    "difficulty": "hard",
+    "accuracy": 70.1,
+    "status": "notAttempted"
+  },
+  {
+    "id": "099",
+    "title": "Advanced Index Strategies",
+    "slug": "advanced-index-strategies",
+    "difficulty": "hard",
+    "accuracy": 67.4,
+    "status": "attempted"
+  },
+  {
+    "id": "100",
+    "title": "Multi-document Complex Queries",
+    "slug": "multi-document-complex-queries",
+    "difficulty": "hard",
+    "accuracy": 74.3,
+    "status": "solved"
+  },
+  {
+    "id": "101",
+    "title": "Complex Data Migrations",
+    "slug": "complex-data-migrations",
+    "difficulty": "hard",
+    "accuracy": 71.3,
+    "status": "notAttempted"
+  },
+  {
+    "id": "102",
+    "title": "Advanced Aggregation Techniques",
+    "slug": "advanced-aggregation-techniques",
+    "difficulty": "hard",
+    "accuracy": 68.2,
+    "status": "attempted"
+  },
+  {
+    "id": "103",
+    "title": "Graph-like Data Queries",
+    "slug": "graph-like-data-queries",
+    "difficulty": "hard",
+    "accuracy": 73.6,
+    "status": "solved"
+  },
+  {
+    "id": "104",
+    "title": "Real-time Data Processing",
+    "slug": "real-time-data-processing",
+    "difficulty": "hard",
+    "accuracy": 70.5,
+    "status": "notAttempted"
+  },
+  {
+    "id": "105",
+    "title": "Complex Document Relationships",
+    "slug": "complex-document-relationships",
+    "difficulty": "hard",
+    "accuracy": 67.1,
+    "status": "attempted"
+  },
+  {
+    "id": "106",
+    "title": "Optimizing Large Dataset Queries",
+    "slug": "optimizing-large-dataset-queries",
+    "difficulty": "hard",
+    "accuracy": 72.9,
+    "status": "solved"
+  },
+  {
+    "id": "107",
+    "title": "Advanced Authorization Patterns",
+    "slug": "advanced-authorization-patterns",
+    "difficulty": "hard",
+    "accuracy": 69.8,
+    "status": "notAttempted"
+  },
+  {
+    "id": "108",
+    "title": "Complex Data Modeling Scenarios",
+    "slug": "complex-data-modeling-scenarios",
+    "difficulty": "hard",
+    "accuracy": 66.6,
+    "status": "attempted"
+  },
+  {
+    "id": "109",
+    "title": "Multi-tenant Data Architecture",
+    "slug": "multi-tenant-data-architecture",
+    "difficulty": "hard",
+    "accuracy": 73.8,
+    "status": "solved"
+  },
+  {
+    "id": "110",
+    "title": "Hierarchical Data Queries",
+    "slug": "hierarchical-data-queries",
+    "difficulty": "hard",
+    "accuracy": 70.3,
+    "status": "notAttempted"
+  },
+  {
+    "id": "111",
+    "title": "Advanced Document Versioning",
+    "slug": "advanced-document-versioning",
+    "difficulty": "hard",
+    "accuracy": 67.3,
+    "status": "attempted"
+  },
+  {
+    "id": "112",
+    "title": "Complex Reporting Queries",
+    "slug": "complex-reporting-queries",
+    "difficulty": "hard",
+    "accuracy": 72.5,
+    "status": "solved"
+  },
+  {
+    "id": "113",
+    "title": "Advanced Security Patterns",
+    "slug": "advanced-security-patterns",
+    "difficulty": "hard",
+    "accuracy": 69.3,
+    "status": "notAttempted"
+  },
+  {
+    "id": "114",
+    "title": "Optimizing Write Operations",
+    "slug": "optimizing-write-operations",
+    "difficulty": "hard",
+    "accuracy": 66.8,
+    "status": "attempted"
+  },
+  {
+    "id": "115",
+    "title": "Advanced Data Analysis Techniques",
+    "slug": "advanced-data-analysis-techniques",
+    "difficulty": "hard",
+    "accuracy": 74.6,
+    "status": "solved"
+  },
+  {
+    "id": "116",
+    "title": "Complex Aggregation Framework Usage",
+    "slug": "complex-aggregation-framework-usage",
+    "difficulty": "hard",
+    "accuracy": 71.1,
+    "status": "notAttempted"
+  },
+  {
+    "id": "117",
+    "title": "Advanced Sharding Strategies",
+    "slug": "advanced-sharding-strategies",
+    "difficulty": "hard",
+    "accuracy": 68.4,
+    "status": "attempted"
+  },
+  {
+    "id": "118",
+    "title": "Complex Data Integration Patterns",
+    "slug": "complex-data-integration-patterns",
+    "difficulty": "hard",
+    "accuracy": 73.1,
+    "status": "solved"
+  },
+  {
+    "id": "119",
+    "title": "Advanced Performance Tuning",
+    "slug": "advanced-performance-tuning",
+    "difficulty": "hard",
+    "accuracy": 70.7,
+    "status": "notAttempted"
+  },
+  {
+    "id": "120",
+    "title": "Find Documents with Array Field",
+    "slug": "find-documents-with-array-field",
+    "difficulty": "easy",
+    "accuracy": 90.2,
+    "status": "solved"
+  },
+  {
+    "id": "121",
+    "title": "Update Document by ID",
+    "slug": "update-document-by-id",
+    "difficulty": "medium",
+    "accuracy": 85.6,
+    "status": "notAttempted"
+  },
+  {
+    "id": "122",
+    "title": "Aggregate Documents by Group",
+    "slug": "aggregate-documents-by-group",
+    "difficulty": "medium",
+    "accuracy": 80.4,
+    "status": "solved"
+  },
+  {
+    "id": "123",
+    "title": "Find Documents with Regex",
+    "slug": "find-documents-with-regex",
+    "difficulty": "medium",
+    "accuracy": 78.9,
+    "status": "attempted"
+  },
+  {
+    "id": "124",
+    "title": "Update Multiple Fields in Document",
+    "slug": "update-multiple-fields-in-document",
+    "difficulty": "medium",
+    "accuracy": 84.2,
+    "status": "solved"
+  },
+  {
+    "id": "125",
+    "title": "Delete Documents with Condition",
+    "slug": "delete-documents-with-condition",
+    "difficulty": "medium",
+    "accuracy": 81.7,
+    "status": "notAttempted"
+  },
+  {
+    "id": "126",
+    "title": "Find Documents with Nested Field",
+    "slug": "find-documents-with-nested-field",
+    "difficulty": "medium",
+    "accuracy": 79.5,
+    "status": "attempted"
+  },
+  {
+    "id": "127",
+    "title": "Aggregation Pipeline Basics",
+    "slug": "aggregation-pipeline-basics",
+    "difficulty": "medium",
+    "accuracy": 83.1,
+    "status": "solved"
+  },
+  {
+    "id": "128",
+    "title": "Group and Sort Documents",
+    "slug": "group-and-sort-documents",
+    "difficulty": "medium",
+    "accuracy": 86.4,
+    "status": "notAttempted"
+  },
+  {
+    "id": "129",
+    "title": "Find Top N Documents",
+    "slug": "find-top-n-documents",
+    "difficulty": "medium",
+    "accuracy": 88.9,
+    "status": "attempted"
+  },
+  {
+    "id": "130",
+    "title": "Pagination with Sort",
+    "slug": "pagination-with-sort",
+    "difficulty": "medium",
+    "accuracy": 82.6,
+    "status": "solved"
+  },
+  {
+    "id": "131",
+    "title": "Find Documents with Array of Values",
+    "slug": "find-documents-with-array-of-values",
+    "difficulty": "medium",
+    "accuracy": 80.1,
+    "status": "notAttempted"
+  },
+  {
+    "id": "132",
+    "title": "Update Array Field in Document",
+    "slug": "update-array-field-in-document",
+    "difficulty": "medium",
+    "accuracy": 78.3,
+    "status": "attempted"
+  },
+  {
+    "id": "133",
+    "title": "Delete Document by Field Value",
+    "slug": "delete-document-by-field-value",
+    "difficulty": "medium",
+    "accuracy": 85.9,
+    "status": "solved"
+  },
+  {
+    "id": "134",
+    "title": "Find Documents with Complex Condition",
+    "slug": "find-documents-with-complex-condition",
+    "difficulty": "medium",
+    "accuracy": 82.4,
+    "status": "notAttempted"
+  },
+  {
+    "id": "135",
+    "title": "Aggregation with Match and Group",
+    "slug": "aggregation-with-match-and-group",
+    "difficulty": "medium",
+    "accuracy": 79.8,
+    "status": "attempted"
+  },
+  {
+    "id": "136",
+    "title": "Find Documents with Lookup",
+    "slug": "find-documents-with-lookup",
+    "difficulty": "medium",
+    "accuracy": 84.7,
+    "status": "solved"
+  },
+  {
+    "id": "137",
+    "title": "Update Document with Aggregation",
+    "slug": "update-document-with-aggregation",
+    "difficulty": "medium",
+    "accuracy": 81.2,
+    "status": "notAttempted"
+  },
+  {
+    "id": "138",
+    "title": "Delete Multiple Documents with Condition",
+    "slug": "delete-multiple-documents-with-condition",
+    "difficulty": "medium",
+    "accuracy": 78.6,
+    "status": "attempted"
+  },
+  {
+    "id": "139",
+    "title": "Find Documents with Nested Array",
+    "slug": "find-documents-with-nested-array",
+    "difficulty": "medium",
+    "accuracy": 82.7,
+    "status": "notAttempted"
+  },
+  {
+    "id": "140",
+    "title": "Aggregation Pipeline with Lookup",
+    "slug": "aggregation-pipeline-with-lookup",
+    "difficulty": "hard",
+    "accuracy": 70.3,
+    "status": "attempted"
+  },
+  {
+    "id": "141",
+    "title": "Update Multiple Documents with Condition",
+    "slug": "update-multiple-documents-with-condition",
+    "difficulty": "hard",
+    "accuracy": 68.5,
+    "status": "notAttempted"
+  },
+  {
+    "id": "142",
+    "title": "Delete Documents by Complex Query",
+    "slug": "delete-documents-by-complex-query",
+    "difficulty": "hard",
+    "accuracy": 65.2,
+    "status": "solved"
+  },
+  {
+    "id": "143",
+    "title": "Aggregation with Facet and Bucket",
+    "slug": "aggregation-with-facet-and-bucket",
+    "difficulty": "hard",
+    "accuracy": 62.8,
+    "status": "notAttempted"
+  },
+  {
+    "id": "144",
+    "title": "Find Documents with $in Operator",
+    "slug": "find-documents-with-in-operator",
+    "difficulty": "medium",
+    "accuracy": 83.2,
+    "status": "solved"
+  },
+  {
+    "id": "145",
+    "title": "Aggregation with $unwind and $group",
+    "slug": "aggregation-with-unwind-and-group",
+    "difficulty": "medium",
+    "accuracy": 79.3,
+    "status": "attempted"
+  },
+  {
+    "id": "146",
+    "title": "Complex Multi-stage Aggregation",
+    "slug": "complex-multi-stage-aggregation",
+    "difficulty": "hard",
+    "accuracy": 67.1,
+    "status": "notAttempted"
+  },
+  {
+    "id": "147",
+    "title": "Text Search with Relevance Score",
+    "slug": "text-search-with-relevance-score",
+    "difficulty": "medium",
+    "accuracy": 81.5,
+    "status": "solved"
+  },
+  {
+    "id": "148",
+    "title": "Geospatial Queries with $near",
+    "slug": "geospatial-queries-with-near",
+    "difficulty": "hard",
+    "accuracy": 69.4,
+    "status": "attempted"
+  },
+  {
+    "id": "149",
+    "title": "Update Document with Upsert",
+    "slug": "update-document-with-upsert",
+    "difficulty": "easy",
+    "accuracy": 89.7,
+    "status": "solved"
+  },
+  {
+    "id": "150",
+    "title": "Bulk Write Operations",
+    "slug": "bulk-write-operations",
+    "difficulty": "medium",
+    "accuracy": 76.8,
+    "status": "notAttempted"
+  },
+  {
+    "id": "151",
+    "title": "Computed Fields in Aggregation",
+    "slug": "computed-fields-in-aggregation",
+    "difficulty": "medium",
+    "accuracy": 80.3,
+    "status": "attempted"
+  },
+  {
+    "id": "152",
+    "title": "Array Manipulation with $push",
+    "slug": "array-manipulation-with-push",
+    "difficulty": "easy",
+    "accuracy": 91.2,
+    "status": "solved"
+  },
+  {
+    "id": "153",
+    "title": "Working with Dates in Queries",
+    "slug": "working-with-dates-in-queries",
+    "difficulty": "medium",
+    "accuracy": 77.5,
+    "status": "notAttempted"
+  },
+  {
+    "id": "154",
+    "title": "Conditional Aggregation with $cond",
+    "slug": "conditional-aggregation-with-cond",
+    "difficulty": "hard",
+    "accuracy": 71.6,
+    "status": "attempted"
+  },
+  {
+    "id": "155",
+    "title": "Array Element Matching with $elemMatch",
+    "slug": "array-element-matching-with-elemmatch",
+    "difficulty": "medium",
+    "accuracy": 82.9,
+    "status": "solved"
+  },
+  {
+    "id": "156",
+    "title": "Find Documents with Array Size",
+    "slug": "find-documents-with-array-size",
+    "difficulty": "easy",
+    "accuracy": 90.5,
+    "status": "notAttempted"
+  },
+  {
+    "id": "157",
+    "title": "Projection with Field Inclusion",
+    "slug": "projection-with-field-inclusion",
+    "difficulty": "easy",
+    "accuracy": 93.8,
+    "status": "attempted"
+  },
+  {
+    "id": "158",
+    "title": "Projection with Field Exclusion",
+    "slug": "projection-with-field-exclusion",
+    "difficulty": "easy",
+    "accuracy": 92.7,
+    "status": "solved"
+  },
+  {
+    "id": "159",
+    "title": "Transaction Operations",
+    "slug": "transaction-operations",
+    "difficulty": "hard",
+    "accuracy": 68.9,
+    "status": "notAttempted"
+  },
+  {
+    "id": "160",
+    "title": "Aggregation with $lookup Join",
+    "slug": "aggregation-with-lookup-join",
+    "difficulty": "hard",
+    "accuracy": 66.4,
+    "status": "attempted"
+  },
+  {
+    "id": "161",
+    "title": "Create Indexes for Query Optimization",
+    "slug": "create-indexes-for-query-optimization",
+    "difficulty": "medium",
+    "accuracy": 78.1,
+    "status": "solved"
+  },
+  {
+    "id": "162",
+    "title": "Range Queries with $gt and $lt",
+    "slug": "range-queries-with-gt-and-lt",
+    "difficulty": "easy",
+    "accuracy": 90.9,
+    "status": "notAttempted"
+  },
+  {
+    "id": "163",
+    "title": "Cursor Methods in Find Operations",
+    "slug": "cursor-methods-in-find-operations",
+    "difficulty": "easy",
+    "accuracy": 88.3,
+    "status": "attempted"
+  },
+  {
+    "id": "164",
+    "title": "Aggregation with $project Stage",
+    "slug": "aggregation-with-project-stage",
+    "difficulty": "medium",
+    "accuracy": 82.5,
+    "status": "solved"
+  },
+  {
+    "id": "165",
+    "title": "Field Update Operators",
+    "slug": "field-update-operators",
+    "difficulty": "easy",
+    "accuracy": 91.7,
+    "status": "notAttempted"
+  },
+  {
+    "id": "166",
+    "title": "Aggregation with $sum Operator",
+    "slug": "aggregation-with-sum-operator",
+    "difficulty": "medium",
+    "accuracy": 84.3,
+    "status": "attempted"
+  },
+  {
+    "id": "167",
+    "title": "Aggregation with $avg Operator",
+    "slug": "aggregation-with-avg-operator",
+    "difficulty": "medium",
+    "accuracy": 83.7,
+    "status": "solved"
+  },
+  {
+    "id": "168",
+    "title": "Aggregation with $min Operator",
+    "slug": "aggregation-with-min-operator",
+    "difficulty": "medium",
+    "accuracy": 82.1,
+    "status": "notAttempted"
+  },
+  {
+    "id": "169",
+    "title": "Aggregation with $max Operator",
+    "slug": "aggregation-with-max-operator",
+    "difficulty": "medium",
+    "accuracy": 81.8,
+    "status": "attempted"
+  },
+  {
+    "id": "170",
+    "title": "Existence Check with $exists",
+    "slug": "existence-check-with-exists",
+    "difficulty": "easy",
+    "accuracy": 92.3,
+    "status": "solved"
+  },
+  {
+    "id": "171",
+    "title": "Type Check with $type",
+    "slug": "type-check-with-type",
+    "difficulty": "easy",
+    "accuracy": 90.1,
+    "status": "notAttempted"
+  },
+  {
+    "id": "172",
+    "title": "Find with Multiple Sorting Criteria",
+    "slug": "find-with-multiple-sorting-criteria",
+    "difficulty": "easy",
+    "accuracy": 89.5,
+    "status": "attempted"
+  },
+  {
+    "id": "173",
+    "title": "Count Documents with Conditions",
+    "slug": "count-documents-with-conditions",
+    "difficulty": "easy",
+    "accuracy": 93.1,
+    "status": "solved"
+  },
+  {
+    "id": "174",
+    "title": "Modify Documents with $inc",
+    "slug": "modify-documents-with-inc",
+    "difficulty": "easy",
+    "accuracy": 91.4,
+    "status": "notAttempted"
+  },
+  {
+    "id": "175",
+    "title": "Array Updates with $addToSet",
+    "slug": "array-updates-with-addtoset",
+    "difficulty": "medium",
+    "accuracy": 83.9,
+    "status": "attempted"
+  },
+  {
+    "id": "176",
+    "title": "Array Modifications with $pull",
+    "slug": "array-modifications-with-pull",
+    "difficulty": "medium",
+    "accuracy": 80.7,
+    "status": "solved"
+  },
+  {
+    "id": "177",
+    "title": "Find and Modify Documents",
+    "slug": "find-and-modify-documents",
+    "difficulty": "medium",
+    "accuracy": 79.1,
+    "status": "notAttempted"
+  },
+  {
+    "id": "178",
+    "title": "Indexing for Text Search",
+    "slug": "indexing-for-text-search",
+    "difficulty": "hard",
+    "accuracy": 72.8,
+    "status": "attempted"
+  },
+  {
+    "id": "179",
+    "title": "Compound Indexes for Query Optimization",
+    "slug": "compound-indexes-for-query-optimization",
+    "difficulty": "hard",
+    "accuracy": 70.9,
+    "status": "solved"
+  },
+  {
+    "id": "180",
+    "title": "Aggregation with $filter",
+    "slug": "aggregation-with-filter",
+    "difficulty": "hard",
+    "accuracy": 69.7,
+    "status": "notAttempted"
+  },
+  {
+    "id": "181",
+    "title": "Aggregation with $bucket",
+    "slug": "aggregation-with-bucket",
+    "difficulty": "hard",
+    "accuracy": 65.8,
+    "status": "attempted"
+  },
+  {
+    "id": "182",
+    "title": "Aggregation with $facet",
+    "slug": "aggregation-with-facet",
+    "difficulty": "hard",
+    "accuracy": 64.3,
+    "status": "solved"
+  },
+  {
+    "id": "183",
+    "title": "Finding Documents with $regex",
+    "slug": "finding-documents-with-regex",
+    "difficulty": "medium",
+    "accuracy": 78.4,
+    "status": "notAttempted"
+  },
+  {
+    "id": "184",
+    "title": "Wildcard Index Usage",
+    "slug": "wildcard-index-usage",
+    "difficulty": "hard",
+    "accuracy": 67.5,
+    "status": "attempted"
+  },
+  {
+    "id": "185",
+    "title": "Expressive Query Operator $expr",
+    "slug": "expressive-query-operator-expr",
+    "difficulty": "medium",
+    "accuracy": 77.9,
+    "status": "solved"
+  },
+  {
+    "id": "186",
+    "title": "Working with Missing Fields",
+    "slug": "working-with-missing-fields",
+    "difficulty": "easy",
+    "accuracy": 90.7,
+    "status": "notAttempted"
+  },
+  {
+    "id": "187",
+    "title": "Projecting Computed Fields",
+    "slug": "projecting-computed-fields",
+    "difficulty": "medium",
+    "accuracy": 80.9,
+    "status": "attempted"
+  },
+  {
+    "id": "188",
+    "title": "Querying Embedded Documents",
+    "slug": "querying-embedded-documents",
+    "difficulty": "medium",
+    "accuracy": 81.3,
+    "status": "solved"
+  },
+  {
+    "id": "189",
+    "title": "Path-based Query Operators",
+    "slug": "path-based-query-operators",
+    "difficulty": "medium",
+    "accuracy": 79.5,
+    "status": "notAttempted"
+  },
+  {
+    "id": "190",
+    "title": "Update with Array Filters",
+    "slug": "update-with-array-filters",
+    "difficulty": "hard",
+    "accuracy": 71.2,
+    "status": "attempted"
+  },
+  {
+    "id": "191",
+    "title": "Nested Array Query Techniques",
+    "slug": "nested-array-query-techniques",
+    "difficulty": "hard",
+    "accuracy": 68.1,
+    "status": "solved"
+  },
+  {
+    "id": "192",
+    "title": "String Operations in Aggregation",
+    "slug": "string-operations-in-aggregation",
+    "difficulty": "medium",
+    "accuracy": 76.3,
+    "status": "notAttempted"
+  },
+  {
+    "id": "193",
+    "title": "Date Operations in Aggregation",
+    "slug": "date-operations-in-aggregation",
+    "difficulty": "medium",
+    "accuracy": 75.8,
+    "status": "attempted"
+  },
+  {
+    "id": "194",
+    "title": "Numeric Operations in Aggregation",
+    "slug": "numeric-operations-in-aggregation",
+    "difficulty": "medium",
+    "accuracy": 77.1,
+    "status": "solved"
+  },
+  {
+    "id": "195",
+    "title": "Array Operations in Aggregation",
+    "slug": "array-operations-in-aggregation",
+    "difficulty": "medium",
+    "accuracy": 78.7,
+    "status": "notAttempted"
+  },
+  {
+    "id": "196",
+    "title": "Boolean Operations in Aggregation",
+    "slug": "boolean-operations-in-aggregation",
+    "difficulty": "medium",
+    "accuracy": 79.8,
+    "status": "attempted"
+  },
+  {
+    "id": "197",
+    "title": "Conditional Operations in Aggregation",
+    "slug": "conditional-operations-in-aggregation",
+    "difficulty": "hard",
+    "accuracy": 72.4,
+    "status": "solved"
+  },
+  {
+    "id": "198",
+    "title": "Type Conversion in Aggregation",
+    "slug": "type-conversion-in-aggregation",
+    "difficulty": "medium",
+    "accuracy": 76.7,
+    "status": "notAttempted"
+  },
+  {
+    "id": "199",
+    "title": "Handling Null Values in Queries",
+    "slug": "handling-null-values-in-queries",
+    "difficulty": "easy",
+    "accuracy": 87.5,
+    "status": "attempted"
+  },
+  {
+    "id": "200",
+    "title": "Document Validation Rules",
+    "slug": "document-validation-rules",
+    "difficulty": "medium",
+    "accuracy": 83.1,
+    "status": "solved"
+  }
+]

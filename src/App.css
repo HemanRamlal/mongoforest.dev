@@ -1,0 +1,27 @@
+.d-none{
+  display:none !important;
+}
+.refresh-btn-parent{
+  position:relative;
+}
+.refresh-btn{
+  position:absolute;
+  top:0px;
+  right:0px;
+  height:30px;
+  width:30px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--monochrome-color-ss);
+  background:rgba(0, 0, 0, 0);
+}
+.refresh-btn:hover{
+  color:black;
+  transform:scale(1.02);
+  transition-duration:200ms;
+}
+.refresh-btn:active{
+  transform:scale(0.97);
+  transition-duration:200ms;
+}

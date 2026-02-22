@@ -1,0 +1,2202 @@
+[
+  {
+    "id": "001",
+    "statement": "# Find Documents by Field Value\n\nYou are given a collection named `users` that contains user information. Write a MongoDB query to find all documents where the `username` field is equal to 'john_doe'.\n\nThe query should return all matching documents without any specific sorting.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "002",
+    "statement": "# Count Documents in Collection\n\nYou are given a collection named `products`. Write a MongoDB query to count the total number of documents in this collection.\n\nThe query should return a single numeric value representing the total count.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "003",
+    "statement": "# Insert Multiple Documents\n\nYou are given a collection named `customers`. Write a MongoDB query to insert three new customer documents simultaneously.\n\nEach document should have fields for `name`, `email`, and `registered_date` with appropriate values of your choice.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "004",
+    "statement": "# Update a Field in Document\n\nYou are given a collection named `inventory`. Write a MongoDB query to update the `quantity` field to 100 for the document where the `product_id` is 'ABC123'.\n\nThe query should only update the first matching document.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "005",
+    "statement": "# Delete a Document by ID\n\nYou are given a collection named `tasks`. Write a MongoDB query to delete the document where the `_id` field matches a specific ObjectId.\n\nAssume the ObjectId is '507f1f77bcf86cd799439011'. Your query should remove only this document.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "006",
+    "statement": "# Find Documents with Specific Field\n\nYou are given a collection named `articles`. Write a MongoDB query to find all documents that contain a field named `tags`.\n\nThe query should return all documents where the `tags` field exists, regardless of its value.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "007",
+    "statement": "# Sort Documents by Field\n\nYou are given a collection named `students`. Write a MongoDB query to find all documents and sort them in descending order based on the `score` field.\n\nThe query should return all documents with the highest scores appearing first.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "008",
+    "statement": "# Limit Number of Documents Returned\n\nYou are given a collection named `movies`. Write a MongoDB query to find documents in the collection but limit the results to only 5 documents.\n\nThe query should return the first 5 documents based on the default ordering.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "009",
+    "statement": "# Skip Documents in Query Results\n\nYou are given a collection named `books`. Write a MongoDB query to find documents but skip the first 10 results.\n\nThis query would be useful for implementing pagination where you want to show results beyond the first page.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "010",
+    "statement": "# Find Distinct Values in Field\n\nYou are given a collection named `products`. Write a MongoDB query to find all distinct values of the `category` field across all documents.\n\nThe query should return an array of unique category values that exist in the collection.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "011",
+    "statement": "# Count Distinct Values in Field\n\nYou are given a collection named `logs`. Write a MongoDB aggregation pipeline to count the number of distinct values in the `user_id` field.\n\nThe query should return a single number representing the count of unique users in the logs collection.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "012",
+    "statement": "# Group Documents by Field\n\nYou are given a collection named `sales`. Write a MongoDB aggregation pipeline to group documents by the `region` field and calculate the total `amount` for each region.\n\nThe query should return documents with region names and their corresponding total sales amounts.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "013",
+    "statement": "# Find Documents with Multiple Conditions\n\nYou are given a collection named `employees`. Write a MongoDB query to find all documents where the `department` is 'Engineering' AND the `salary` is greater than 75000.\n\nThe query should return all documents that match both conditions simultaneously.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "014",
+    "statement": "# Update Multiple Documents\n\nYou are given a collection named `inventory`. Write a MongoDB query to update all documents where the `category` is 'Electronics' by adding a new field `on_sale` with a value of true.\n\nThe query should modify all matching documents at once.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "015",
+    "statement": "# Delete Multiple Documents\n\nYou are given a collection named `logs`. Write a MongoDB query to delete all documents where the `timestamp` is older than 30 days from the current date.\n\nThe query should remove all matching documents in a single operation.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "016",
+    "statement": "# Find Documents with Logical OR\n\nYou are given a collection named `customers`. Write a MongoDB query to find all documents where either the `status` is 'Premium' OR the `total_purchases` value is greater than 1000.\n\nThe query should return all documents that match either condition.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "017",
+    "statement": "# Find Documents with Logical AND\n\nYou are given a collection named `products`. Write a MongoDB query to find all documents where the `in_stock` field is true AND the `price` is less than 50.\n\nThe query should return all documents that satisfy both conditions at the same time.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "018",
+    "statement": "# Find Documents with Logical NOT\n\nYou are given a collection named `users`. Write a MongoDB query to find all documents where the `status` field is NOT equal to 'inactive'.\n\nThe query should return all documents where this condition is false or the field doesn't exist.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "019",
+    "statement": "# Find Documents with Array Field\n\nYou are given a collection named `blog_posts`. Write a MongoDB query to find all documents where the `tags` field is an array that contains the value 'mongodb'.\n\nThe query should return all blog posts that have been tagged with 'mongodb'.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "020",
+    "statement": "# Finding Documents with Array Element\n\nYou are given a collection named `products`. Write a MongoDB query to find all documents where the `tags` array contains exactly the element 'bestseller'.\n\nThe query should return only the products that have the exact tag 'bestseller' in their tags array.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "021",
+    "statement": "# Embedded Document Query\n\nYou are given a collection named `users`. Write a MongoDB query to find all documents where the embedded document `address` has a field `city` with the value 'Boston'.\n\nThe query should match the exact structure of the embedded document.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "022",
+    "statement": "# Query with Field Exists Condition\n\nYou are given a collection named `customers`. Write a MongoDB query to find all documents where the field `email` exists but the field `phone` does not exist.\n\nThe query should use operators to check for the existence and non-existence of fields.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "023",
+    "statement": "# Finding with Range Queries\n\nYou are given a collection named `orders`. Write a MongoDB query to find all documents where the `total_amount` field has a value between 100 and 500 (inclusive).\n\nThe query should return orders within this price range.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "024",
+    "statement": "# Simple Text Search\n\nYou are given a collection named `articles` with a text index on the `content` field. Write a MongoDB query to perform a basic text search for documents containing the word 'mongodb'.\n\nThe query should use MongoDB's text search capabilities.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "025",
+    "statement": "# Using Comparison Operators\n\nYou are given a collection named `inventory`. Write a MongoDB query to find all documents where the `quantity` field is greater than 20 and the `price` field is less than 50.\n\nThe query should use comparison operators to filter the results.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "026",
+    "statement": "# Update with Increment\n\nYou are given a collection named `products`. Write a MongoDB query to increment the `stock` field by 5 for the document where the `product_id` equals 'ABC123'.\n\nThe query should use the increment operator to update the field value.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "027",
+    "statement": "# Find and Replace Document\n\nYou are given a collection named `settings`. Write a MongoDB query to find a document by its `user_id` field (value: 'user123') and replace it entirely with a new document containing different fields.\n\nThe query should completely replace the existing document with a new structure.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "028",
+    "statement": "# Replace One Document\n\nYou are given a collection named `profiles`. Write a MongoDB query to replace a document where the `username` is 'johndoe' with a completely new document structure, but preserve its original `_id`.\n\nThe query should update only the first matching document while maintaining its identifier.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "029",
+    "statement": "# Basic Document Sorting\n\nYou are given a collection named `movies`. Write a MongoDB query to find all documents and sort them by the `release_year` field in ascending order and then by the `title` field in alphabetical order.\n\nThe query should implement multi-level sorting of the results.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "030",
+    "statement": "# Simple Array Filtering\n\nYou are given a collection named `students`. Write a MongoDB query to find all documents where the `scores` array contains at least one element greater than 90.\n\nThe query should return students who have scored above 90 on any test.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "031",
+    "statement": "# Project Selected Fields\n\nYou are given a collection named `customers`. Write a MongoDB query to find all documents but return only the `name`, `email`, and `membership_level` fields, excluding the `_id` field.\n\nThe query should use projection to limit the fields returned in the results.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "032",
+    "statement": "# Exclude Fields in Results\n\nYou are given a collection named `products`. Write a MongoDB query to find all documents but exclude the `description`, `manufacturer_details`, and `shipping_info` fields from the results.\n\nThe query should use projection to remove these specific fields from the returned documents.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "033",
+    "statement": "# Count Documents with Filter\n\nYou are given a collection named `orders`. Write a MongoDB query to count the number of documents where the `status` field is 'shipped' and the `total_amount` is greater than 100.\n\nThe query should return a single number representing the count of matching orders.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "034",
+    "statement": "# Insert One Document\n\nYou are given a collection named `users`. Write a MongoDB query to insert a single new document with fields for `username`, `email`, `age`, and `created_at` (set to the current date).\n\nThe query should add just one document to the collection.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "035",
+    "statement": "# Update One Document\n\nYou are given a collection named `accounts`. Write a MongoDB query to update only the `last_login` field to the current date for the document where the `user_id` equals 'ABC123'.\n\nThe query should modify just this one field and leave all other fields unchanged.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "036",
+    "statement": "# Delete One Document\n\nYou are given a collection named `cart_items`. Write a MongoDB query to delete a single document where the `item_id` equals 'XYZ789' and the `user_id` equals 'user123'.\n\nThe query should remove only the first matching document from the collection.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "037",
+    "statement": "# Find with Type Check\n\nYou are given a collection named `data`. Write a MongoDB query to find all documents where the `value` field is of type 'number'.\n\nThe query should use the type checking operator to filter documents based on the field's data type.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "038",
+    "statement": "# Update Multiple Fields\n\nYou are given a collection named `products`. Write a MongoDB query to update multiple fields (`price`, `in_stock`, and `last_updated`) in a single operation for the document where the `product_id` equals 'ABC123'.\n\nThe query should modify all these fields at once in a single document.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "039",
+    "statement": "# Find with Regex Pattern\n\nYou are given a collection named `users`. Write a MongoDB query to find all documents where the `email` field matches a regular expression pattern for Gmail addresses (ending with '@gmail.com').\n\nThe query should use a regex pattern to filter the results.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "040",
+    "statement": "# Finding Empty Array Fields\n\nYou are given a collection named `customers`. Write a MongoDB query to find all documents where the `purchase_history` field is an empty array.\n\nThe query should return customers who have not made any purchases yet.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "041",
+    "statement": "# Finding Non-Empty Arrays\n\nYou are given a collection named `products`. Write a MongoDB query to find all documents where the `reviews` array contains at least one element (is not empty).\n\nThe query should return products that have received at least one review.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "042",
+    "statement": "# Query with Multiple OR Conditions\n\nYou are given a collection named `inventory`. Write a MongoDB query to find all documents that match any of these three conditions: `category` is 'Electronics', `price` is less than 20, or `quantity` is 0.\n\nThe query should use the OR operator to combine these different conditions.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "043",
+    "statement": "# Query with Multiple AND Conditions\n\nYou are given a collection named `users`. Write a MongoDB query to find all documents that satisfy all of these conditions: `age` is greater than 18, `status` is 'active', and `subscription_type` is 'premium'.\n\nThe query should use the AND operator to require all conditions be true.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "044",
+    "statement": "# Find by Date Range\n\nYou are given a collection named `events`. Write a MongoDB query to find all documents where the `event_date` field falls between January 1, 2023, and December 31, 2023 (inclusive).\n\nThe query should use date comparison operators to filter events occurring in the year 2023.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "045",
+    "statement": "# Update Document Timestamps\n\nYou are given a collection named `articles`. Write a MongoDB query to update the `last_modified` field to the current timestamp for the document where the `article_id` equals 'ART123'.\n\nThe query should use a date function to set the current date and time.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "046",
+    "statement": "# Simple Array Push Operation\n\nYou are given a collection named `users`. Write a MongoDB query to add a new element 'hiking' to the `hobbies` array field for the document where the `user_id` equals 'user123'.\n\nThe query should use the array push operator to append to the existing array.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "047",
+    "statement": "# Simple Array Pull Operation\n\nYou are given a collection named `playlists`. Write a MongoDB query to remove the element 'song123' from the `songs` array field for the document where the `playlist_id` equals 'PL456'.\n\nThe query should use the array pull operator to remove a specific value from the array.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "048",
+    "statement": "# Find Documents with Empty Field\n\nYou are given a collection named `forms`. Write a MongoDB query to find all documents where the `comments` field exists but is an empty string.\n\nThe query should identify documents where a field is present but contains no value.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "049",
+    "statement": "# Find Documents with Non-Empty Field\n\nYou are given a collection named `tickets`. Write a MongoDB query to find all documents where the `resolution_notes` field exists and is not an empty string.\n\nThe query should identify tickets that have meaningful resolution information.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "050",
+    "statement": "# Multi-Field Sorting\n\nYou are given a collection named `employees`. Write a MongoDB query to find all documents and sort them first by `department` in ascending order, then by `salary` in descending order, and finally by `last_name` in ascending order.\n\nThe query should implement a three-level sorting strategy for employee records.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "051",
+    "statement": "# Insert with Custom ID\n\nYou are given a collection named `products`. Write a MongoDB query to insert a new document with a specific custom `_id` value rather than letting MongoDB generate an ObjectId.\n\nThe query should create a document with your own identifier value while setting other fields appropriately.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "052",
+    "statement": "# Query on Nested Array Fields\n\nYou are given a collection named `classrooms`. Write a MongoDB query to find all documents where at least one element in the `students` array has both `grade` equal to 'A' and `attendance` greater than 90%.\n\nThe query should return classes with high-performing and well-attending students.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "053",
+    "statement": "# Update Nested Document Fields\n\nYou are given a collection named `customers`. Write a MongoDB query to update the `street` and `zipcode` fields inside the `address` subdocument for a customer where `customer_id` is 'C1001'.\n\nThe query should modify the nested fields without affecting other parts of the document.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "054",
+    "statement": "# Simple Aggregation Pipeline\n\nYou are given a collection named `orders`. Write a MongoDB aggregation pipeline that groups orders by `status`, counts the number of orders in each status, and sorts the results by count in descending order.\n\nThe query should provide a summary of order counts by their current status.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "055",
+    "statement": "# Find with Projection Expressions\n\nYou are given a collection named `products`. Write a MongoDB query to find all documents and project a new computed field `discounted_price` that equals `price` multiplied by 0.9 (10% discount).\n\nThe query should include the original fields plus this new calculated field in the results.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "056",
+    "statement": "# Basic Array Element Match\n\nYou are given a collection named `inventories`. Write a MongoDB query to find all documents where the `supplies` array contains at least one object with both `item` equal to 'paper' and `quantity` less than 100.\n\nThe query should return inventories that are running low on paper supplies.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "057",
+    "statement": "# Update Array Elements by Position\n\nYou are given a collection named `playlists`. Write a MongoDB query to update the second element (index 1) of the `songs` array by changing its `title` to 'Updated Song Title' for the document where `playlist_id` equals 'PL001'.\n\nThe query should modify a specific array element by its position.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "058",
+    "statement": "# Array Update with Conditions\n\nYou are given a collection named `students`. Write a MongoDB query to increment the `score` field by 5 points for all elements in the `exams` array where the `subject` is 'Mathematics' and the current `score` is less than 70.\n\nThe query should modify only specific array elements that match the given conditions.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "059",
+    "statement": "# Finding Documents with Null Values\n\nYou are given a collection named `patients`. Write a MongoDB query to find all documents where the `allergies` field is explicitly set to null or the field does not exist.\n\nThe query should identify patients with no recorded allergies, handling both explicit null values and missing fields.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "060",
+    "statement": "# Group and Count Documents\n\nYou are given a collection named `website_logs`. Write a MongoDB aggregation pipeline to group documents by both `user_id` and `page_url`, count occurrences, and return only groups with more than 5 visits.\n\nThe query should identify which users frequently visit specific pages.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "061",
+    "statement": "# Find with Multiple Sort Criteria\n\nYou are given a collection named `products`. Write a MongoDB query to find all documents where `category` is 'Electronics' and sort them first by `brand` alphabetically, then by `price` from highest to lowest.\n\nThe query should apply multiple sorting levels to organize the results effectively.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "062",
+    "statement": "# Basic Array Field Updates\n\nYou are given a collection named `users`. Write a MongoDB query to add multiple values ['reading', 'cooking', 'hiking'] to the `hobbies` array field for the document where `username` equals 'alex123'.\n\nThe query should append all these values at once to the existing array.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "063",
+    "statement": "# Aggregation with Multiple Stages\n\nYou are given a collection named `sales`. Write a MongoDB aggregation pipeline that filters sales from the last 30 days, groups them by `product_id`, calculates total revenue, and then sorts by revenue in descending order with a limit of 10 results.\n\nThe query should identify the top 10 revenue-generating products from recent sales.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "064",
+    "statement": "# Advanced Document Projections\n\nYou are given a collection named `employees`. Write a MongoDB query to find all documents but project only the `name`, the first element of the `skills` array, and a new computed field `experience_years` that is the difference between the current year and the `join_year`.\n\nThe query should return a transformed view of the employee data.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "065",
+    "statement": "# Filtered Array Updates\n\nYou are given a collection named `shopping_carts`. Write a MongoDB query to update the `quantity` to 3 for the item where `product_id` is 'P100' in the `items` array for the document where `cart_id` equals 'C1'.\n\nThe query should modify a specific array element based on a matching condition within the array.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "066",
+    "statement": "# Complex Query Filtering\n\nYou are given a collection named `products`. Write a MongoDB query to find all documents where either: (`category` is 'Electronics' AND `price` is between 100 and 500) OR (`category` is 'Furniture' AND `brand` is 'Premium').\n\nThe query should use nested logical operators to implement this complex filtering condition.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "067",
+    "statement": "# Update Operators in Arrays\n\nYou are given a collection named `inventory`. Write a MongoDB query to simultaneously add a new tag 'discounted' and remove the tag 'premium' from the `tags` array for all documents where `price` is less than 50.\n\nThe query should perform both array additions and removals in a single update operation.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "068",
+    "statement": "# Date-based Aggregation\n\nYou are given a collection named `orders`. Write a MongoDB aggregation pipeline to group orders by month and year of their `order_date`, calculate the total sales amount for each period, and sort results chronologically.\n\nThe query should generate a monthly sales report with proper date extraction and formatting.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "069",
+    "statement": "# Nested Document Arrays Query\n\nYou are given a collection named `departments`. Write a MongoDB query to find all documents where any employee in the `employees` array has both `position` equal to 'Manager' and `salary` greater than 100000.\n\nThe query should identify departments with high-paid managers using nested array conditions.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "070",
+    "statement": "# Conditional Query Expressions\n\nYou are given a collection named `financial_data`. Write a MongoDB query using the $expr operator to find all documents where the `expenses` field is greater than the `income` field.\n\nThe query should compare fields within the same document to identify financial records with deficits.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "071",
+    "statement": "# Advanced Array Element Matching\n\nYou are given a collection named `survey_results`. Write a MongoDB query to find all documents where the `responses` array contains at least two elements with a `rating` value greater than 8.\n\nThe query should identify surveys with multiple high ratings using array element conditions.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "072",
+    "statement": "# Complex Projection Operations\n\nYou are given a collection named `products`. Write a MongoDB query to find all documents and project: the `name`, the first three elements of the `reviews` array, and a new field `stock_status` with value 'In Stock' if `quantity` > 0 or 'Out of Stock' otherwise.\n\nThe query should apply conditional logic in projections to transform the results.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "073",
+    "statement": "# Aggregation with Lookup Stage\n\nYou are given collections named `orders` and `customers`. Write a MongoDB aggregation pipeline to match orders with `status` 'completed', perform a lookup to the customers collection, and project only the order `total`, `date`, and customer `name` and `email`.\n\nThe query should join collections and reshape the data into a more useful format.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "074",
+    "statement": "# Multiple Collection Operations\n\nYou are given collections named `students` and `courses`. Write MongoDB queries to: 1) Find a student by ID, 2) Find all courses they are enrolled in, and 3) Update their enrollment status in all those courses to 'active'.\n\nImplement these operations as a sequence of related queries that work together.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "075",
+    "statement": "# Working with Subdocuments\n\nYou are given a collection named `companies`. Write a MongoDB query to find all documents where the `headquarters` subdocument has `country` equal to 'USA' and `employees` greater than 1000.\n\nThe query should filter based on multiple fields within a nested subdocument.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "076",
+    "statement": "# Array of Subdocuments Query\n\nYou are given a collection named `restaurants`. Write a MongoDB query to find all documents where the `menu` array contains at least one item with both `category` equal to 'Dessert' and `price` less than 10.\n\nThe query should match specific fields within objects in an array.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "077",
+    "statement": "# Computed Field Projections\n\nYou are given a collection named `sales`. Write a MongoDB query to find all documents and project the original fields plus a computed field `profit` that equals `revenue` minus `cost`, and another field `profit_margin` that equals `profit` divided by `revenue` multiplied by 100.\n\nThe query should calculate multiple derived fields based on existing data.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "078",
+    "statement": "# Aggregation Pipeline Variables\n\nYou are given a collection named `employees`. Write a MongoDB aggregation pipeline that uses the $let operator to create temporary variables for calculating bonus (10% of salary if performance > 8, otherwise 5%) and then includes this calculated bonus in the results.\n\nThe query should demonstrate the use of variables in aggregation expressions.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "079",
+    "statement": "# Conditional Update Operations\n\nYou are given a collection named `inventory`. Write a MongoDB query to update the `status` field to 'In Stock' if `quantity` is greater than 0, or to 'Out of Stock' if `quantity` is 0, for all documents in the collection.\n\nThe query should apply conditional logic during the update operation.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "080",
+    "statement": "# Advanced Array Operations\n\nYou are given a collection named `tasks`. Write a MongoDB query to add a new element to the `comments` array that includes the current timestamp, a specified message, and a user ID, but only if the array contains fewer than 5 elements.\n\nThe query should conditionally update an array based on its current size.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "081",
+    "statement": "# Complex Document Structure Updates\n\nYou are given a collection named `users`. Write a MongoDB query to update the third address in the `addresses` array by changing its `street` and `zipcode`, and simultaneously add a new field `verified` set to true at the root level of the document.\n\nThe query should modify both an array element and the document root in one operation.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "082",
+    "statement": "# Aggregation with Unwind\n\nYou are given a collection named `orders` with an array field `items`. Write a MongoDB aggregation pipeline that unwinds the items array, filters for items with `category` 'Electronics', groups by `customer_id`, and calculates the total amount spent on electronics per customer.\n\nThe query should demonstrate array flattening and subsequent aggregation.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "083",
+    "statement": "# Document Validation in Updates\n\nYou are given a collection named `products`. Write a MongoDB query to update the `price` field for a document only if the new price is greater than 0 and less than 1000, using the $min and $max operators to enforce these constraints.\n\nThe query should implement data validation rules during the update process.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "084",
+    "statement": "# Multi-stage Data Transformation\n\nYou are given a collection named `sales_raw`. Write a MongoDB aggregation pipeline that: cleans the data by filtering out null values, converts string amounts to numbers, groups by region and product, calculates statistics (min, max, avg), and finally sorts the results.\n\nThe query should handle messy data and transform it into a structured analytical output.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "085",
+    "statement": "# Aggregation with Multiple Groupings\n\nYou are given a collection named `website_analytics`. Write a MongoDB aggregation pipeline that produces multiple grouping views of the same data: one grouping by `country`, another by `device_type`, and a third by both fields together.\n\nThe query should use the $facet stage to generate multiple analytical perspectives in one operation.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "086",
+    "statement": "# Complex Join Operations\n\nYou are given collections named `orders`, `customers`, and `products`. Write a MongoDB aggregation pipeline that joins orders with customer details and product information, filters for premium customers, and calculates the total value of each order including all items.\n\nThe query should perform multiple lookups and data transformations in a single pipeline.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "087",
+    "statement": "# Nested Pipeline in Aggregation\n\nYou are given a collection named `departments`. Write a MongoDB aggregation pipeline that calculates the average salary for each department, then finds departments where this average is above the company-wide average (which must be calculated within the same pipeline).\n\nThe query should use a nested pipeline to compare group metrics against overall metrics.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "088",
+    "statement": "# Advanced Text Search Queries\n\nYou are given a collection named `articles` with a text index. Write a MongoDB query to find documents that contain either 'mongodb' or 'database' but do not contain 'sql', with results sorted by relevance score and limited to the top 5 matches.\n\nThe query should demonstrate advanced text search capabilities with negation and sorting.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "089",
+    "statement": "# Complex Array Manipulations\n\nYou are given a collection named `inventory`. Write a MongoDB query to add elements to the beginning of the `tags` array, remove elements matching a specific pattern, and reorder the remaining elements alphabetically, all in a single update operation.\n\nThe query should demonstrate sophisticated array manipulation techniques.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "090",
+    "statement": "# Advanced Geospatial Queries\n\nYou are given a collection named `locations` with geospatial data. Write a MongoDB query to find all points within a polygon boundary, calculate their distance from a central point, and return them sorted by this distance.\n\nThe query should use MongoDB's geospatial operators for complex spatial analysis.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "091",
+    "statement": "# Optimizing Query Performance\n\nYou are given a collection named `logs` with millions of documents. Write MongoDB queries to: 1) Create an appropriate index for filtering by date range and type, 2) Write an optimized query that uses this index, and 3) Verify the query is using the index via explain plan.\n\nThe solution should demonstrate index creation and query optimization techniques.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "092",
+    "statement": "# Complex Update Strategies\n\nYou are given a collection named `inventory`. Write a MongoDB query that implements a complex stock management update: decrease quantity by the number of items sold, add the transaction to a history array, update the last_modified timestamp, and set a status field based on the new quantity.\n\nThe query should perform multiple related updates atomically in a single operation.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "093",
+    "statement": "# Advanced Transaction Operations\n\nYou are given collections named `accounts` and `transactions`. Write MongoDB code to transfer funds between two accounts within a transaction, ensuring that both the withdrawal and deposit operations either complete successfully together or fail completely.\n\nThe solution should implement a multi-document transaction with proper error handling.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "094",
+    "statement": "# Multi-collection Data Analysis\n\nYou are given collections named `sales`, `products`, and `stores`. Write a MongoDB aggregation pipeline that analyzes sales performance across multiple dimensions: by product category, by store location, and by time period, with proper joins between these collections.\n\nThe query should produce a comprehensive analytical report spanning multiple related datasets.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "095",
+    "statement": "# Advanced Schema Validation\n\nYou are given a collection named `users`. Write MongoDB commands to create a JSON Schema validation rule that enforces: required fields, string pattern constraints for email, minimum and maximum values for numeric fields, and enum values for status fields.\n\nThe solution should implement comprehensive document validation rules.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "096",
+    "statement": "# Complex Conditional Aggregation\n\nYou are given a collection named `student_grades`. Write a MongoDB aggregation pipeline that assigns letter grades based on numeric scores with different threshold rules for different course types, then calculates GPA with different weights for each course type.\n\nThe query should implement complex conditional logic in the aggregation framework.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "097",
+    "statement": "# Time Series Data Analysis\n\nYou are given a collection named `sensor_data` with timestamped readings. Write a MongoDB aggregation pipeline that groups readings by time windows, detects anomalies based on statistical measures, and compares patterns across different sensors.\n\nThe query should demonstrate time series analysis techniques in MongoDB.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "098",
+    "statement": "# Complex Document Restructuring\n\nYou are given a collection named `legacy_data` with a problematic structure. Write a MongoDB aggregation pipeline that completely transforms the document structure: flattening nested arrays, pivoting key-value pairs into fields, and creating new hierarchical relationships.\n\nThe query should demonstrate advanced document reshaping capabilities.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "099",
+    "statement": "# Advanced Index Strategies\n\nYou are given a collection named `products` with various query patterns. Write MongoDB commands to create multiple optimized indexes: a compound index for filtering and sorting, a text index with different field weights, and a partial index that only indexes documents meeting certain criteria.\n\nThe solution should implement sophisticated indexing strategies for different query requirements.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "100",
+    "statement": "# Multi-document Complex Queries\n\nYou are given collections named `employees`, `departments`, and `projects`. Write a MongoDB aggregation pipeline that finds employees who are in the same department as a specific employee, are working on at least two of the same projects, and have complementary skills as defined by specific criteria.\n\nThe query should perform complex relational analysis across multiple collections.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "101",
+    "statement": "# Complex Data Migrations\n\nYou are given a collection named `old_format`. Write MongoDB queries to migrate this data to a new schema: splitting some fields into separate collections, transforming data types, adding computed fields, and establishing references between the new collections.\n\nThe solution should implement a comprehensive data migration strategy.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "102",
+    "statement": "# Advanced Aggregation Techniques\n\nYou are given a collection named `transactions`. Write a MongoDB aggregation pipeline that implements a moving average calculation over time windows, detects trend changes, and forecasts future values based on historical patterns.\n\nThe query should demonstrate sophisticated analytical techniques beyond basic grouping and counting.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "103",
+    "statement": "# Graph-like Data Queries\n\nYou are given a collection named `social_network` with user connections. Write a MongoDB aggregation pipeline that finds all users within 3 degrees of separation from a specified user, ranked by connection strength based on interaction metrics.\n\nThe query should implement graph traversal patterns in a document database.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "104",
+    "statement": "# Real-time Data Processing\n\nYou are given a collection named `events` with continuously added data. Write MongoDB commands to create a change stream that watches for new documents, filters for specific event types, and processes them with a custom aggregation pipeline.\n\nThe solution should implement real-time data processing using MongoDB's change streams feature.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "105",
+    "statement": "# Complex Document Relationships\n\nYou are given collections named `authors`, `books`, and `reviews`. Write a MongoDB aggregation pipeline that builds a complete author profile with nested books, each containing its reviews, and calculates overall metrics like average rating and total sales across all books.\n\nThe query should build complex nested document structures from related collections.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "106",
+    "statement": "# Optimizing Large Dataset Queries\n\nYou are given a collection named `logs` with billions of entries. Write MongoDB queries that implement efficient pagination, filtered aggregation with index usage, and query optimization techniques like projection and limit to minimize memory and processing requirements.\n\nThe solution should demonstrate strategies for handling extremely large datasets efficiently.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "107",
+    "statement": "# Advanced Authorization Patterns\n\nYou are given collections named `documents` and `permissions`. Write MongoDB queries that implement a complex access control system: finding only documents a user has access to based on direct permissions, group memberships, and hierarchical role inheritance.\n\nThe query should implement sophisticated authorization rules in the database layer.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "108",
+    "statement": "# Complex Data Modeling Scenarios\n\nYou are given a business requirement for a content management system. Write MongoDB schema designs and example queries for handling polymorphic content types, hierarchical categories, versioning history, and effective dating of content changes.\n\nThe solution should implement advanced data modeling patterns appropriate for MongoDB.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "109",
+    "statement": "# Multi-tenant Data Architecture\n\nYou are given a requirement for a SaaS application. Write MongoDB commands and queries to implement a multi-tenant data architecture with: collection-per-tenant, shared collections with tenant filtering, and hybrid approaches with security controls to prevent data leakage between tenants.\n\nThe solution should address the architectural challenges of multi-tenant database design.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "110",
+    "statement": "# Hierarchical Data Queries\n\nYou are given a collection named `categories` with parent-child relationships. Write a MongoDB query that finds all ancestors of a given category, another query that finds all descendants, and a third query that rebuilds the entire tree structure with proper nesting.\n\nThe queries should demonstrate different approaches to working with hierarchical data.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "111",
+    "statement": "# Advanced Document Versioning\n\nYou are given a collection named `documents`. Write MongoDB queries to implement a sophisticated versioning system: creating new versions, comparing differences between versions, rolling back to previous versions, and maintaining a branching version history.\n\nThe solution should implement document versioning beyond simple timestamping.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "112",
+    "statement": "# Complex Reporting Queries\n\nYou are given collections with business transaction data. Write a MongoDB aggregation pipeline that generates a complex financial report with: year-over-year comparisons, cross-tabulations by multiple dimensions, running totals, and percentage calculations relative to different baselines.\n\nThe query should produce report-ready output with sophisticated calculations.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "113",
+    "statement": "# Advanced Security Patterns\n\nYou are given collections for a healthcare application with sensitive data. Write MongoDB commands to implement field-level encryption, redaction in query results, attribute-based access control, and auditing of sensitive data access.\n\nThe solution should address sophisticated security requirements for regulated data.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "114",
+    "statement": "# Optimizing Write Operations\n\nYou are given a high-throughput application scenario. Write MongoDB commands to optimize bulk write operations, implement efficient upsert patterns, use appropriate write concerns based on data importance, and properly handle write conflicts in a distributed environment.\n\nThe solution should demonstrate write optimization techniques for high-volume operations.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "115",
+    "statement": "# Advanced Data Analysis Techniques\n\nYou are given a collection named `sensor_readings` with time-series data. Write a MongoDB aggregation pipeline that implements statistical methods like outlier detection, correlation analysis between different metrics, and predictive calculations based on historical patterns.\n\nThe query should apply sophisticated analytical methods to the data.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "116",
+    "statement": "# Complex Aggregation Framework Usage\n\nYou are given a collection named `transactions`. Write a MongoDB aggregation pipeline that uses advanced operators like $lookup with pipelines, $graphLookup for hierarchical data, $facet for multi-dimensional analysis, and $function for custom JavaScript logic.\n\nThe query should demonstrate mastery of MongoDB's most powerful aggregation features.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "117",
+    "statement": "# Advanced Sharding Strategies\n\nYou are given a requirement for a large-scale application. Write MongoDB commands to implement advanced sharding: selecting appropriate shard keys for different collections, implementing strategies for co-location of related data, and managing data distribution across the cluster.\n\nThe solution should address sophisticated sharding design considerations.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "118",
+    "statement": "# Complex Data Integration Patterns\n\nYou are given multiple external data sources that need to be integrated. Write MongoDB queries to implement sophisticated ETL processes: handling different data formats, resolving entities across sources, implementing incremental updates, and maintaining data lineage.\n\nThe solution should address complex data integration challenges.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "119",
+    "statement": "# Advanced Performance Tuning\n\nYou are given a MongoDB deployment with performance issues. Write commands and queries to diagnose and resolve these issues: analyzing slow queries, optimizing indexes, managing memory usage, configuring appropriate read concerns and write concerns, and implementing caching strategies.\n\nThe solution should demonstrate comprehensive performance tuning knowledge.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "120",
+    "statement": "# Find Documents with Array Field\n\nYou are given a collection named `products`. Write a MongoDB query to find all documents where the `categories` field is an array containing the element 'Electronics'.\n\nThe query should return all products that belong to the Electronics category, among possibly other categories.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "121",
+    "statement": "# Update Document by ID\n\nYou are given a collection named `users`. Write a MongoDB query to update multiple fields (`email` and `last_login`) in a document identified by its `_id` field.\n\nAssume the ObjectId is '5f8d0f124b25e54d823c9128'. Update the email to 'new.email@example.com' and set last_login to the current date.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "122",
+    "statement": "# Aggregate Documents by Group\n\nYou are given a collection named `orders`. Write a MongoDB aggregation pipeline to group documents by the `customer_id` field and calculate the sum of the `total_amount` and count of orders for each customer.\n\nThe query should return documents with customer IDs, total spent, and number of orders placed.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "123",
+    "statement": "# Find Documents with Regex\n\nYou are given a collection named `products`. Write a MongoDB query to find all documents where the `product_name` field matches a case-insensitive regular expression pattern for names starting with 'phone'.\n\nThe query should return all products with names like 'Phone', 'phone', 'Smartphone', etc.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "124",
+    "statement": "# Update Multiple Fields in Document\n\nYou are given a collection named `profiles`. Write a MongoDB query to update multiple fields (`address`, `phone`, and `updated_at`) in a document where the `username` equals 'johndoe'.\n\nThe query should update only the first matching document with the new values and current timestamp.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "125",
+    "statement": "# Delete Documents with Condition\n\nYou are given a collection named `messages`. Write a MongoDB query to delete all documents where the `read` field is true and the `created_at` date is older than 6 months.\n\nThe query should remove all messages that have been read and are older than the specified time period.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "126",
+    "statement": "# Find Documents with Nested Field\n\nYou are given a collection named `customers`. Write a MongoDB query to find all documents where the nested field `address.city` equals 'New York'.\n\nThe query should return all customers who live in New York City, where city is a field inside the address subdocument.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "127",
+    "statement": "# Aggregation Pipeline Basics\n\nYou are given a collection named `products`. Write a MongoDB aggregation pipeline with multiple stages: first match documents where `category` is 'Electronics', then sort by `price` in descending order, and finally limit to 5 results.\n\nThe query should return the 5 most expensive electronic products.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "128",
+    "statement": "# Group and Sort Documents\n\nYou are given a collection named `sales`. Write a MongoDB aggregation pipeline to group documents by the `product_id` field, calculate the total quantity sold for each product, and sort the results by total quantity in descending order.\n\nThe query should return products ordered from most to least sold.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "129",
+    "statement": "# Find Top N Documents\n\nYou are given a collection named `students`. Write a MongoDB query to find the top 3 students with the highest `score` in descending order.\n\nThe query should return only the 3 documents with the highest score values.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "130",
+    "statement": "# Pagination with Sort\n\nYou are given a collection named `articles`. Write a MongoDB query to implement pagination that returns the second page of results (10 items per page) when sorted by `published_date` in descending order.\n\nThe query should skip the first 10 results and return the next 10 most recently published articles.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "131",
+    "statement": "# Find Documents with Array of Values\n\nYou are given a collection named `inventory`. Write a MongoDB query to find all documents where the `tags` field contains any of the values in the array ['electronics', 'gadgets', 'devices'].\n\nThe query should return items that match any of these tags (not necessarily all of them).",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "132",
+    "statement": "# Update Array Field in Document\n\nYou are given a collection named `users`. Write a MongoDB query to add a new element 'running' to the `hobbies` array field for the document where `username` equals 'jane_smith'.\n\nThe query should add the new hobby only if it doesn't already exist in the array.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "133",
+    "statement": "# Delete Document by Field Value\n\nYou are given a collection named `comments`. Write a MongoDB query to delete the document where the `author` field equals 'anonymous' and the `content` field contains the word 'spam'.\n\nThe query should remove only the first matching document.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "134",
+    "statement": "# Find Documents with Complex Condition\n\nYou are given a collection named `products`. Write a MongoDB query to find all documents where either: (1) the `category` is 'Electronics' and the `price` is less than 500, or (2) the `category` is 'Books' and the `price` is less than 20.\n\nThe query should use logical operators to combine these conditions.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "135",
+    "statement": "# Aggregation with Match and Group\n\nYou are given a collection named `orders`. Write a MongoDB aggregation pipeline that first filters for documents where `status` is 'completed', then groups them by `customer_id` and calculates the average `order_value` for each customer.\n\nThe query should return the customer IDs and their average order values for completed orders only.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "136",
+    "statement": "# Find Documents with Lookup\n\nYou are given two collections: `orders` and `customers`. Write a MongoDB aggregation pipeline that uses $lookup to find all orders and include the customer information for each order.\n\nThe pipeline should join the collections where `orders.customer_id` matches `customers._id`.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "137",
+    "statement": "# Update Document with Aggregation\n\nYou are given a collection named `inventory`. Write a MongoDB query to update the `total_value` field in a document by multiplying its `quantity` field by its `unit_price` field.\n\nThe query should perform this calculation for the document where the `product_id` is 'XYZ789'.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "138",
+    "statement": "# Delete Multiple Documents with Condition\n\nYou are given a collection named `sessions`. Write a MongoDB query to delete all documents where the `expires_at` field is less than the current timestamp and the `active` field is false.\n\nThe query should remove all expired and inactive sessions from the collection.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "139",
+    "statement": "# Find Documents with Nested Array\n\nYou are given a collection named `schools`. Write a MongoDB query to find all documents where the nested array field `students.grades` contains at least one element greater than or equal to 90.\n\nThe query should return schools that have at least one student with a grade of 90 or above.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "140",
+    "statement": "# Aggregation Pipeline with Lookup\n\nYou are given three collections: `orders`, `customers`, and `products`. Write a MongoDB aggregation pipeline that joins order documents with both customer information and product details in a single result.\n\nThe pipeline should perform multiple $lookup stages to create comprehensive order details.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "141",
+    "statement": "# Update Multiple Documents with Condition\n\nYou are given a collection named `users`. Write a MongoDB query to add 10 bonus points to the `loyalty_points` field for all documents where the `account_type` is 'premium' and the `last_purchase` date is within the last 30 days.\n\nThe query should increment the field for all matching documents.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "142",
+    "statement": "# Delete Documents by Complex Query\n\nYou are given a collection named `logs`. Write a MongoDB query to delete all documents that match a complex criteria: either the `severity` is 'debug' and the log is older than 90 days, or the `severity` is 'info' and the log is older than 30 days.\n\nThe query should use logical operators to combine these conditions for deletion.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "143",
+    "statement": "# Aggregation with Facet and Bucket\n\nYou are given a collection named `products`. Write a MongoDB aggregation pipeline that uses the $facet stage to simultaneously generate multiple categorizations of the data: one grouping products by price ranges using $bucket, and another grouping products by category.\n\nThe query should return a single document containing both categorizations.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "144",
+    "statement": "# Find Documents with $in Operator\n\nYou are given a collection named `inventory`. Write a MongoDB query to find all documents where the `product_id` field matches any of the values in an array ['A123', 'B456', 'C789'].\n\nThe query should return items with any of these specific product IDs.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "145",
+    "statement": "# Aggregation with $unwind and $group\n\nYou are given a collection named `orders` where each document has an array field `items`. Write a MongoDB aggregation pipeline that first unwinds the items array, then groups by `items.product_id` to calculate the total quantity sold for each product.\n\nThe pipeline should flatten the array and then perform aggregation on the resulting documents.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "146",
+    "statement": "# Complex Multi-stage Aggregation\n\nYou are given a collection named `sales`. Write a MongoDB aggregation pipeline with multiple stages: match sales from the current year, group by month and product category, calculate monthly totals, sort by month, and finally project a formatted result with month names instead of numbers.\n\nThe pipeline should transform raw sales data into a monthly sales report by category.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "147",
+    "statement": "# Text Search with Relevance Score\n\nYou are given a collection named `articles` with a text index on the `content` field. Write a MongoDB query to perform a text search for articles containing either 'mongodb' or 'database' and return results sorted by the text search relevance score.\n\nThe query should utilize MongoDB's text search capabilities with sorting by score.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "148",
+    "statement": "# Geospatial Queries with $near\n\nYou are given a collection named `restaurants` with a geospatial index on the `location` field. Write a MongoDB query to find all restaurants within 1 kilometer of a specified point (longitude: -73.93, latitude: 40.73), sorted by distance.\n\nThe query should use MongoDB's geospatial capabilities to find nearby locations.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "149",
+    "statement": "# Update Document with Upsert\n\nYou are given a collection named `visitors`. Write a MongoDB query to update a document where the `ip_address` field equals '192.168.1.1', incrementing the `visit_count` by 1. If no matching document exists, create a new one with the provided IP address and a visit count of 1.\n\nThe query should use the upsert option to either update an existing document or insert a new one.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "150",
+    "statement": "# Bulk Write Operations\n\nYou are given a collection named `inventory`. Write a MongoDB bulk write operation that performs multiple operations in a single request: insert two new products, update the quantity of an existing product, and delete an out-of-stock product.\n\nThe bulk write should execute all these operations as a batch for better performance.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "151",
+    "statement": "# Computed Fields in Aggregation\n\nYou are given a collection named `sales`. Write a MongoDB aggregation pipeline that creates computed fields for `revenue` (quantity × price), `cost` (quantity × unit_cost), and `profit` (revenue - cost) for each document, then groups by product to find total profit by product.\n\nThe query should demonstrate the use of computed fields in the aggregation pipeline.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "152",
+    "statement": "# Array Manipulation with $push\n\nYou are given a collection named `projects`. Write a MongoDB update query to add a new activity to the `activity_log` array, including fields for `timestamp`, `user`, and `action`. The new entry should be added to the beginning of the array.\n\nThe query should maintain a chronological activity log with the most recent activities first.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "153",
+    "statement": "# Working with Dates in Queries\n\nYou are given a collection named `events`. Write a MongoDB query to find all documents where the `event_date` is between the first and last day of the previous month, regardless of the current date when the query runs.\n\nThe query should dynamically calculate the date range for the previous month.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "154",
+    "statement": "# Conditional Aggregation with $cond\n\nYou are given a collection named `transactions`. Write a MongoDB aggregation pipeline that categorizes transactions as 'High', 'Medium', or 'Low' based on the `amount` field, then calculates the count and sum for each category.\n\nThe query should use conditional logic to create these dynamic categories during aggregation.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "155",
+    "statement": "# Array Element Matching with $elemMatch\n\nYou are given a collection named `courses`. Write a MongoDB query to find all documents where the `students` array contains at least one element that matches multiple criteria: `grade` is 'A' and `attendance` is greater than 90%.\n\nThe query should use the $elemMatch operator to match multiple conditions on array elements.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "156",
+    "statement": "# Find Documents with Array Size\n\nYou are given a collection named `products`. Write a MongoDB query to find all documents where the `tags` array contains exactly 3 elements.\n\nThe query should use the $size operator to match arrays with a specific length.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "157",
+    "statement": "# Projection with Field Inclusion\n\nYou are given a collection named `customers`. Write a MongoDB query to find all documents but return only the `name`, `email`, and `phone` fields in the results.\n\nThe query should use projection with field inclusion to limit the returned fields.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "158",
+    "statement": "# Projection with Field Exclusion\n\nYou are given a collection named `users`. Write a MongoDB query to find all documents but exclude the `password`, `security_questions`, and `personal_data` fields from the results.\n\nThe query should use projection with field exclusion to remove sensitive fields.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "159",
+    "statement": "# Transaction Operations\n\nYou are given collections named `accounts` and `transactions`. Write MongoDB code to transfer funds between two accounts within a transaction, ensuring that both the withdrawal from one account and deposit to another account either succeed together or fail together.\n\nThe solution should demonstrate the use of multi-document transactions for data consistency.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "160",
+    "statement": "# Aggregation with $lookup Join\n\nYou are given collections named `orders` and `customers`. Write a MongoDB aggregation pipeline that performs a left outer join from orders to customers, matches only orders with an amount greater than $100, and includes customer information in the results.\n\nThe query should demonstrate joining collections with filtering in an aggregation pipeline.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "161",
+    "statement": "# Create Indexes for Query Optimization\n\nYou are given a collection named `products` with millions of documents. Write MongoDB commands to create appropriate indexes for the following query pattern: finding products by category and sorting them by price.\n\nThe solution should demonstrate index creation for query optimization and explain how it improves performance.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "162",
+    "statement": "# Range Queries with $gt and $lt\n\nYou are given a collection named `temperatures`. Write a MongoDB query to find all documents where the `value` field is between 20 and 30 (exclusive), meaning greater than 20 and less than 30.\n\nThe query should use the $gt and $lt operators to define this range.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "163",
+    "statement": "# Cursor Methods in Find Operations\n\nYou are given a collection named `logs`. Write a MongoDB query that finds documents sorted by timestamp, limits to 100 results, and implements a timeout to prevent long-running queries. Use appropriate cursor methods to implement these requirements.\n\nThe query should demonstrate proper cursor handling for controlled query execution.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "164",
+    "statement": "# Aggregation with $project Stage\n\nYou are given a collection named `employees`. Write a MongoDB aggregation pipeline that uses the $project stage to: include only certain fields, rename fields, calculate a new field for years of service, and transform the date format of the hire date.\n\nThe query should demonstrate various transformations possible with the $project stage.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "165",
+    "statement": "# Field Update Operators\n\nYou are given a collection named `inventory`. Write a MongoDB update query that uses multiple field update operators: $inc to increase quantity, $set to update last_modified, $unset to remove a deprecated field, and $rename to change a field name.\n\nThe query should demonstrate multiple field modifications in a single update operation.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "166",
+    "statement": "# Aggregation with $sum Operator\n\nYou are given a collection named `sales`. Write a MongoDB aggregation pipeline that groups documents by both `region` and `product`, then calculates the sum of `quantity` and `amount` for each group, and sorts the results by total amount in descending order.\n\nThe query should demonstrate the use of $sum for numerical aggregation.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "167",
+    "statement": "# Aggregation with $avg Operator\n\nYou are given a collection named `student_grades`. Write a MongoDB aggregation pipeline that calculates the average score for each student across all subjects, then finds students with an average score above 85, and sorts them by average in descending order.\n\nThe query should demonstrate the use of $avg for calculating averages in aggregation.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "168",
+    "statement": "# Aggregation with $min Operator\n\nYou are given a collection named `weather_data`. Write a MongoDB aggregation pipeline that groups documents by `location` and finds the minimum temperature recorded for each location, along with the date when that minimum occurred.\n\nThe query should demonstrate the use of $min for finding minimum values in aggregation.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "169",
+    "statement": "# Aggregation with $max Operator\n\nYou are given a collection named `stock_prices`. Write a MongoDB aggregation pipeline that groups documents by `symbol` and finds the maximum price for each stock, along with the date when that peak price was reached.\n\nThe query should demonstrate the use of $max for finding maximum values in aggregation.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "170",
+    "statement": "# Existence Check with $exists\n\nYou are given a collection named `profiles`. Write a MongoDB query to find all documents where the `phone` field exists and the `verified_email` field does not exist.\n\nThe query should use the $exists operator to check for the presence or absence of fields.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "171",
+    "statement": "# Type Check with $type\n\nYou are given a collection named `data`. Write a MongoDB query to find all documents where the `value` field is of type string and the `count` field is of type integer (or number in BSON).\n\nThe query should use the $type operator to check the data types of fields.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "172",
+    "statement": "# Find with Multiple Sorting Criteria\n\nYou are given a collection named `applicants`. Write a MongoDB query to find all documents and sort them first by `status` (ascending), then by `score` (descending), and finally by `name` (ascending).\n\nThe query should implement multi-level sorting with different directions for different fields.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "173",
+    "statement": "# Count Documents with Conditions\n\nYou are given a collection named `visitors`. Write a MongoDB query to count the number of documents where the `browser` field is 'Chrome' and the `country` field is either 'USA' or 'Canada'.\n\nThe query should return a single number representing the count of matching documents.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "174",
+    "statement": "# Modify Documents with $inc\n\nYou are given a collection named `products`. Write a MongoDB update query to increase the `stock` field by 10 for all documents where the `category` is 'Electronics' and decrease the `price` field by 5% for these same documents.\n\nThe query should use the $inc operator for both positive and negative increments.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "175",
+    "statement": "# Array Updates with $addToSet\n\nYou are given a collection named `users`. Write a MongoDB update query to add multiple tags ['premium', 'loyalty', 'active'] to the `tags` array field, but only adding values that don't already exist in the array.\n\nThe query should use the $addToSet operator with $each to add multiple unique values.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "176",
+    "statement": "# Array Modifications with $pull\n\nYou are given a collection named `tasks`. Write a MongoDB update query to remove all elements from the `tags` array that match either the value 'outdated' or any values that start with 'temp-'.\n\nThe query should use the $pull operator with both exact matches and regular expressions.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "177",
+    "statement": "# Find and Modify Documents\n\nYou are given a collection named `counters`. Write a MongoDB query using findOneAndUpdate to atomically get a document by its `name` field, increment its `sequence` field by 1, and return the document with the updated value.\n\nThe query should demonstrate an atomic get-and-modify operation.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "178",
+    "statement": "# Indexing for Text Search\n\nYou are given a collection named `articles`. Write MongoDB commands to create a text index on the `title`, `content`, and `tags` fields, with different weights for each field to prioritize matches in the title over content.\n\nThe solution should demonstrate the creation and configuration of text indexes.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "179",
+    "statement": "# Compound Indexes for Query Optimization\n\nYou are given a collection named `orders`. Write MongoDB commands to create a compound index on the `customer_id`, `order_date`, and `status` fields to optimize queries that filter by customer and date range, then sort by status.\n\nThe solution should explain the index creation and how it supports the query pattern.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "180",
+    "statement": "# Aggregation with $filter\n\nYou are given a collection named `sales`. Write a MongoDB aggregation pipeline that uses the $filter operator to keep only the items in an `order_items` array where the unit price is greater than $50, then calculates statistics on these filtered items.\n\nThe query should demonstrate filtering elements within arrays during aggregation.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "181",
+    "statement": "# Aggregation with $bucket\n\nYou are given a collection named `customers`. Write a MongoDB aggregation pipeline that uses the $bucket stage to group customers into age categories (0-18, 19-35, 36-50, 51+), then calculates the count and average spending for each age bucket.\n\nThe query should demonstrate data categorization with the $bucket operator.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "182",
+    "statement": "# Aggregation with $facet\n\nYou are given a collection named `products`. Write a MongoDB aggregation pipeline that uses the $facet stage to simultaneously calculate: top 5 products by sales, price distribution in ranges, and category-wise counts, all in a single query result.\n\nThe query should demonstrate parallel aggregation pipelines with $facet.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "183",
+    "statement": "# Finding Documents with $regex\n\nYou are given a collection named `contacts`. Write a MongoDB query using $regex to find all documents where the `email` field matches a Gmail address pattern (ends with @gmail.com), case-insensitive, and the `name` field starts with either 'A' or 'B'.\n\nThe query should demonstrate pattern matching with regular expressions.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "184",
+    "statement": "# Wildcard Index Usage\n\nYou are given a collection named `products` with a dynamic schema where product attributes are stored as key-value pairs in an `attributes` object. Write MongoDB commands to create a wildcard index on the attributes object and then write a query that effectively uses this index.\n\nThe solution should demonstrate when and how to use wildcard indexes.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "185",
+    "statement": "# Expressive Query Operator $expr\n\nYou are given a collection named `transactions`. Write a MongoDB query using the $expr operator to find all documents where the value of the `amount` field is greater than the value of the `limit` field in the same document.\n\nThe query should demonstrate comparing fields within the same document.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "186",
+    "statement": "# Working with Missing Fields\n\nYou are given a collection named `customers`. Write a MongoDB query to find all documents where either: the `phone` field does not exist, or the `phone` field exists but is null, or the `phone` field is an empty string.\n\nThe query should handle all three cases of missing/empty data.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "187",
+    "statement": "# Projecting Computed Fields\n\nYou are given a collection named `products`. Write a MongoDB query to find all documents and project a new field `discount_price` calculated as 90% of the `price` field, and another field `in_stock` that is a boolean true if `quantity` > 0 or false otherwise.\n\nThe query should create computed fields in the result projection.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "188",
+    "statement": "# Querying Embedded Documents\n\nYou are given a collection named `restaurants`. Write a MongoDB query to find all documents where the embedded document `address` exactly matches the criteria: `city` is 'New York', `zip` is '10001', and `street` exists (any value).\n\nThe query should demonstrate exact matching of embedded document structure.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "189",
+    "statement": "# Path-based Query Operators\n\nYou are given a collection named `users` with nested documents. Write a MongoDB query to find all documents where `preferences.notifications.email` is true and `preferences.notifications.sms` is false, using dot notation to access nested fields.\n\nThe query should demonstrate querying deeply nested fields with path notation.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "190",
+    "statement": "# Update with Array Filters\n\nYou are given a collection named `students`. Write a MongoDB update query that increases the `score` by 5 points for only the elements in the `grades` array where the `subject` is 'Math' and the current `score` is less than 70.\n\nThe query should use arrayFilters to update specific array elements based on conditions.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "191",
+    "statement": "# Nested Array Query Techniques\n\nYou are given a collection named `schools`. Write a MongoDB query to find all documents where any student in the classes array has a grade of 'A' in the subject 'Physics', accessing elements nested two levels deep (schools → classes → students).\n\nThe query should demonstrate searching within nested arrays.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "192",
+    "statement": "# String Operations in Aggregation\n\nYou are given a collection named `customers`. Write a MongoDB aggregation pipeline that uses string operators to: convert names to uppercase, extract the domain from email addresses, concatenate first and last names with a space, and check if the address contains a specific word.\n\nThe query should demonstrate string manipulation in aggregation.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "193",
+    "statement": "# Date Operations in Aggregation\n\nYou are given a collection named `events`. Write a MongoDB aggregation pipeline that extracts the year, month, day, and day of week from the `date` field, then groups events by month and day of week to find patterns in event scheduling.\n\nThe query should demonstrate date extraction and manipulation in aggregation.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "194",
+    "statement": "# Numeric Operations in Aggregation\n\nYou are given a collection named `measurements`. Write a MongoDB aggregation pipeline that uses numeric operators to: round values to 2 decimal places, calculate the square root, find the absolute difference between two fields, and perform ceiling and floor operations.\n\nThe query should demonstrate mathematical operations in aggregation.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "195",
+    "statement": "# Array Operations in Aggregation\n\nYou are given a collection named `surveys`. Write a MongoDB aggregation pipeline that uses array operators to: find the size of an array, calculate the average of values in an array, filter array elements by a condition, and check if arrays contain specific elements.\n\nThe query should demonstrate array processing in aggregation.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "196",
+    "statement": "# Boolean Operations in Aggregation\n\nYou are given a collection named `applications`. Write a MongoDB aggregation pipeline that uses boolean operators to: combine multiple conditions with AND/OR logic, negate conditions with NOT, and create boolean flags based on field values.\n\nThe query should demonstrate logical operations in aggregation expressions.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "197",
+    "statement": "# Conditional Operations in Aggregation\n\nYou are given a collection named `employees`. Write a MongoDB aggregation pipeline that uses conditional operators like $cond, $switch, and $ifNull to categorize employees based on multiple criteria and handle missing values appropriately.\n\nThe query should demonstrate complex conditional logic in aggregation.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "198",
+    "statement": "# Type Conversion in Aggregation\n\nYou are given a collection named `data`. Write a MongoDB aggregation pipeline that converts fields between different types: string to number, number to string, string to date, and boolean to number, handling potential conversion errors.\n\nThe query should demonstrate type conversion operations in aggregation.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "199",
+    "statement": "# Handling Null Values in Queries\n\nYou are given a collection named `records`. Write a MongoDB query that finds documents where: a field explicitly equals null, a field does not exist, or a field equals an empty string, demonstrating the differences between these conditions.\n\nThe query should show proper handling of different types of 'empty' values.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  },
+  {
+    "id": "200",
+    "statement": "# Document Validation Rules\n\nYou are given a collection named `customers`. Write MongoDB commands to create a JSON Schema validation rule that enforces: required fields, string pattern constraints for email, minimum and maximum values for numeric fields, and enum values for status fields.\n\nThe solution should implement document validation to maintain data quality.",
+    "schema-img": "url",
+    "testcases": [
+      {
+        "input": "sample input",
+        "output": "sample output"
+      }
+    ]
+  }
+]
