@@ -16,9 +16,11 @@ function UseComListMutations(username, setMode, setNewComName) {
 
   async function joinCommunity({ newComName }) {
     let comInfo = await api.get(`/community/getInfo/${newComName}`);
+    console.log("Here is com info");
+    console.log(comInfo);
 
     const res = await api.post(`/user/edit/join-community`, {
-      communityId: comInfo.id
+      communityId: comInfo.data.id
     });
 
     return axiosResToToast(res);
