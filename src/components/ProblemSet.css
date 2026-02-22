@@ -6,7 +6,6 @@
   padding:var(--dimension-xs);
   container-type:inline-size;
 }
-
 .problemset-list{
   display : flex;
   flex-direction : column;
@@ -290,9 +289,13 @@
   border:none !important;
   text-align:center;
   font-weight:300;
+  width:90%;
+  max-width:700px;
   font-family:"Space Grotesk";
   border-bottom:1px solid var(--monochrome-color-sw) !important;
   padding-bottom:0 !important;
+  margin:auto !important;
+  margin-top:var(--dimension-xl) !important;
   margin-bottom:5px !important;
 }
 .problemset{
