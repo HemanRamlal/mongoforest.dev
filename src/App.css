@@ -4,12 +4,12 @@
 
 .MuiLinearProgress-bar1,
 .MuiLinearProgress-indeterminate {
-  background-color: var(--primary-color-sw) !important;
+  background-color: var(--primary-color-fill) !important;
 }
 
 .MuiLinearProgress-bar2,
 .MuiLinearProgress-buffer {
-  background-color: var(--primary-color-ss) !important;
+  background-color: var(--primary-color-sw) !important;
 }
 
 .centering-wrapper {
