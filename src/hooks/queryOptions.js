@@ -92,18 +92,13 @@ async function getSubmissions() {
 
 async function getProblemset() {
   const res = await api.get("/problem/all");
-  console.log("getting problemset and ")
-  console.log(res.data);
   return res.data.map(problem => {
     return {
       ...problem,
       id: problem.pid.toString(),
       accuracy: (+problem.ac_rate * 100).toFixed(2),
     };
-  })
-
-  return res.data;
-
+  });
 }
 
 async function getLastUnsolved() {
@@ -137,9 +132,8 @@ export function lastUnsolvedQueryOptions({ username, augment = {} } = {}) {
 
 export function problemsetQueryOptions({ augment = {} } = {}) {
   return queryOptions({
-    queryKey: ['problemset'],
+    queryKey: ["problemset"],
     queryFn: () => getProblemset(),
-    staleTime: 'static',
-    ...augment
-  })
+    ...augment,
+  });
 }

@@ -14,10 +14,10 @@ const fixedHeightEditor = EditorView.theme({
 const noUglyFocusOutlines = EditorView.theme({
   "&.cm-editor": {
     outline: "none",
-    border: "1px solid #dadada"
+    border: "1px solid #dadada",
   },
-  ".cm-content": { outline: "none" }
-})
+  ".cm-content": { outline: "none" },
+});
 
 export function ReadOnlyEditor({ content, onChange }) {
   return (
@@ -44,12 +44,7 @@ export function FullEditor({ content, onChange }) {
       value={content}
       basicSetup={true}
       theme={vscodeLight}
-      extensions={[
-        lineNumbers(),
-        javascript(),
-        fixedHeightEditor,
-        noUglyFocusOutlines
-      ]}
+      extensions={[lineNumbers(), javascript(), fixedHeightEditor, noUglyFocusOutlines]}
       onChange={onChange}
     />
   );

@@ -6,10 +6,12 @@
   padding: var(--dimension-xs);
   container-type: inline-size;
 }
+
 .problemset-list {
   display: flex;
   flex-direction: column;
 }
+
 .problemitem {
   font: var(--font-sm) "Poppins";
   display: grid;
@@ -17,41 +19,51 @@
   vertical-align: baseline;
   padding: var(--dimension-xxs) var(--dimension-md);
 }
+
 .problemitem:nth-child(even) {
   background-color: var(--primary-color-fill);
 }
+
 .problemitem:nth-child(odd) {
   background-color: color-mix(in srgb, var(--primary-color-fill) 60%, #ffffff 100%);
 }
+
 .problemitem:last-child {
   padding-bottom: var(--dimension-xs);
 }
+
 .problemitem > * {
   padding: 5px;
   color: #393939;
 }
+
 .problemitem-id {
   text-align: right;
 }
+
 .problemitem-title {
   text-overflow: ellipsis;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .problemitem-title,
 .problemitem-title > a {
   color: black;
   text-decoration: none;
   font-weight: 500;
 }
+
 .problemitem-title:hover,
 .problemitem-title > a:hover {
   font-weight: 600;
 }
+
 .problemitem-title:active,
 .problemitem-title > a:active {
   font-weight: 500;
 }
+
 .problemitem-difficulty {
   text-align: center;
 }
@@ -64,12 +76,14 @@
   background-color: var(--primary-color-fill);
   border-bottom: 1px solid var(--primary-color-sw);
 }
+
 .problemset-search,
 .problemset-left,
 .problemset-right {
   display: flex;
   align-items: center;
 }
+
 .problemset-search > * {
   background-color: var(--primary-color-anti-brand);
   border: none;
@@ -78,12 +92,15 @@
   padding: var(--dimension-xxs);
   border-bottom: 1px solid var(--primary-color-sw);
 }
+
 .problemset-search input::placeholder {
   color: #bbb;
 }
+
 .problemset-search .problemset-search-icon {
   margin-right: 3px;
 }
+
 .problemset-control-btn {
   display: flex;
   justify-content: center;
@@ -95,9 +112,11 @@
   background-color: var(--primary-color-anti-brand);
   border: 1px solid var(--primary-color-sw);
 }
+
 .problemset-control-btn:hover {
   background-color: var(--primary-color-sw);
 }
+
 .problemset-control-btn:active {
   background-color: var(--primary-color-fill);
 }
@@ -110,15 +129,18 @@
   padding: var(--dimension-xs) var(--dimension-md);
   user-select: none;
 }
+
 .problemset-pagination,
 .pagination-controls {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .problemset-pagination > * {
   margin: 3px;
 }
+
 .problemset-pagination input {
   font: var(--font-xs) "monospace";
   display: inline-block;
@@ -128,6 +150,7 @@
   border: 1px solid var(--primary-color-sw);
   outline: none;
 }
+
 .pagination-controls > * {
   padding: 3px;
   transition-duration: 0.3s;
@@ -138,14 +161,17 @@
   cursor: pointer;
   transform: scale(1.2);
 }
+
 .pagination-controls > svg:active {
   transform: scale(0.9);
 }
+
 .pagination-controls input {
   position: relative;
   top: 0.5px;
   width: var(--dimension-sm);
 }
+
 .pagination-size input {
   width: var(--dimension-md);
 }
@@ -153,6 +179,7 @@
 .problemset-menu {
   position: relative;
 }
+
 .menu-items {
   font: var(--font-sm) "Poppins";
   position: absolute;
@@ -166,6 +193,7 @@
   box-shadow: var(--shadow-raised);
   border: 1px solid var(--primary-color-fill);
 }
+
 .menu-item {
   margin: 0;
   padding: var(--dimension-xs);
@@ -176,15 +204,19 @@
   grid-gap: 10px;
   color: var(--monochrome-color-ts);
 }
+
 .menu-item:last-child {
   border: none;
 }
+
 .menu-item:hover {
   background: var(--monochrome-color-sw);
 }
+
 .menu-item:active {
   background: var(--monochrome-color-anti-brand);
 }
+
 .menu-item svg {
   color: var(--secondary-color-tw);
   text-align: center;
@@ -193,6 +225,7 @@
 .dnone {
   display: none;
 }
+
 .dblock {
   display: block;
 }
@@ -200,6 +233,7 @@
 .flat-radio {
   display: flex;
 }
+
 .flat-radio-item {
   display: flex;
   flex-direction: column;
@@ -214,21 +248,27 @@
   border-radius: 5px;
   transition-duration: 0.3s;
 }
+
 .flat-radio-item:hover {
   background-color: var(--monochrome-color-fill);
 }
+
 .flat-radio-item:hover svg {
 }
+
 .flat-radio-item:hover .tag {
 }
+
 .flat-radio-item svg {
   margin: 0 auto;
   padding: 3px;
 }
+
 .flat-radio-item .tag {
   font: var(--font-xxs) "Poppins";
   color: var(--monochrome-color-tw);
 }
+
 .filter-menu > .menu-item:hover {
   background-color: var(--monochrome-color-anti-brand);
 }
@@ -236,22 +276,28 @@
 .menu-overlay {
   overflow: hidden;
 }
+
 .flat-radio-item-active {
   background-color: var(--primary-color-ss);
   color: var(--primary-color-anti-brand);
 }
+
 .flat-radio-item-active svg {
   color: var(--primary-color-fill);
 }
+
 .flat-radio-item-active .tag {
   color: var(--primary-color-fill);
 }
+
 .flat-radio-item-active:hover {
   background-color: var(--primary-color-tw);
 }
+
 .flat-radio-item-active:hover svg {
   color: var(--primary-color-fill);
 }
+
 .flat-radio-item-active:hover .tag {
   color: var(--primary-color-fill);
 }
@@ -278,6 +324,7 @@
 #rangeslider {
   flex-grow: 1;
 }
+
 .accuracy-min,
 .accuracy-max {
   width: 25px;
@@ -285,6 +332,7 @@
   font: var(--font-md) "Space Grotesk";
   padding: 5px;
 }
+
 #rangeslider .range-slider__range,
 #rangeslider .range-slider__thumb {
   background: var(--primary-color-ss);
@@ -304,6 +352,7 @@
   margin-top: var(--dimension-xl) !important;
   margin-bottom: 5px !important;
 }
+
 .problemset {
   margin-top: 0 !important;
 }
@@ -314,6 +363,7 @@
     flex-direction: column;
   }
 }
+
 @media (width <=850px) {
   .filter-menu .menu-items {
     left: -350px;
@@ -324,6 +374,7 @@
   .problemset-right {
     display: none;
   }
+
   .sort-menu .menu-items {
     left: -112px;
   }
@@ -333,6 +384,7 @@
   .problemitem-title {
     grid-column: 3/-1;
   }
+
   .problemitem-badges {
     font-size: 0.8rem;
     font-family: monospace;
@@ -340,25 +392,30 @@
     justify-content: flex-end;
     color: #444;
   }
+
   .problemitem-badges > * {
     display: inline;
     padding: 5px;
   }
+
   .problemitem-title,
   .problemitem-title:hover,
   .problemitem-title:active {
     font-weight: 400;
   }
 }
-@media (width <= 490px) {
+
+@media (width <=490px) {
   .problemset-left {
     flex-wrap: wrap;
     justify-content: center;
   }
+
   .filter-menu .menu-items {
     left: -180px;
   }
 }
+
 @media (width <=450px) {
   .sort-menu .menu-items {
     left: -60px;

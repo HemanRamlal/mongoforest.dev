@@ -79,7 +79,7 @@
   grid-column: 1/-1;
 }
 
-.submissions .submission-item>* {
+.submissions .submission-item > * {
   padding: var(--dimension-xs);
   text-align: center;
 }
@@ -105,7 +105,7 @@
   justify-content: space-between;
 }
 
-.read-tabs>* {
+.read-tabs > * {
   font: var(--font-sm) "Poppins";
   flex-grow: 1;
   text-align: center;
@@ -116,7 +116,7 @@
   color: var(--monochrome-color-ts);
 }
 
-.read-tabs>*:last-child {
+.read-tabs > *:last-child {
   border-right: 1px solid var(--monochrome-color-sw);
 }
 
@@ -208,7 +208,7 @@
   align-items: center;
 }
 
-.output-stats>* {
+.output-stats > * {
   margin: var(--dimension-xs);
 }
 
@@ -288,7 +288,7 @@
     height: 800px;
   }
 
-  .problem-view>* {
+  .problem-view > * {
     width: 80%;
   }
 

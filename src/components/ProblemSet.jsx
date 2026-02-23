@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router";
-import { pushToast } from "./Toasts/Toasts";
 import { motion } from "motion/react";
-import slugify from "../utils/slugify";
-import api from "../api/axios";
 import "./ProblemSet.css";
+import ProblemSetFallback from "./fallbacks/ProblemSetFallback";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCheck,
@@ -25,11 +23,9 @@ import {
   faArrowTrendUp,
   faArrowTrendDown,
 } from "@fortawesome/free-solid-svg-icons";
-import problems from "../mockdata/problems.json";
 import Button from "./Button";
 import RangeSlider from "react-range-slider-input";
 import "react-range-slider-input/dist/style.css";
-import { faBorderNone } from "@fortawesome/free-solid-svg-icons";
 import { screenWidthAtom } from "../atoms/screenWidth";
 import { problemsetQueryOptions } from "../hooks/queryOptions";
 import { useQuery } from "@tanstack/react-query";
@@ -130,11 +126,16 @@ export default function ProblemSet() {
     title: "",
   });
 
-
   const problemsetQuery = useQuery(problemsetQueryOptions());
   const problems = problemsetQuery.data;
 
-  if (!problems || problems.length == 0) return <>Loading</>
+  if (!problems || problems.length == 0)
+    return (
+      <>
+        <h1 class="problemset-greeter">Problemset</h1>
+        <ProblemSetFallback />
+      </>
+    );
 
   if (offset % limit != 0) {
     setOffset(Math.floor(offset / limit) * limit);
@@ -351,17 +352,17 @@ function SortMenu({ openMenu, setOpenMenu, sort, toggleSort, className }) {
         animate={
           openMenu == "sort"
             ? {
-              height: "auto",
-              boxShadow: "var(--shadow-elevated)",
-              border: "1px solid var(--primary-color-fill)",
-            }
+                height: "auto",
+                boxShadow: "var(--shadow-elevated)",
+                border: "1px solid var(--primary-color-fill)",
+              }
             : {
-              height: 0,
-              margin: 0,
-              padding: 0,
-              border: "none",
-              boxShadow: "none",
-            }
+                height: 0,
+                margin: 0,
+                padding: 0,
+                border: "none",
+                boxShadow: "none",
+              }
         }
         transition={{
           duration: 0.2,
@@ -457,18 +458,18 @@ function FilterMenu({ openMenu, setOpenMenu, filter, setFilter }) {
           animate={
             openMenu == "filter"
               ? {
-                height: "auto",
-                padding: "0px",
-                boxShadow: "var(--shadow-elevated)",
-                border: "1px solid var(--primary-color-fill)",
-              }
+                  height: "auto",
+                  padding: "0px",
+                  boxShadow: "var(--shadow-elevated)",
+                  border: "1px solid var(--primary-color-fill)",
+                }
               : {
-                height: 0,
-                padding: 0,
-                margin: 0,
-                border: "none",
-                boxShadow: "none",
-              }
+                  height: 0,
+                  padding: 0,
+                  margin: 0,
+                  border: "none",
+                  boxShadow: "none",
+                }
           }
           transition={{
             duration: 0.2,

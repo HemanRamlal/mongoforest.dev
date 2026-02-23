@@ -1,0 +1,7 @@
+.problemitem-skeleton:nth-child(even) {
+  background-color: var(--primary-color-anti-brand);
+}
+
+.problemitem-skeleton:nth-child(odd) {
+  background-color: var(--primary-color-fill);
+}
