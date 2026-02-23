@@ -11,6 +11,14 @@ const fixedHeightEditor = EditorView.theme({
   ".cm-scroller": { overflow: "auto" },
 });
 
+const noUglyFocusOutlines = EditorView.theme({
+  "&.cm-editor": {
+    outline: "none",
+    border: "1px solid #dadada"
+  },
+  ".cm-content": { outline: "none" }
+})
+
 export function ReadOnlyEditor({ content, onChange }) {
   return (
     <CodeMirror
@@ -22,6 +30,7 @@ export function ReadOnlyEditor({ content, onChange }) {
         javascript(),
         EditorState.readOnly.of(true),
         fixedHeightEditor,
+        noUglyFocusOutlines,
         EditorView.editable.of(false),
       ]}
       onChange={onChange}
@@ -35,7 +44,12 @@ export function FullEditor({ content, onChange }) {
       value={content}
       basicSetup={true}
       theme={vscodeLight}
-      extensions={[lineNumbers(), javascript(), fixedHeightEditor]}
+      extensions={[
+        lineNumbers(),
+        javascript(),
+        fixedHeightEditor,
+        noUglyFocusOutlines
+      ]}
       onChange={onChange}
     />
   );
