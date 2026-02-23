@@ -12,7 +12,7 @@ import { getAvatarURL } from "../utils/blobUtils";
 import { getUserAtom, refreshUserAtom } from '../atoms/user';
 import { useAtomValue, useSetAtom } from 'jotai';
 import { useState, useEffect } from 'react';
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 export default function Navbar() {
   const user = useAtomValue(getUserAtom);
   const [userMenu, setUserMenu] = useState(false);
@@ -21,6 +21,8 @@ export default function Navbar() {
   const [avatarURL, setAvatarURL] = useState('https://cdn-icons-png.flaticon.com/512/739/739249.png');
   const navigate = useNavigate();
   const refreshUser = useSetAtom(refreshUserAtom);
+  const location = useLocation();
+  const currentView = location.pathname.split('/').slice(1).join('/');
   
   function toggleUserMenu(){
     setUserMenu(oldVal => !oldVal);
@@ -73,10 +75,10 @@ export default function Navbar() {
             transition={{ duration: 0.2 }}
             style={isMobile ? { overflow: "hidden" } : {}}
           >
-        <NavLink to="/practice" className="nav-link" text="ProblemSet">
+        <NavLink key="practice" to="/practice" className={`nav-link ${currentView=='practice' ? 'active' : ''}`} text="ProblemSet">
           <FontAwesomeIcon icon={faDatabase} />
         </NavLink>
-        <NavLink to="/leaderboard/global" className="nav-link" text="Global Leaderboard">
+        <NavLink key="leaderboard" to="/leaderboard/global" className={`nav-link ${currentView=='leaderboard/global' ? 'active' : ''}`} text="Global Leaderboard">
           <FontAwesomeIcon icon={faRankingStar} />
         </NavLink>
         {/*        <NavLink to="/announcements" className="nav-link" text="Announcements">

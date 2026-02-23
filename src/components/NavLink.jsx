@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import "./NavLink.css";
 import { redirect } from "react-router";
 export default function NavLink({ to, className, children, text, onClick }) {
+  const isActive = className?.includes('active');
   if(!to){
     return <motion.span onClick={onClick}
       className={`nav-link ${className}`}
@@ -21,6 +22,9 @@ export default function NavLink({ to, className, children, text, onClick }) {
   return <Link to={to}>
     <motion.span onClick={onClick}
       className={`nav-link ${className}`}
+      animate={{
+        scale : isActive ? 1.05 : 1
+      }}
       whileHover={{
         scale: 1.05
       }}

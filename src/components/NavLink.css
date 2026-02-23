@@ -43,3 +43,7 @@
 .nav-link:hover .text::after{
   transform:scaleX(1);
 }
+
+.nav-link.active .text::after{
+  transform:scaleX(1);
+}
