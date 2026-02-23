@@ -31,6 +31,8 @@ import RangeSlider from "react-range-slider-input";
 import "react-range-slider-input/dist/style.css";
 import { faBorderNone } from "@fortawesome/free-solid-svg-icons";
 import { screenWidthAtom } from "../atoms/screenWidth";
+import { problemsetQueryOptions } from "../hooks/queryOptions";
+import { useQuery } from "@tanstack/react-query";
 import { useAtomValue } from "jotai";
 import useScreenWidth from "../hooks/useScreenWidth";
 
@@ -100,39 +102,9 @@ export default function ProblemSet() {
   const [offset, setOffset] = useState(0);
   const [limit, setLimit] = useState(25);
   const [pattern, setPattern] = useState("");
-  const [problems, setProblems] = useState([]);
   const [openMenu, setOpenMenu] = useState("none");
   const navigate = useNavigate();
-  useEffect(() => {
-    (async function () {
-      try {
-        const res = await api.get("/problem/all");
-        setProblems(
-          res.data.map(problem => {
-            return {
-              id: problem.pid.toString(),
-              difficulty: problem.difficulty,
-              title: problem.title,
-              slug: problem.slug,
-              accuracy: (+problem.ac_rate * 100).toFixed(2),
-              is_premium: problem.is_premium,
-              status: problem.status,
-              tags: problem.tags,
-            };
-          })
-        );
-        return true;
-      } catch (error) {
-        if (error.response) {
-          pushToast({
-            code: error.response.status,
-            ...error.response.data,
-          });
-        }
-        return false;
-      }
-    })();
-  }, []);
+
   const [sort, setSort] = useState({
     id: "asc",
     title: "nosort",
@@ -158,7 +130,11 @@ export default function ProblemSet() {
     title: "",
   });
 
-  console.log(sort);
+
+  const problemsetQuery = useQuery(problemsetQueryOptions());
+  const problems = problemsetQuery.data;
+
+  if (!problems || problems.length == 0) return <>Loading</>
 
   if (offset % limit != 0) {
     setOffset(Math.floor(offset / limit) * limit);
@@ -375,17 +351,17 @@ function SortMenu({ openMenu, setOpenMenu, sort, toggleSort, className }) {
         animate={
           openMenu == "sort"
             ? {
-                height: "auto",
-                boxShadow: "var(--shadow-elevated)",
-                border: "1px solid var(--primary-color-fill)",
-              }
+              height: "auto",
+              boxShadow: "var(--shadow-elevated)",
+              border: "1px solid var(--primary-color-fill)",
+            }
             : {
-                height: 0,
-                margin: 0,
-                padding: 0,
-                border: "none",
-                boxShadow: "none",
-              }
+              height: 0,
+              margin: 0,
+              padding: 0,
+              border: "none",
+              boxShadow: "none",
+            }
         }
         transition={{
           duration: 0.2,
@@ -481,18 +457,18 @@ function FilterMenu({ openMenu, setOpenMenu, filter, setFilter }) {
           animate={
             openMenu == "filter"
               ? {
-                  height: "auto",
-                  padding: "0px",
-                  boxShadow: "var(--shadow-elevated)",
-                  border: "1px solid var(--primary-color-fill)",
-                }
+                height: "auto",
+                padding: "0px",
+                boxShadow: "var(--shadow-elevated)",
+                border: "1px solid var(--primary-color-fill)",
+              }
               : {
-                  height: 0,
-                  padding: 0,
-                  margin: 0,
-                  border: "none",
-                  boxShadow: "none",
-                }
+                height: 0,
+                padding: 0,
+                margin: 0,
+                border: "none",
+                boxShadow: "none",
+              }
           }
           transition={{
             duration: 0.2,

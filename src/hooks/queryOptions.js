@@ -2,11 +2,6 @@ import { queryOptions } from "@tanstack/react-query";
 import { getAvatarURL } from "../utils/blobUtils.js";
 import api from "../api/axios";
 
-async function fetchWithToasts(url, pushToast) {
-  const res = await api.get(url);
-  return res.data;
-}
-
 async function fetchUserStats(username, pushToast) {
   const defaultAvatarURL = "";
   const defaultSolvedStats = {
@@ -21,7 +16,7 @@ async function fetchUserStats(username, pushToast) {
   const defaultGlobalPercentile = 69;
   const defaultFirstName = "";
   const defaultLastName = "";
-  const user = await fetchWithToasts(`/user/public/${username}/info`, pushToast);
+  const user = (await api.get(`/user/public/${username}/info`, pushToast)).data;
 
   if (!user)
     return {
@@ -33,13 +28,10 @@ async function fetchUserStats(username, pushToast) {
       lastName: defaultLastName,
     };
 
-  const solvedStats = await fetchWithToasts(`/user/public/${user.id}/info/solved-stats`, pushToast);
-  const globalRank = (
-    await fetchWithToasts(`/user/public/${user.id}/info/community/rank/1`, pushToast)
-  ).rank;
+  const solvedStats = (await api.get(`/user/public/${user.id}/info/solved-stats`)).data;
+  const globalRank = (await api.get(`/user/public/${user.id}/info/community/rank/1`)).data.rank;
   const globalPercentile = Number(
-    (await fetchWithToasts(`/user/public/${user.id}/info/community/percentile/1`, pushToast))
-      .percentile
+    (await api.get(`/user/public/${user.id}/info/community/percentile/1`)).data.percentile
   ).toFixed(2);
   let avatarURL;
   try {
@@ -58,7 +50,7 @@ async function fetchUserStats(username, pushToast) {
   };
 }
 
-export function userStatsQueryOptions({ username, pushToast, augment }) {
+export function userStatsQueryOptions({ username, pushToast, augment = {} } = {}) {
   return queryOptions({
     queryKey: ["user-stats", { username }],
     queryFn: () => fetchUserStats(username, pushToast),
@@ -75,7 +67,7 @@ async function getCommunityInfo(communityName) {
   return data;
 }
 
-export function communityInfoQueryOptions({ communityName, augment }) {
+export function communityInfoQueryOptions({ communityName, augment = {} } = {}) {
   return queryOptions({
     queryKey: ["community-info", { communityName }],
     queryFn: () => getCommunityInfo(communityName),
@@ -98,12 +90,28 @@ async function getSubmissions() {
   return res.data;
 }
 
+async function getProblemset() {
+  const res = await api.get("/problem/all");
+  console.log("getting problemset and ")
+  console.log(res.data);
+  return res.data.map(problem => {
+    return {
+      ...problem,
+      id: problem.pid.toString(),
+      accuracy: (+problem.ac_rate * 100).toFixed(2),
+    };
+  })
+
+  return res.data;
+
+}
+
 async function getLastUnsolved() {
   const res = await api.get("/user/info/unsolved-problems");
   return res.data.slice(0, 5);
 }
 
-export function leaderboardQueryOptions({ communityId, offset, limit, augment }) {
+export function leaderboardQueryOptions({ communityId, offset, limit, augment = {} } = {}) {
   return queryOptions({
     queryKey: ["leaderboard", { communityId, offset, limit }],
     queryFn: () => getCommunityLeaderboard(communityId, offset, limit),
@@ -111,18 +119,27 @@ export function leaderboardQueryOptions({ communityId, offset, limit, augment })
   });
 }
 
-export function submissionsQueryOptions({ username, augment }) {
+export function submissionsQueryOptions({ username, augment = {} } = {}) {
   return queryOptions({
     queryKey: ["submissions", username],
     queryFn: () => getSubmissions(),
-    augment,
+    ...augment,
   });
 }
 
-export function lastUnsolvedQueryOptions({ username, augment }) {
+export function lastUnsolvedQueryOptions({ username, augment = {} } = {}) {
   return queryOptions({
     queryKey: ["last-unsolved", username],
     queryFn: () => getLastUnsolved(),
-    augment,
+    ...augment,
   });
+}
+
+export function problemsetQueryOptions({ augment = {} } = {}) {
+  return queryOptions({
+    queryKey: ['problemset'],
+    queryFn: () => getProblemset(),
+    staleTime: 'static',
+    ...augment
+  })
 }
