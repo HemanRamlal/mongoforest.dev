@@ -24,7 +24,7 @@
   display: flex;
 }
 .header .user-avatar {
-  width: 75px;
+  width: 80px;
   height: auto;
   border-radius: 10px;
 }
@@ -34,7 +34,7 @@
   flex-direction: column;
 }
 .header .basic-info > * {
-  padding: 0px;
+  padding: 3px;
 }
 .header .basic-info .full-name {
   font: var(--font-lg) "Space Grotesk";
@@ -59,9 +59,16 @@
   margin: var(--dimension-xs);
 }
 
+.problem-stats .solved {
+  font: var(--font-xl) "Space Grotesk";
+}
+
+.problem-stats .total {
+  font: var(--font-lg) "Space Grotesk";
+  color: var(--monochrome-color-tw);
+}
 .problem-stats .solved,
 .problem-stats .total {
-  font: var(--font-md) "Space Grotesk";
   padding: 0px;
   margin: 0px;
 }
@@ -76,6 +83,71 @@
 .problem-stats .label {
   font: var(--font-xxs) "Poppins";
   color: var(--monochrome-color-tw);
+  align-self: flex-start;
+  padding: 0;
+  padding-top: var(--dimension-xs);
+}
+
+.problem-stats .plate {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+.problem-stats .plate > * {
+  padding: var(--dimension-xxs) 0;
+}
+.problem-stat-wrap {
+  display: flex;
+  margin: var(--dimension-xs);
+  background-color: rgba(220, 220, 220, 0.1);
+  padding: var(--dimension-xs) 0;
+}
+.problem-stat-wrap > * {
+  padding-bottom: 0;
+}
+.problem-stat-visualize {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.problem-stat-visualize .label {
+  padding-left: 0px;
+  position: relative;
+  left: -5px;
+}
+.vert-bar {
+  height: 100%;
+  background: var(--monochrome-color-fill);
+  width: 5px;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column-reverse;
+  flex-grow: 1;
+}
+.vert-bar .fill {
+  width: 100%;
+  background: black;
+  padding: 0;
+  margin: 0;
+}
+.easy-bar {
+  background-color: rgba(000, 200, 000, 0.2);
+}
+.easy-bar .fill {
+  background-color: rgba(000, 200, 000, 1);
+}
+.medium-bar {
+  background-color: rgba(200, 150, 70, 0.2);
+}
+.medium-bar .fill {
+  background-color: rgba(255, 200, 100, 1);
+}
+.hard-bar {
+  background-color: rgba(200, 50, 50, 0.2);
+}
+.hard-bar .fill {
+  background-color: rgba(200, 50, 50, 1);
 }
 
 .banner {

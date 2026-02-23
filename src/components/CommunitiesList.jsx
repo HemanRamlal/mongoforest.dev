@@ -154,6 +154,15 @@ function CommunitiesListView({ username }) {
       </div>
       <div className="centering-wrapper">
         <Pagination
+          sx={{
+            "& .MuiPaginationItem-text": {
+              fontSize: {
+                xs: "12px",
+              },
+              paddingTop: 0,
+              paddingBottom: 0,
+            },
+          }}
           count={Math.ceil(communities.length / limit)}
           page={page}
           onChange={(e, newPage) => {

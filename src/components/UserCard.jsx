@@ -16,7 +16,11 @@ function getTier(percentile) {
   if (percentile >= 20) return "Beginner";
   return "Newbie";
 }
+function getPercentage(n, d) {
+  if (d == 0) return 0;
 
+  return ((n / d) * 100).toFixed(1);
+}
 export default function UserCard({ username }) {
   const { data, error, isPending, isError, isFetching } = useQuery(
     userStatsQueryOptions({
@@ -37,6 +41,19 @@ export default function UserCard({ username }) {
   console.log(globalRank);
   console.log(globalPercentile);
 
+  function Fill({ completed, total }) {
+    const fill = Math.round(Math.max(getPercentage(completed, total), 2));
+    console.log("we got fill of");
+    console.log(fill);
+    return (
+      <div
+        className="fill"
+        style={{
+          height: fill + "%",
+        }}
+      ></div>
+    );
+  }
   return (
     <div className="user-card">
       {!isPending && isFetching && <LinearProgress />}
@@ -62,20 +79,47 @@ export default function UserCard({ username }) {
         </div>
       </div>
       <div className="problem-stats">
-        <div className="easy">
-          <div className="solved">{solvedStats.easy_solved}</div>
-          <div className="total">{solvedStats.easy_total}</div>
-          <div className="label">Easy</div>
+        <div className="problem-stat-wrap">
+          <div className="easy plate">
+            <div className="solved">{solvedStats.easy_solved}</div>
+            <div className="total">{solvedStats.easy_total}</div>
+            <div className="label">
+              Easy {`(${getPercentage(solvedStats.easy_solved, solvedStats.easy_total)}%)`}
+            </div>
+          </div>
+          <div className="problem-stat-visualize">
+            <div className="vert-bar easy-bar">
+              <Fill completed={solvedStats.easy_solved} total={solvedStats.easy_total}></Fill>
+            </div>
+          </div>
         </div>
-        <div className="medium">
-          <div className="solved">{solvedStats.medium_solved}</div>
-          <div className="total">{solvedStats.medium_total}</div>
-          <div className="label">Med.</div>
+        <div className="problem-stat-wrap">
+          <div className="medium plate">
+            <div className="solved">{solvedStats.medium_solved}</div>
+            <div className="total">{solvedStats.medium_total}</div>
+            <div className="label">
+              Med. {`(${getPercentage(solvedStats.medium_solved, solvedStats.medium_total)}%)`}
+            </div>
+          </div>
+          <div className="problem-stat-visualize">
+            <div className="vert-bar medium-bar">
+              <Fill completed={solvedStats.medium_solved} total={solvedStats.medium_total}></Fill>
+            </div>
+          </div>
         </div>
-        <div className="hard">
-          <div className="solved">{solvedStats.hard_solved}</div>
-          <div className="total">{solvedStats.hard_total}</div>
-          <div className="label">Hard</div>
+        <div className="problem-stat-wrap">
+          <div className="hard plate">
+            <div className="solved">{solvedStats.hard_solved}</div>
+            <div className="total">{solvedStats.hard_total}</div>
+            <div className="label">
+              Hard {`(${getPercentage(solvedStats.hard_solved, solvedStats.hard_total)}%)`}
+            </div>
+          </div>
+          <div className="problem-stat-visualize">
+            <div className="vert-bar hard-bar">
+              <Fill completed={solvedStats.hard_solved} total={solvedStats.hard_total}></Fill>
+            </div>
+          </div>
         </div>
       </div>
     </div>

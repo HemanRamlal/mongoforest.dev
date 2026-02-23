@@ -68,6 +68,12 @@
   justify-content: flex-start;
   align-items: center;
 }
+.community-item:first-child {
+  margin-top: 0;
+}
+.community-item:last-child {
+  margin-bottom: 0;
+}
 
 .community-name {
   margin-left: var(--dimension-xs);
