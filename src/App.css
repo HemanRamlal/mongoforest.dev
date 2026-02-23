@@ -1,9 +1,26 @@
+.MuiLinearProgress-root {
+  height: 2px !important;
+}
+
+.MuiLinearProgress-bar1,
+.MuiLinearProgress-indeterminate {
+  background-color: var(--primary-color-sw) !important;
+}
+
+.MuiLinearProgress-bar2,
+.MuiLinearProgress-buffer {
+  background-color: var(--primary-color-ss) !important;
+}
+
+
 .d-none {
   display: none !important;
 }
+
 .refresh-btn-parent {
   position: relative;
 }
+
 .refresh-btn {
   position: absolute;
   top: 0px;
@@ -16,11 +33,13 @@
   color: var(--monochrome-color-ss);
   background: rgba(0, 0, 0, 0);
 }
+
 .refresh-btn:hover {
   color: black;
   transform: scale(1.02);
   transition-duration: 200ms;
 }
+
 .refresh-btn:active {
   transform: scale(0.97);
   transition-duration: 200ms;
