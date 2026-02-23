@@ -12,6 +12,12 @@
   background-color: var(--primary-color-ss) !important;
 }
 
+.centering-wrapper {
+  display: block;
+  margin: auto;
+  width: fit-content;
+}
+
 .d-none {
   display: none !important;
 }

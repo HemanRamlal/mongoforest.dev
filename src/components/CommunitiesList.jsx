@@ -3,7 +3,7 @@ import { getAvatarURL } from "../utils/blobUtils";
 import { getUserAtom } from "../atoms/user";
 import { useAtomValue } from "jotai";
 import { motion } from "motion/react";
-import { useState, useEffect, use, useMemo } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -14,8 +14,9 @@ import {
 import { pushToast } from "./Toasts/Toasts";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import CommunitiesListFallback from "./fallbacks/CommunitiesListFallback";
-import { axiosErrToToast, axiosResToToast } from "../hooks/toastObjects";
+import { axiosResToToast } from "../hooks/toastObjects";
 import LinearProgress from "@mui/material/LinearProgress";
+import Pagination from "@mui/material/Pagination";
 import api from "../api/axios";
 
 function UseComListMutations(username, setMode, setNewComName) {
@@ -57,19 +58,6 @@ function UseComListMutations(username, setMode, setNewComName) {
   });
 
   return { joinCommunityMutation, createCommunityMutation };
-}
-
-async function fetchWithToasts(url, reqBody, pushToast) {
-  const data = await res.json();
-  if (!res.ok) {
-    pushToast({
-      code: res.status,
-      ...data,
-    });
-    console.log(data.e);
-    return false;
-  }
-  return data;
 }
 
 function LeaderboardItem({ community }) {
@@ -139,27 +127,55 @@ async function getCommunities(username) {
   return newCommunities;
 }
 
+function CommunitiesListView({ username }) {
+  const [page, setPage] = useState(1);
+  const limit = 3;
+  const { data, error, isPending, isFetching, isError } = useQuery({
+    queryKey: ["com-list", username],
+    queryFn: () => getCommunities(username),
+  });
+
+  const communities = data;
+  if (isPending) {
+    return <CommunitiesListFallback />;
+  }
+
+  return (
+    <>
+      {!isPending && isFetching && (
+        <div>
+          <LinearProgress sx={{ width: "100%" }} />
+        </div>
+      )}
+      <div className="community-list">
+        {communities.slice((page - 1) * limit, page * limit).map(community => (
+          <LeaderboardItem key={community.id} community={community} user />
+        ))}
+      </div>
+      <div className="centering-wrapper">
+        <Pagination
+          count={Math.ceil(communities.length / limit)}
+          page={page}
+          onChange={(e, newPage) => {
+            setPage(newPage);
+          }}
+        />
+      </div>
+    </>
+  );
+}
 export default function CommunitiesList({ username }) {
   const [mode, setMode] = useState("view"); //enum(view, join, create);
   const [newComName, setNewComName] = useState("");
   const user = useAtomValue(getUserAtom);
 
   const selfView = user?.username == username;
-  const { data, error, isPending, isFetching, isError } = useQuery({
-    queryKey: ["com-list", username],
-    queryFn: () => getCommunities(username),
-  });
-  const communities = data;
 
   const { joinCommunityMutation, createCommunityMutation } = UseComListMutations(
     username,
     setMode,
     setNewComName
   );
-
-  if (isPending) {
-    return <CommunitiesListFallback />;
-  }
 
   return (
     <>
@@ -192,18 +208,7 @@ export default function CommunitiesList({ username }) {
             </div>
           )}
         </div>
-        {!isPending && isFetching && (
-          <div>
-            <LinearProgress sx={{ width: "100%" }} />
-          </div>
-        )}
-        {(!selfView || mode == "view") && (
-          <div className="community-list">
-            {communities.map(community => (
-              <LeaderboardItem key={community.id} community={community} user />
-            ))}
-          </div>
-        )}
+        {(!selfView || mode == "view") && <CommunitiesListView username={username} />}
         {selfView && mode == "join" && (
           <div className="join-community-panel">
             <div className="com-input-box">
