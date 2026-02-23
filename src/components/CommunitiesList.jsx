@@ -1,5 +1,7 @@
 import "./CommunitiesList.css";
 import { getAvatarURL } from "../utils/blobUtils";
+import { getUserAtom } from "../atoms/user";
+import { useAtomValue } from "jotai";
 import { motion } from "motion/react"
 import { useState, useEffect, use, useMemo } from 'react';
 import { useNavigate } from 'react-router';
@@ -26,13 +28,13 @@ function UseComListMutations(username, setMode, setNewComName) {
     return axiosResToToast(res);
   }
 
-  async function createCommunity({ newComName }){
+  async function createCommunity({ newComName }) {
     const res = await api.post(`/community/create`, { communityName: newComName });
 
     return axiosResToToast(res);
   }
 
-  async function onSuccess(data, variables, onMutateResult, { client }){
+  async function onSuccess(data, variables, onMutateResult, { client }) {
     pushToast(data);
     setMode("view");
     setNewComName("");
@@ -41,17 +43,17 @@ function UseComListMutations(username, setMode, setNewComName) {
 
   const joinCommunityMutation = useMutation({
     mutationKey: ['com-list', username, 'join-community'],
-    mutationFn : joinCommunity,
-    onSuccess : onSuccess
+    mutationFn: joinCommunity,
+    onSuccess: onSuccess
   });
 
   const createCommunityMutation = useMutation({
-    mutationKey : ['com-list', username, 'create-community'],
-    mutationFn : createCommunity,
-    onSuccess : onSuccess
+    mutationKey: ['com-list', username, 'create-community'],
+    mutationFn: createCommunity,
+    onSuccess: onSuccess
   })
 
-  return {joinCommunityMutation, createCommunityMutation}
+  return { joinCommunityMutation, createCommunityMutation }
 }
 
 async function fetchWithToasts(url, reqBody, pushToast) {
@@ -137,14 +139,16 @@ async function getCommunities(username) {
 export default function CommunitiesList({ username }) {
   const [mode, setMode] = useState("view"); //enum(view, join, create);
   const [newComName, setNewComName] = useState('');
+  const user = useAtomValue(getUserAtom);
 
-  const { data, error, isPending, isFetching,  isError} = useQuery({
+  const selfView = user?.username == username;
+  const { data, error, isPending, isFetching, isError } = useQuery({
     queryKey: ['com-list', username],
     queryFn: () => getCommunities(username)
   })
   const communities = data;
 
-  const {joinCommunityMutation, createCommunityMutation} = UseComListMutations(username, setMode, setNewComName);
+  const { joinCommunityMutation, createCommunityMutation } = UseComListMutations(username, setMode, setNewComName);
 
   if (isPending) {
     return <CommunitiesListFallback />
@@ -157,30 +161,31 @@ export default function CommunitiesList({ username }) {
     <>
       <div className="community">
         <div className="heading">
-          <div className="heading-text">Your Communities</div>
-          <div className="heading-controls">
-            <div className={`view-communities ${mode == "view" ? 'control-active' : ''}`} onClick={() => setMode("view")} title="View my communities">
-              <FontAwesomeIcon icon={faSquarePollHorizontal} />
-            </div>
-            <div className={`join-community ${mode == "join" ? 'control-active' : ''}`} onClick={() => setMode("join")} title="Join a community">
-              <FontAwesomeIcon icon={faDoorOpen} />
-            </div>
-            <div className={`create-community ${mode == "create" ? 'control-active' : ''}`} onClick={() => setMode("create")} title="Create new community">
-              <FontAwesomeIcon icon={faCirclePlus} />
-            </div>
-          </div>
+          <div className="heading-text">{selfView ? "Your" : ""} Communities</div>
+          {selfView &&
+            <div className="heading-controls">
+              <div className={`view-communities ${mode == "view" ? 'control-active' : ''}`} onClick={() => setMode("view")} title="View my communities">
+                <FontAwesomeIcon icon={faSquarePollHorizontal} />
+              </div>
+              <div className={`join-community ${mode == "join" ? 'control-active' : ''}`} onClick={() => setMode("join")} title="Join a community">
+                <FontAwesomeIcon icon={faDoorOpen} />
+              </div>
+              <div className={`create-community ${mode == "create" ? 'control-active' : ''}`} onClick={() => setMode("create")} title="Create new community">
+                <FontAwesomeIcon icon={faCirclePlus} />
+              </div>
+            </div>}
         </div>
-        {!isPending && isFetching && <div><LinearProgress sx={{width:"100%"}}/></div>}
-        {mode == "view" && <div className="community-list">
+        {!isPending && isFetching && <div><LinearProgress sx={{ width: "100%" }} /></div>}
+        {(!selfView || mode == "view") && <div className="community-list">
           {communities.map(community =>
             <LeaderboardItem key={community.id} community={community} user />)}
         </div>}
-        {mode == "join" && <div className="join-community-panel">
+        {selfView && mode == "join" && <div className="join-community-panel">
           <div className="com-input-box">
             <input type="text" placeholder="Community Name" value={newComName} disabled={joinCommunityMutation.isPending} onChange={(e) => {
               setNewComName(e.target.value);
             }} />
-            <div className="com-join-btn" onClick={()=>joinCommunityMutation.mutate({newComName})}>
+            <div className="com-join-btn" onClick={() => joinCommunityMutation.mutate({ newComName })}>
               <FontAwesomeIcon icon={faDoorOpen} />
               {joinCommunityMutation.isPending ? "Joining" : "Join"}
             </div>
@@ -189,12 +194,12 @@ export default function CommunitiesList({ username }) {
             Currently you can only join communities if you already know their name, Community Explorer coming soon!
           </div>
         </div>}
-        {mode == "create" && <div className="create-community-panel">
+        {selfView && mode == "create" && <div className="create-community-panel">
           <div className="com-input-box">
             <input type="text" placeholder="New Community Name" value={newComName} disabled={createCommunityMutation.isPending} onChange={(e) => {
               setNewComName(e.target.value);
             }} />
-            <div className="com-create-btn" onClick={()=>createCommunityMutation.mutate({newComName})}>
+            <div className="com-create-btn" onClick={() => createCommunityMutation.mutate({ newComName })}>
               <FontAwesomeIcon icon={faCirclePlus} />
               {createCommunityMutation.isPending ? "Creating" : "Create"}
             </div>
