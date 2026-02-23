@@ -1,9 +1,9 @@
-export function setToLS(key, value){
+export function setToLS(key, value) {
   window.localStorage.setItem(key, JSON.stringify(value));
 }
-export function getFromLS(key){
+export function getFromLS(key) {
   const value = window.localStorage.getItem(key);
-  if(value){
+  if (value) {
     return JSON.parse(value);
   }
 }

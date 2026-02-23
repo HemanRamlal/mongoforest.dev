@@ -1,46 +1,46 @@
-*{
-  padding:1px;
-  margin:0;
+* {
+  padding: 1px;
+  margin: 0;
 }
-.problem-item{
-  display:flex;
-  align-items:center;
+.problem-item {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
 }
-.problem-item:nth-child(even){
-  background-color:var(--primary-color-ss);
+.problem-item:nth-child(even) {
+  background-color: var(--primary-color-ss);
 }
-.problem-item:nth-child(odd){
-  background-color:var(--primary-color-sw);
+.problem-item:nth-child(odd) {
+  background-color: var(--primary-color-sw);
 }
-.problem-item-status{
-  display:flex;
-  align-items:center;
+.problem-item-status {
+  display: flex;
+  align-items: center;
   justify-content: space-between;
 }
-.problem-item-id{
-  white-space : pre;
-  font-family : monospace;
+.problem-item-id {
+  white-space: pre;
+  font-family: monospace;
 }
-.problem-item-left{
-  display:flex;
-  align-items:center;
-}
-
-.problem-item-right{
-  display:flex;
-  align-items:center;
-  justify-content:flex-end;
+.problem-item-left {
+  display: flex;
+  align-items: center;
 }
 
-.problem-item-difficulty{
-  width:80px;
-  display:flex;
-  align-items:center;
+.problem-item-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
-.problem-item-difficulty-icon>img{
-  transform : scale(0.8);
-  display:flex;
-  align-items:center;
+.problem-item-difficulty {
+  width: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.problem-item-difficulty-icon > img {
+  transform: scale(0.8);
+  display: flex;
+  align-items: center;
 }

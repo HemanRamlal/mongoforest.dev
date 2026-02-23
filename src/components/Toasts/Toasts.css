@@ -1,85 +1,84 @@
 /*Responsiveness*/
 .toasts {
-  top:0;
-  left:50%;
+  top: 0;
+  left: 50%;
   transform: translate(-50%, 0%);
-  display:flex;
-  flex-direction:column-reverse;
-  position:fixed;
+  display: flex;
+  flex-direction: column-reverse;
+  position: fixed;
   width: calc(100vw - 24px);
-  max-width:420px;
-  z-index:69;
+  max-width: 420px;
+  z-index: 69;
 }
 
-.toast{
-  margin:10px;
-  box-shadow:-1px 1px 3px 0px rgba(0, 0, 0, 0.2),
-             1px -1px 1px 0px rgba(0, 0, 0, 0.1);
+.toast {
+  margin: 10px;
+  box-shadow:
+    -1px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    1px -1px 1px 0px rgba(0, 0, 0, 0.1);
 }
-.toast-content{
-  padding:15px;
-  padding-top:10px;
-  display:flex;
-  align-items:center;
+.toast-content {
+  padding: 15px;
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
 }
-.toast-clock{
-  height:5px;
+.toast-clock {
+  height: 5px;
 }
-.toast-indicator{
-  font-size:1.5rem;
-  margin-right:15px;
+.toast-indicator {
+  font-size: 1.5rem;
+  margin-right: 15px;
 }
 
-.toast-data{
-  display:flex;
-  flex-direction:column;
+.toast-data {
+  display: flex;
+  flex-direction: column;
 }
-.toast-title{
-  font-size:0.91rem;
-  font-family:sans;
-  font-weight:light;
-  margin-bottom:5px;
+.toast-title {
+  font-size: 0.91rem;
+  font-family: sans;
+  font-weight: light;
+  margin-bottom: 5px;
 }
-.toast-message{
-  font-size:0.82rem;
-  letter-spacing:0.5px;
+.toast-message {
+  font-size: 0.82rem;
+  letter-spacing: 0.5px;
 }
 /*make @media width>= for 360, 576, 768, 992, 1200, 1400*/
-@media (width >= 360px){
+@media (width >= 360px) {
 }
 
-@media (width >= 576px){
-
+@media (width >= 576px) {
 }
 
-@media (width >= 768px){
-
+@media (width >= 768px) {
 }
 
-@media (width >= 1200px){
-  .toast{
-    margin-bottom:20px;
+@media (width >= 1200px) {
+  .toast {
+    margin-bottom: 20px;
   }
-  .toast-indicator{
-    font-size:1.7rem;
+  .toast-indicator {
+    font-size: 1.7rem;
   }
-  .toast-title{
-    font-size:1.05rem;
-    margin-bottom:7px;
+  .toast-title {
+    font-size: 1.05rem;
+    margin-bottom: 7px;
   }
-  .toast-message{
-    font-size:0.91rem;
+  .toast-message {
+    font-size: 0.91rem;
   }
   .toasts {
-    top:auto;
-    left:auto;
-    right:0;
-    bottom:0;
-    padding-bottom:50px;
-    transform:translate(0%, 0%);
-    max-width:460px;
+    top: auto;
+    left: auto;
+    right: 0;
+    bottom: 0;
+    padding-bottom: 50px;
+    transform: translate(0%, 0%);
+    max-width: 460px;
   }
 }
 
-@media (width >= 1400px){
+@media (width >= 1400px) {
 }

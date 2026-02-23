@@ -1,94 +1,95 @@
-.lander-page.blur{
-  filter:blur(3px);
+.lander-page.blur {
+  filter: blur(3px);
 }
-.screen1 > *, .screen2 > *, .screen3 > *{
+.screen1 > *,
+.screen2 > *,
+.screen3 > * {
   max-width: 800px;
 }
-.screen1{
-  background-color : var(--monochrome-color-pure);
-  color : var(--monochrome-color-anti-brand);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  padding: var(--dimension-xxl) 0;
-}
-
-.screen1 .logo{
-  display:flex;
-  flex-direction:column;
+.screen1 {
+  background-color: var(--monochrome-color-pure);
+  color: var(--monochrome-color-anti-brand);
+  display: flex;
+  flex-direction: column;
   align-items: center;
   padding: var(--dimension-xxl) 0;
 }
-.screen1 .logo img{
-  height:250px;
+
+.screen1 .logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--dimension-xxl) 0;
+}
+.screen1 .logo img {
+  height: 250px;
   margin: var(--dimension-md) 0;
 }
 
-
-.tagline{
-  text-align:center;
+.tagline {
+  text-align: center;
   font: var(--font-xxxxl) "Space Grotesk";
-  max-width:100%;
+  max-width: 100%;
 }
 
-.signup-cta{
-  background : #8b3a3a;
+.signup-cta {
+  background: #8b3a3a;
   color: #efefef;
-  font-family : "Space Grotesk" !important;
+  font-family: "Space Grotesk" !important;
 }
 
-.screen2{
-  display:flex;
-  flex-direction:column;
-  align-items : center;
+.screen2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   background: var(--monochrome-color-fill);
-  color : var(--monochrome-color-pure);
-  padding : var(--dimension-xxl) 0;
-  font : var(--font-xxl) "Work Sans";
-  text-align : center;
+  color: var(--monochrome-color-pure);
+  padding: var(--dimension-xxl) 0;
+  font: var(--font-xxl) "Work Sans";
+  text-align: center;
 }
 
-.screen2 img{
+.screen2 img {
   height: 500px;
-  padding : var(--dimension-md) 0;
+  padding: var(--dimension-md) 0;
 }
 
-.screen3{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items : center;
+.screen3 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   background: var(--monochrome-color-pure);
-  color : var(--monochrome-color-anti-brand);
-  text-align:center;
+  color: var(--monochrome-color-anti-brand);
+  text-align: center;
 }
 
-.screen3 .header{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  
-  padding : var(--dimension-xxl) 0;
+.screen3 .header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: var(--dimension-xxl) 0;
 }
-.screen3 .header .title{
-  font : var(--font-xxxxl) "Space Grotesk";
-  padding : var(--dimension-md) 0;
+.screen3 .header .title {
+  font: var(--font-xxxxl) "Space Grotesk";
+  padding: var(--dimension-md) 0;
 }
-.screen3 .header .subtitle{
-  font : var(--font-xl) "Work Sans";
-  padding : var(--dimension-sm) 0;
+.screen3 .header .subtitle {
+  font: var(--font-xl) "Work Sans";
+  padding: var(--dimension-sm) 0;
 }
 
-.screen3 .cta{
-  display:flex;
-  flex-direction:column;
-  align-items:center;
+.screen3 .cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  padding : var(--dimension-lg) 0;
+  padding: var(--dimension-lg) 0;
 }
 
-.screen3 .payoff-line{
-  font : var(--font-lg) "Caveat";
+.screen3 .payoff-line {
+  font: var(--font-lg) "Caveat";
 }

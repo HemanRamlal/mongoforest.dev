@@ -1,12 +1,6 @@
 import "./Dropdown.css";
 
-export function DropdownToggle(){
+export function DropdownToggle() {}
+export function DropdownMenu() {}
 
-}
-export function DropdownMenu(){
-
-}
-
-export default function Dropdown(){
-  
-}
+export default function Dropdown() {}

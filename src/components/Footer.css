@@ -1,19 +1,19 @@
-.footer{
-  display:flex;
+.footer {
+  display: flex;
   background: var(--secondary-color-ts);
-  padding:10px;
-  justify-content:flex-end;
+  padding: 10px;
+  justify-content: flex-end;
 
-  font:var(--font-xl) " Poppins";
-  align-items:baseline;
-  gap:10px;
-  text-align:baseline;
+  font: var(--font-xl) " Poppins";
+  align-items: baseline;
+  gap: 10px;
+  text-align: baseline;
 }
-.footer .wordmark{
-  margin-right:25px;
+.footer .wordmark {
+  margin-right: 25px;
 }
-.link{
+.link {
   color: var(--monochrome-color-fill);
-  text-align:baseline;
-  text-decoration:none;
+  text-align: baseline;
+  text-decoration: none;
 }

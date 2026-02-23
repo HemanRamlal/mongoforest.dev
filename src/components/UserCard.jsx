@@ -1,13 +1,13 @@
 import "./UserCard.css";
-import userAvatarDefault from '../assets/user-avatar-default.png';
+import userAvatarDefault from "../assets/user-avatar-default.png";
 import { getAvatarURL } from "../utils/blobUtils";
-import { pushToast } from '../components/Toasts/Toasts';
+import { pushToast } from "../components/Toasts/Toasts";
 import { Link } from "react-router";
-import UserCardFallback from './fallbacks/UserCardFallback';
-import _ from 'lodash';
-import { useQueryClient, useQuery } from '@tanstack/react-query';
+import UserCardFallback from "./fallbacks/UserCardFallback";
+import _ from "lodash";
+import { useQueryClient, useQuery } from "@tanstack/react-query";
 import { userStatsQueryOptions } from "../hooks/queryOptions";
-import LinearProgress from '@mui/material/LinearProgress';
+import LinearProgress from "@mui/material/LinearProgress";
 function getTier(percentile) {
   if (percentile >= 99) return "Sage";
   if (percentile >= 95) return "Master";
@@ -17,25 +17,19 @@ function getTier(percentile) {
   return "Newbie";
 }
 
-
 export default function UserCard({ username }) {
-  const { data, error, isPending, isError, isFetching} = useQuery(userStatsQueryOptions({
-    username,
-    pushToast
-  }));
+  const { data, error, isPending, isError, isFetching } = useQuery(
+    userStatsQueryOptions({
+      username,
+      pushToast,
+    })
+  );
 
-  if(isPending){
-    return <UserCardFallback />
+  if (isPending) {
+    return <UserCardFallback />;
   }
 
-  const {
-    avatarURL,
-    solvedStats,
-    globalRank,
-    globalPercentile,
-    firstName,
-    lastName
-  } = data;
+  const { avatarURL, solvedStats, globalRank, globalPercentile, firstName, lastName } = data;
 
   console.log("MEAT");
   console.log(avatarURL);
@@ -45,14 +39,20 @@ export default function UserCard({ username }) {
 
   return (
     <div className="user-card">
-      {!isPending && isFetching && <LinearProgress /> }
+      {!isPending && isFetching && <LinearProgress />}
       <div className="header">
-        <img className="user-avatar" src={avatarURL || userAvatarDefault} alt={`${username}'s avatar`} />
+        <img
+          className="user-avatar"
+          src={avatarURL || userAvatarDefault}
+          alt={`${username}'s avatar`}
+        />
         <div className="basic-info">
           <div className="full-name">
             {firstName} {lastName}
           </div>
-          <Link to={`/profile/${username}`} className="user-name">{username}</Link>
+          <Link to={`/profile/${username}`} className="user-name">
+            {username}
+          </Link>
           <div className="user-tier">{getTier(globalPercentile)}</div>
         </div>
 
@@ -79,5 +79,5 @@ export default function UserCard({ username }) {
         </div>
       </div>
     </div>
-  )
+  );
 }

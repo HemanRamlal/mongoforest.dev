@@ -1,58 +1,61 @@
-@keyframes flash{
-  0%{
-    opacity:1;
+@keyframes flash {
+  0% {
+    opacity: 1;
   }
-  50%{
-    opacity:0.5;
+  50% {
+    opacity: 0.5;
   }
-  100%{
-    opacity:1;
+  100% {
+    opacity: 1;
   }
 }
-.flasher{
-  border-radius:0;
+.flasher {
+  border-radius: 0;
 }
-.user-card .flasher{
+.user-card .flasher {
   animation-name: flash;
-  animation-duration:666ms;
-  animation-iteration-count:infinite;
+  animation-duration: 666ms;
+  animation-iteration-count: infinite;
 }
-.header .user-avatar.flasher{
-  background:rgba(0, 0, 0, 0.2);
-  height:75px;
-}
-
-.user-name.flasher, .user-tier.flasher{
-  margin:10px;
-  margin-top:0px;
-  padding-top:0px;
-}
-.user-name.flasher{
-  width:120px;
-  height:27px;
-  background:rgba(0,0,0,0.2);
-}
-.user-tier.flasher{
-  width:120px;
-  height:20px;
-  background:rgb(100, 100, 100, 0.2);
+.header .user-avatar.flasher {
+  background: rgba(0, 0, 0, 0.2);
+  height: 75px;
 }
 
-.global-rank.flasher{
-  width:25px;
-  height:25px;
-  background:rgba(0,0,0,0.2);
+.user-name.flasher,
+.user-tier.flasher {
+  margin: 10px;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+.user-name.flasher {
+  width: 120px;
+  height: 27px;
+  background: rgba(0, 0, 0, 0.2);
+}
+.user-tier.flasher {
+  width: 120px;
+  height: 20px;
+  background: rgb(100, 100, 100, 0.2);
 }
 
-.global-percentile.flasher{
-  width:40px;
-  height:15px;
-  margin:5px;
-  background:rgba(100,100,100,0.2)
+.global-rank.flasher {
+  width: 25px;
+  height: 25px;
+  background: rgba(0, 0, 0, 0.2);
 }
 
-.easy.flasher, .medium.flasher, .hard.flasher{
-  width:40px;
-  height:65px;
-  background:rgba(100, 100, 100, 0.2);
+.global-percentile.flasher {
+  width: 40px;
+  height: 15px;
+  margin: 5px;
+  background: rgba(100, 100, 100, 0.2);
+}
+
+.easy.flasher,
+.medium.flasher,
+.hard.flasher {
+  width: 40px;
+  height: 65px;
+  background: rgba(100, 100, 100, 0.2);
 }

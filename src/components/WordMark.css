@@ -1,24 +1,24 @@
-.wordmark{
+.wordmark {
   display: flex;
-  width:100%;
-  justify-content:center;
-  margin-right:0;
+  width: 100%;
+  justify-content: center;
+  margin-right: 0;
   font: var(--font-xxxxl) "Poppins";
-  align-items:center;
-  text-align:center;
+  align-items: center;
+  text-align: center;
 }
-.wordmark-xxl{
+.wordmark-xxl {
   font: var(--font-xxl) "Poppins";
 }
-.wordmark-xl{
+.wordmark-xl {
   font: var(--font-xl) "Poppins";
 }
-.wordmark-md{
+.wordmark-md {
   font: var(--font-md) "Poppins";
 }
-.wordmark-mongo{
-  color : #1e8a36;
+.wordmark-mongo {
+  color: #1e8a36;
 }
-.wordmark-forest{
-  color : #452d22;
+.wordmark-forest {
+  color: #452d22;
 }

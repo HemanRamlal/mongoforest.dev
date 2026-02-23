@@ -9,12 +9,12 @@ import "./ProblemList.css";
 ]
 
 */
-export default function ProblemList({problemList}){
+export default function ProblemList({ problemList }) {
   console.log(problemList);
   return (
     <div className="problem-list">
       {problemList.map(problem => {
-        return <ProblemItem key={problem.id} problem={problem} />
+        return <ProblemItem key={problem.id} problem={problem} />;
       })}
     </div>
   );

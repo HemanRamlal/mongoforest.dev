@@ -13,41 +13,41 @@ unplanned
 **password change
 **email change
 */
-import { getUserAtom, refreshUserAtom} from './atoms/user';
-import { useAtomValue, useSetAtom } from 'jotai';
-import { useState, useEffect } from 'react';
-import { getAvatarURL } from './utils/blobUtils.js';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faImage, faEdit, faHourglass} from '@fortawesome/free-solid-svg-icons';
-import api from './api/axios';
-import './ProfileEdit.css'
-import Button from './components/Button.jsx';
-import { pushToast } from './components/Toasts/Toasts';
-import useEditAvatar from './hooks/useEditAvatar.js';
-import EditAvatar from './components/EditAvatar.jsx';
+import { getUserAtom, refreshUserAtom } from "./atoms/user";
+import { useAtomValue, useSetAtom } from "jotai";
+import { useState, useEffect } from "react";
+import { getAvatarURL } from "./utils/blobUtils.js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faImage, faEdit, faHourglass } from "@fortawesome/free-solid-svg-icons";
+import api from "./api/axios";
+import "./ProfileEdit.css";
+import Button from "./components/Button.jsx";
+import { pushToast } from "./components/Toasts/Toasts";
+import useEditAvatar from "./hooks/useEditAvatar.js";
+import EditAvatar from "./components/EditAvatar.jsx";
 
 export default function ProfileEdit() {
-  console.log('rendering profile edit');
+  console.log("rendering profile edit");
   const getUser = useAtomValue(getUserAtom);
   const refreshUser = useSetAtom(refreshUserAtom);
   console.log(getUser);
 
-  const [mode, setMode] = useState('editing'); //enum(editing, submitting)
-  const [firstName, setFirstName] = useState(getUser.firstname || '');
-  const [lastName, setLastName] = useState(getUser.lastname || '');
+  const [mode, setMode] = useState("editing"); //enum(editing, submitting)
+  const [firstName, setFirstName] = useState(getUser.firstname || "");
+  const [lastName, setLastName] = useState(getUser.lastname || "");
   const [isPrivate, setIsPrivate] = useState(getUser.is_private);
   const [avatarURL, setAvatarURL, avatarFile, setAvatarFile] = useEditAvatar({
-    defaultAvatarURL : 'https://cdn-icons-png.flaticon.com/512/739/739249.png',
-    defaultAvatarFile : null
-  })
+    defaultAvatarURL: "https://cdn-icons-png.flaticon.com/512/739/739249.png",
+    defaultAvatarFile: null,
+  });
 
-  useEffect(()=>{
-    (async function(){
-      if(!getUser || !getUser.avatar) return;
-      setFirstName(getUser.firstname || '');
-      setLastName(getUser.lastname || '');
+  useEffect(() => {
+    (async function () {
+      if (!getUser || !getUser.avatar) return;
+      setFirstName(getUser.firstname || "");
+      setLastName(getUser.lastname || "");
       setAvatarURL(await getAvatarURL(getUser.avatar));
-    })()
+    })();
   }, [getUser]);
 
   function trackFirstName(e) {
@@ -57,21 +57,21 @@ export default function ProfileEdit() {
     setLastName(e.target.value);
   }
   function trackPrivacy(e) {
-    console.log("privacy set to "+e.target.value);
-    setIsPrivate(e.target.value === 'true');
+    console.log("privacy set to " + e.target.value);
+    setIsPrivate(e.target.value === "true");
   }
-  function trackAvatar(e){
+  function trackAvatar(e) {
     const file = e.target.files[0];
-    if(!file){
+    if (!file) {
       console.log("no files chosen");
       return;
     }
 
-    if(!file.type=="image/jpeg"){
+    if (!file.type == "image/jpeg") {
       console.log("non jpeg file chosen");
       return;
     }
-    if(file.size > 1024 * 1024){
+    if (file.size > 1024 * 1024) {
       console.log("file size greater than 1mb");
       return;
     }
@@ -79,27 +79,27 @@ export default function ProfileEdit() {
     setAvatarURL(URL.createObjectURL(file));
   }
   function resetChanges() {
-    setFirstName(getUser.firstname || '');
-    setLastName(getUser.lastname || '');
+    setFirstName(getUser.firstname || "");
+    setLastName(getUser.lastname || "");
     setIsPrivate(getUser.is_private);
   }
   async function saveChanges() {
     setMode("submitting");
-    let changesMade=false;
-    const changed=[];
-    
+    let changesMade = false;
+    const changed = [];
+
     if (firstName != getUser.firstname) {
       changesMade = true;
       try {
         await api.post(`/user/edit/first-name`, {
-          firstName
+          firstName,
         });
         changed.push("First Name");
       } catch (error) {
         if (error.response) {
           pushToast({
             code: error.response.status,
-            ...error.response.data
+            ...error.response.data,
           });
         }
       }
@@ -109,14 +109,14 @@ export default function ProfileEdit() {
       changesMade = true;
       try {
         await api.post(`/user/edit/last-name`, {
-          lastName
+          lastName,
         });
         changed.push("Last Name");
       } catch (error) {
         if (error.response) {
           pushToast({
             code: error.response.status,
-            ...error.response.data
+            ...error.response.data,
           });
         }
       }
@@ -131,16 +131,16 @@ export default function ProfileEdit() {
         if (error.response) {
           pushToast({
             code: error.response.status,
-            ...error.response.data
+            ...error.response.data,
           });
         }
       }
     }
 
-    if (avatarFile != null){
+    if (avatarFile != null) {
       changesMade = true;
       const formData = new FormData();
-      formData.append('avatar', avatarFile);
+      formData.append("avatar", avatarFile);
       try {
         await api.post(`/user/edit/avatar`, formData);
         await refreshUser();
@@ -150,70 +150,115 @@ export default function ProfileEdit() {
         if (error.response) {
           pushToast({
             code: error.response.status,
-            ...error.response.data
+            ...error.response.data,
           });
         }
       }
     }
-    
-    if(changesMade){
+
+    if (changesMade) {
       pushToast({
-        code : 200,
-        title : "Edited the following successfully",
-        message : changed.join(", ")
+        code: 200,
+        title: "Edited the following successfully",
+        message: changed.join(", "),
       });
       await refreshUser();
     } else {
       pushToast({
-        code : 400,
-        title : "Nothing edited to save"
+        code: 400,
+        title: "Nothing edited to save",
       });
     }
-    setMode('editing');
+    setMode("editing");
   }
-  return <>
-  <div className="edit-profile">
-    <EditAvatar 
-      avatarURL={avatarURL}
-      avatarFile={avatarFile}
-      setAvatarURL={setAvatarURL}
-      setAvatarFile={setAvatarFile}
-    />
-      <div className="username-display" title="Username cannot be changed">{getUser.username}</div>
-      <div className="editable-section">
-        <div className="first-name-wrap">
-          <label htmlFor="first-name">First Name : </label>
-          <input type="text" name="first-name" id="first-name" placeholder={getUser.firstname} value={firstName} onChange={trackFirstName} />
+  return (
+    <>
+      <div className="edit-profile">
+        <EditAvatar
+          avatarURL={avatarURL}
+          avatarFile={avatarFile}
+          setAvatarURL={setAvatarURL}
+          setAvatarFile={setAvatarFile}
+        />
+        <div className="username-display" title="Username cannot be changed">
+          {getUser.username}
         </div>
-        <div className="last-name-wrap">
-          <label htmlFor="last-name">Last Name : </label>
-          <input type="text" name="last-name" id="last-name" placeholder={getUser.lastname} value={lastName} onChange={trackLastName} />
-        </div>
-        <div className="email-wrap" title="Email cannot be changed">
-          <label htmlFor="email">Email : </label>
-          <input type="text" name="email" id="email" placeholder={getUser.email} value={getUser.email} disabled/>
-        </div>
-        <div className="account-type-private">
-          <label htmlFor="privacy-toggle">Account Visibility:</label>
-          <div className="privacy-toggle-wrap">
-            <label>
-              <input type="radio" name="privacy-toggle" id="pt-public" value="false" checked={!isPrivate} onChange={trackPrivacy} />
-              Public
-            </label>
-            <label>
-              <input type="radio" name="privacy-toggle" id="pt-private" value="true" checked={isPrivate} onChange={trackPrivacy} />
-              Private
-            </label>
+        <div className="editable-section">
+          <div className="first-name-wrap">
+            <label htmlFor="first-name">First Name : </label>
+            <input
+              type="text"
+              name="first-name"
+              id="first-name"
+              placeholder={getUser.firstname}
+              value={firstName}
+              onChange={trackFirstName}
+            />
+          </div>
+          <div className="last-name-wrap">
+            <label htmlFor="last-name">Last Name : </label>
+            <input
+              type="text"
+              name="last-name"
+              id="last-name"
+              placeholder={getUser.lastname}
+              value={lastName}
+              onChange={trackLastName}
+            />
+          </div>
+          <div className="email-wrap" title="Email cannot be changed">
+            <label htmlFor="email">Email : </label>
+            <input
+              type="text"
+              name="email"
+              id="email"
+              placeholder={getUser.email}
+              value={getUser.email}
+              disabled
+            />
+          </div>
+          <div className="account-type-private">
+            <label htmlFor="privacy-toggle">Account Visibility:</label>
+            <div className="privacy-toggle-wrap">
+              <label>
+                <input
+                  type="radio"
+                  name="privacy-toggle"
+                  id="pt-public"
+                  value="false"
+                  checked={!isPrivate}
+                  onChange={trackPrivacy}
+                />
+                Public
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="privacy-toggle"
+                  id="pt-private"
+                  value="true"
+                  checked={isPrivate}
+                  onChange={trackPrivacy}
+                />
+                Private
+              </label>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="form-controls">
-        <Button className="tertiary" onClick={resetChanges}>Reset Form</Button>
-        <Button className={`primary`} disabled={mode=="submitting"} onClick={saveChanges}>
-          { mode=="editing" && "Save Changes"}
-          { mode=="submitting" && (<>Saving Changes <FontAwesomeIcon icon={faHourglass} /></>)}
+        <div className="form-controls">
+          <Button className="tertiary" onClick={resetChanges}>
+            Reset Form
           </Button>
+          <Button className={`primary`} disabled={mode == "submitting"} onClick={saveChanges}>
+            {mode == "editing" && "Save Changes"}
+            {mode == "submitting" && (
+              <>
+                Saving Changes <FontAwesomeIcon icon={faHourglass} />
+              </>
+            )}
+          </Button>
+        </div>
       </div>
-    </div>
-  </>;
+    </>
+  );
 }

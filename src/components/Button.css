@@ -1,21 +1,21 @@
 button {
   border: none;
   background: none;
-  margin:var(--dimension-xxs);
-  height:var(--dimension-xl);
+  margin: var(--dimension-xxs);
+  height: var(--dimension-xl);
   padding: 0 var(--dimension-md);
-  font:var(--font-md) "poppins";
-  user-select:none;
-  max-width:350px;
+  font: var(--font-md) "poppins";
+  user-select: none;
+  max-width: 350px;
 }
-button.large{
-  margin:var(--dimension-md);
-  height:var(--dimension-xxl);
-  padding : 0 var(--dimension-md);
-  font:var(--font-xxxl) "poppins";
+button.large {
+  margin: var(--dimension-md);
+  height: var(--dimension-xxl);
+  padding: 0 var(--dimension-md);
+  font: var(--font-xxxl) "poppins";
 }
-button.small{
-  font:var(--font-xs) "poppins";
+button.small {
+  font: var(--font-xs) "poppins";
 }
 button.primary {
   background: var(--primary-color);
@@ -32,8 +32,8 @@ button.secondary {
   color: var(--primary-color);
 }
 button.tertiary {
-  background: rgba(0,0,0,0);
+  background: rgba(0, 0, 0, 0);
   border: none;
   color: var(--primary-color);
-  text-decoration:underline;
+  text-decoration: underline;
 }

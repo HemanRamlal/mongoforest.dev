@@ -4,13 +4,13 @@
   border: 1px solid var(--monochrome-color-sw);
   box-shadow: var(--shadow-raised);
   padding: var(--dimension-md);
-  margin:auto;
+  margin: auto;
 }
-.lastUnsolved .heading{
+.lastUnsolved .heading {
 }
 
 .lastUnsolved-list {
-  margin:var(--dimension-sm) 0;
+  margin: var(--dimension-sm) 0;
   color: var(--monochrome-color);
 }
 
@@ -52,11 +52,9 @@
 }
 
 .unsolved-problem-id {
-
   padding: var(--dimension-xxs);
 }
 
 .unsolved-problem-name {
-
   padding: var(--dimension-xxs);
 }

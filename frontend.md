@@ -7,28 +7,34 @@ The MongoForest frontend is a modern React single-page application (SPA) that pr
 ## Technology Stack
 
 ### Core Framework
+
 - **React 19.1.0** - UI library with latest features
 - **React Router 7.8.0** - Client-side routing
 - **Vite 7.0.4** - Build tool and dev server
 
 ### State Management
+
 - **Jotai 2.14.0** - Atomic state management (minimal, flexible)
 
 ### Styling
+
 - **styled-components 6.1.19** - CSS-in-JS styling
 - **Custom Theme System** - Multi-theme support with JSON schema
 
 ### Code Editor
+
 - **CodeMirror 6** - MongoDB query editor
 - **@codemirror/lang-javascript** - JavaScript syntax highlighting
 
 ### UI Libraries
+
 - **Font Awesome 7.0.0** - Icon library
 - **D3.js 7.9.0** - Data visualization (heatmaps, charts)
 - **Motion 12.23.12** - Animations and transitions
 - **react-range-slider-input** - Difficulty filter slider
 
 ### Utilities
+
 - **Axios 1.12.2** - HTTP client
 - **date-fns 4.1.0** - Date manipulation
 - **Lodash 4.17.21** - Utility functions
@@ -133,6 +139,7 @@ export const setUserAtom = atom(...);        // Write with localStorage sync
 ### Theme System
 
 **Multi-Theme Architecture**:
+
 - Themes defined in `theme/schema.json`
 - Light/Dark mode support
 - Global design tokens (colors, fonts, spacing, shadows)
@@ -153,18 +160,22 @@ const StyledDiv = styled.div`
 ### Pages
 
 #### **LanderPage.jsx**
+
 Landing page for unauthenticated users.
 
 **Features**:
+
 - Hero section
 - Platform introduction
 - Sign-up/sign-in CTAs
 - Feature showcase
 
 #### **Layout.jsx**
+
 Main layout wrapper for all pages.
 
 **Structure**:
+
 ```jsx
 <Layout>
   <Navbar />
@@ -176,18 +187,22 @@ Main layout wrapper for all pages.
 ```
 
 #### **Practice.jsx**
+
 Practice section container.
 
 **Features**:
+
 - Problem filtering
 - Difficulty selection
 - Status filtering (solved/attempted/not attempted)
 - Random problem picker
 
 #### **ProblemView.jsx**
+
 Individual problem page with code editor and submission.
 
 **Features**:
+
 - Problem statement display
 - Schema visualization (MongoDB collections)
 - Sample test cases
@@ -197,23 +212,21 @@ Individual problem page with code editor and submission.
 - Submission history
 
 **Editor Configuration**:
+
 ```javascript
 new EditorView({
   doc: "",
   parent: editorContainer.current,
-  extensions: [
-    basicSetup,
-    javascript(),
-    fixedHeightEditor,
-    EditorView.lineWrapping
-  ]
-})
+  extensions: [basicSetup, javascript(), fixedHeightEditor, EditorView.lineWrapping],
+});
 ```
 
 #### **ProfilePage.jsx**
+
 User profile display.
 
 **Sections**:
+
 - User info (avatar, username, email)
 - Solved problems stats
 - Heatmap of submission activity
@@ -221,9 +234,11 @@ User profile display.
 - Community rankings
 
 #### **ProfileEdit.jsx**
+
 Profile editing interface.
 
 **Editable Fields**:
+
 - First name, last name
 - Avatar (upload/URL)
 - Privacy settings
@@ -234,9 +249,11 @@ Profile editing interface.
 ### Components
 
 #### **Navbar.jsx**
+
 Top navigation bar.
 
 **Features**:
+
 - Logo/branding
 - Navigation links (Practice, Leaderboard, Profile)
 - Theme toggle
@@ -244,9 +261,11 @@ Top navigation bar.
 - Authentication buttons
 
 #### **ProblemSet.jsx**
+
 List of problems with filtering.
 
 **Features**:
+
 - Search by title
 - Filter by difficulty (slider)
 - Filter by status (solved/attempted/not attempted)
@@ -255,20 +274,23 @@ List of problems with filtering.
 - Random problem button
 
 **State**:
+
 ```javascript
 const [problems, setProblems] = useState([]);
 const [filters, setFilters] = useState({
   difficulty: [0, 3],
-  status: 'all',
+  status: "all",
   tags: [],
-  search: ''
+  search: "",
 });
 ```
 
 #### **ProblemItem.jsx**
+
 Single problem row in problem list.
 
 **Display**:
+
 - Status icon (✓ for solved, ○ for attempted)
 - Problem ID
 - Problem title (link to problem page)
@@ -276,18 +298,22 @@ Single problem row in problem list.
 - Difficulty badge
 
 #### **Leaderboard.jsx**
+
 Community leaderboard display.
 
 **Features**:
+
 - Ranked list of users
 - Filtering by community
 - User stats (problems solved, rank, percentile)
 - Pagination
 
 #### **Heatmap.jsx**
+
 Contribution/activity heatmap (similar to GitHub).
 
 **Features**:
+
 - D3.js powered visualization
 - Daily submission count
 - Color scale based on activity
@@ -295,17 +321,17 @@ Contribution/activity heatmap (similar to GitHub).
 - Date range selection
 
 **Implementation**:
+
 ```javascript
-const colorScale = d3.scaleLinear()
-  .range(['#ffffff', '#007700'])
-  .domain([0, 20])
-  .clamp(true);
+const colorScale = d3.scaleLinear().range(["#ffffff", "#007700"]).domain([0, 20]).clamp(true);
 ```
 
 #### **AuthForm.jsx**
+
 Authentication forms (sign in/sign up).
 
 **Features**:
+
 - Email/username input
 - Password input with visibility toggle
 - Form validation
@@ -313,26 +339,32 @@ Authentication forms (sign in/sign up).
 - Switch between sign in/sign up
 
 #### **Button.jsx**
+
 Reusable button component.
 
 **Variants**:
+
 - Primary, secondary, danger
 - Icon buttons
 - Loading states
 - Disabled states
 
 #### **Dropdown.jsx**
+
 Dropdown menu component.
 
 **Use Cases**:
+
 - User menu
 - Filter options
 - Sort options
 
 #### **UserCard.jsx**
+
 User profile card.
 
 **Display**:
+
 - Avatar
 - Username
 - Stats (problems solved, rank)
@@ -345,42 +377,40 @@ User profile card.
 ### User Authentication
 
 **Atom Definition** (`atoms/user.js`):
+
 ```javascript
-export const userAtom = atom(getFromLS('user') || null);
+export const userAtom = atom(getFromLS("user") || null);
 
-export const getUserAtom = atom(
-  (get) => get(userAtom)
-);
+export const getUserAtom = atom(get => get(userAtom));
 
-export const setUserAtom = atom(
-  null,
-  (get, set, newUser) => {
-    set(userAtom, newUser);
-    setToLS('user', newUser);  // Persist to localStorage
-  }
-);
+export const setUserAtom = atom(null, (get, set, newUser) => {
+  set(userAtom, newUser);
+  setToLS("user", newUser); // Persist to localStorage
+});
 ```
 
 **Usage in Components**:
+
 ```javascript
-import { useAtomValue, useSetAtom } from 'jotai';
-import { getUserAtom, setUserAtom } from './atoms/user';
+import { useAtomValue, useSetAtom } from "jotai";
+import { getUserAtom, setUserAtom } from "./atoms/user";
 
 function MyComponent() {
   const user = useAtomValue(getUserAtom);
   const setUser = useSetAtom(setUserAtom);
-  
+
   // Use user data
   if (!user) return <Login />;
-  
+
   // Update user
-  const handleLogin = (userData) => {
+  const handleLogin = userData => {
     setUser(userData);
   };
 }
 ```
 
 **User Object Structure**:
+
 ```javascript
 {
   id: number,
@@ -400,8 +430,9 @@ function MyComponent() {
 ### Local Storage
 
 **Utilities** (`utils/storage.js`):
+
 ```javascript
-export const getFromLS = (key) => {
+export const getFromLS = key => {
   try {
     return JSON.parse(localStorage.getItem(key));
   } catch {
@@ -415,6 +446,7 @@ export const setToLS = (key, value) => {
 ```
 
 **Persisted Data**:
+
 - User authentication state
 - Theme preference
 - Recent problems viewed
@@ -430,56 +462,68 @@ Backend API: `http://localhost:3000`
 ### Fetch Functions
 
 **Authentication** (`fetches/auth.js`):
+
 ```javascript
 export const signIn = async (username, password) => {
-  const response = await axios.post('/auth/signin', {
-    username, password
-  }, { withCredentials: true });
+  const response = await axios.post(
+    "/auth/signin",
+    {
+      username,
+      password,
+    },
+    { withCredentials: true }
+  );
   return response.data;
 };
 
 export const signOut = async () => {
-  await axios.post('/auth/signout', {}, { withCredentials: true });
+  await axios.post("/auth/signout", {}, { withCredentials: true });
 };
 
 export const checkAuth = async () => {
-  const response = await axios.get('/auth/check', { withCredentials: true });
+  const response = await axios.get("/auth/check", { withCredentials: true });
   return response.data;
 };
 ```
 
 **Problems** (`fetches/problems.js`):
+
 ```javascript
 export const fetchProblems = async () => {
-  const response = await axios.get('/problem/all', { withCredentials: true });
+  const response = await axios.get("/problem/all", { withCredentials: true });
   return response.data;
 };
 
-export const fetchProblem = async (slug) => {
+export const fetchProblem = async slug => {
   const response = await axios.get(`/problem/${slug}`, { withCredentials: true });
   return response.data;
 };
 
 export const submitCode = async (slug, code) => {
-  const response = await axios.post(`/problem/${slug}/submit`, {
-    submittedCode: code
-  }, { withCredentials: true });
+  const response = await axios.post(
+    `/problem/${slug}/submit`,
+    {
+      submittedCode: code,
+    },
+    { withCredentials: true }
+  );
   return response.data;
 };
 ```
 
 **User** (`fetches/user.js`):
+
 ```javascript
-export const fetchUserProfile = async (username) => {
+export const fetchUserProfile = async username => {
   const response = await axios.get(`/user/public/${username}/info`, {
-    withCredentials: true
+    withCredentials: true,
   });
   return response.data;
 };
 
-export const fetchUserSolved = async (userId) => {
+export const fetchUserSolved = async userId => {
   const response = await axios.get(`/user/public/${userId}/info/solved-problems`, {
-    withCredentials: true
+    withCredentials: true,
   });
   return response.data;
 };
@@ -519,6 +563,7 @@ export const fetchUserSolved = async (userId) => {
 ```
 
 **Color Palette** (per theme):
+
 ```json
 {
   "a": {
@@ -535,6 +580,7 @@ export const fetchUserSolved = async (userId) => {
 ### Global Styles
 
 **GlobalStyles.js**:
+
 ```javascript
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -545,8 +591,8 @@ export const GlobalStyles = createGlobalStyle`
   
   body {
     font-family: ${props => props.theme.fontFamily};
-    background: ${props => props.theme.color.b.anti-brand};
-    color: ${props => props.theme.color.a.text-strong};
+    background: ${props => props.theme.color.b.anti - brand};
+    color: ${props => props.theme.color.a.text - strong};
   }
 `;
 ```
@@ -554,15 +600,16 @@ export const GlobalStyles = createGlobalStyle`
 ### Component Styling
 
 **Example styled component**:
+
 ```javascript
 const ProblemCard = styled.div`
   padding: ${props => props.theme.global.dimension.md}px;
   background: ${props => props.theme.color.a.fill};
-  border: 1px solid ${props => props.theme.color.a.stroke-weak};
+  border: 1px solid ${props => props.theme.color.a.stroke - weak};
   border-radius: 8px;
-  
+
   &:hover {
-    background: ${props => props.theme.color.a.anti-brand};
+    background: ${props => props.theme.color.a.anti - brand};
   }
 `;
 ```
@@ -576,19 +623,15 @@ Component-specific CSS files (e.g., `Navbar.css`, `ProblemSet.css`) for non-dyna
 ## Font Loading
 
 **Web Font Loader** (from `App.jsx`):
+
 ```javascript
 useEffect(() => {
   WebFont.load({
     google: {
-      families: [
-        'Work Sans',
-        'Poppins',
-        'Space Grotesk',
-        'Caveat'
-      ]
+      families: ["Work Sans", "Poppins", "Space Grotesk", "Caveat"],
     },
     active: () => setFontsLoaded(true),
-    inactive: () => setFontsLoaded(true)
+    inactive: () => setFontsLoaded(true),
   });
 }, []);
 ```
@@ -602,20 +645,25 @@ Fonts loaded asynchronously to prevent blocking initial render.
 ### Setup
 
 1. **Install dependencies**:
+
    ```bash
    npm install
    ```
 
 2. **Start dev server**:
+
    ```bash
    npm run dev
    ```
+
    Runs on `http://localhost:5173` (Vite default)
 
 3. **Build for production**:
+
    ```bash
    npm run build
    ```
+
    Output: `dist/` directory
 
 4. **Preview production build**:
@@ -632,15 +680,16 @@ Fonts loaded asynchronously to prevent blocking initial render.
 ### Vite Configuration
 
 **vite.config.js**:
+
 ```javascript
 export default defineConfig({
   plugins: [react()],
   server: {
     port: 5173,
     proxy: {
-      '/api': 'http://localhost:3000'  // Optional proxy
-    }
-  }
+      "/api": "http://localhost:3000", // Optional proxy
+    },
+  },
 });
 ```
 
@@ -651,20 +700,20 @@ export default defineConfig({
 ### Problem Filtering
 
 **ProblemSet.jsx**:
+
 ```javascript
 const filteredProblems = useMemo(() => {
   return problems.filter(p => {
     // Difficulty filter
-    if (p.difficulty < filters.difficulty[0] || 
-        p.difficulty > filters.difficulty[1]) return false;
-    
+    if (p.difficulty < filters.difficulty[0] || p.difficulty > filters.difficulty[1]) return false;
+
     // Status filter
-    if (filters.status !== 'all' && p.status !== filters.status) return false;
-    
+    if (filters.status !== "all" && p.status !== filters.status) return false;
+
     // Search filter
-    if (filters.search && !p.title.toLowerCase().includes(filters.search.toLowerCase())) 
+    if (filters.search && !p.title.toLowerCase().includes(filters.search.toLowerCase()))
       return false;
-    
+
     return true;
   });
 }, [problems, filters]);
@@ -673,17 +722,18 @@ const filteredProblems = useMemo(() => {
 ### Code Submission
 
 **ProblemView.jsx**:
+
 ```javascript
 const handleSubmit = async () => {
   setSubmitting(true);
   try {
     const code = editor.state.doc.toString();
     const result = await submitCode(problemSlug, code);
-    
+
     // Show verdict
-    setVerdict(result.verdict);  // AC, WA, RTE, TLE
+    setVerdict(result.verdict); // AC, WA, RTE, TLE
   } catch (error) {
-    console.error('Submission failed:', error);
+    console.error("Submission failed:", error);
   } finally {
     setSubmitting(false);
   }
@@ -693,27 +743,30 @@ const handleSubmit = async () => {
 ### Heatmap Visualization
 
 **Heatmap.jsx** (simplified):
+
 ```javascript
 const Heatmap = ({ data }) => {
   const svgRef = useRef(null);
-  
+
   useEffect(() => {
     const svg = d3.select(svgRef.current);
-    const colorScale = d3.scaleLinear()
-      .range(['#ebedf0', '#216e39'])
+    const colorScale = d3
+      .scaleLinear()
+      .range(["#ebedf0", "#216e39"])
       .domain([0, d3.max(data, d => d.count)]);
-    
-    svg.selectAll('rect')
+
+    svg
+      .selectAll("rect")
       .data(data)
       .enter()
-      .append('rect')
-      .attr('x', (d, i) => (i % 53) * 12)
-      .attr('y', d => d.day * 12)
-      .attr('width', 10)
-      .attr('height', 10)
-      .attr('fill', d => colorScale(d.count));
+      .append("rect")
+      .attr("x", (d, i) => (i % 53) * 12)
+      .attr("y", d => d.day * 12)
+      .attr("width", 10)
+      .attr("height", 10)
+      .attr("fill", d => colorScale(d.count));
   }, [data]);
-  
+
   return <svg ref={svgRef} />;
 };
 ```
@@ -721,6 +774,7 @@ const Heatmap = ({ data }) => {
 ### Random Problem Selection
 
 **ProblemSet.jsx**:
+
 ```javascript
 const navigate = useNavigate();
 
@@ -745,8 +799,8 @@ import { Link, NavLink } from 'react-router';
 <Link to="/practice">Practice</Link>
 
 // Active link styling
-<NavLink 
-  to="/practice" 
+<NavLink
+  to="/practice"
   className={({ isActive }) => isActive ? 'active' : ''}
 >
   Practice
@@ -756,13 +810,13 @@ import { Link, NavLink } from 'react-router';
 ### Programmatic Navigation
 
 ```javascript
-import { useNavigate } from 'react-router';
+import { useNavigate } from "react-router";
 
 function MyComponent() {
   const navigate = useNavigate();
-  
+
   const handleClick = () => {
-    navigate('/practice/problem/two-sum');
+    navigate("/practice/problem/two-sum");
   };
 }
 ```
@@ -772,20 +826,19 @@ function MyComponent() {
 ## Component Communication
 
 ### Props
+
 Parent → Child data flow
 
 ```javascript
-<ProblemItem 
-  problem={problemData}
-  onSelect={handleSelect}
-/>
+<ProblemItem problem={problemData} onSelect={handleSelect} />
 ```
 
 ### Context
+
 Cross-component shared state (if needed)
 
 ```javascript
-import { createContext, useContext } from 'react';
+import { createContext, useContext } from "react";
 
 const ThemeContext = createContext();
 
@@ -799,6 +852,7 @@ function App() {
 ```
 
 ### Jotai Atoms
+
 Global state accessible anywhere
 
 ```javascript
@@ -851,14 +905,18 @@ const setUser = useSetAtom(setUserAtom);
 ### Code Splitting
 
 React Router automatically code-splits routes:
-```javascript
-const ProfilePage = lazy(() => import('./ProfilePage'));
 
-<Route path="/profile/:username" element={
-  <Suspense fallback={<Loading />}>
-    <ProfilePage />
-  </Suspense>
-} />
+```javascript
+const ProfilePage = lazy(() => import("./ProfilePage"));
+
+<Route
+  path="/profile/:username"
+  element={
+    <Suspense fallback={<Loading />}>
+      <ProfilePage />
+    </Suspense>
+  }
+/>;
 ```
 
 ### Memoization
@@ -876,12 +934,9 @@ const ExpensiveComponent = memo(({ data }) => {
 ### Debouncing
 
 ```javascript
-import { debounce } from 'lodash';
+import { debounce } from "lodash";
 
-const debouncedSearch = useMemo(
-  () => debounce((term) => setSearch(term), 300),
-  []
-);
+const debouncedSearch = useMemo(() => debounce(term => setSearch(term), 300), []);
 ```
 
 ---
@@ -892,8 +947,8 @@ const debouncedSearch = useMemo(
 
 ```javascript
 // 1. Imports
-import { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import { useState, useEffect } from "react";
+import styled from "styled-components";
 
 // 2. Styled components
 const Container = styled.div`...`;
@@ -902,23 +957,19 @@ const Container = styled.div`...`;
 function MyComponent({ prop1, prop2 }) {
   // 4. Hooks
   const [state, setState] = useState();
-  
+
   // 5. Effects
   useEffect(() => {
     // side effects
   }, []);
-  
+
   // 6. Handlers
   const handleClick = () => {
     // handler logic
   };
-  
+
   // 7. Render
-  return (
-    <Container>
-      {/* JSX */}
-    </Container>
-  );
+  return <Container>{/* JSX */}</Container>;
 }
 
 // 8. Export
@@ -939,7 +990,7 @@ try {
   const result = await fetchData();
   setData(result);
 } catch (error) {
-  console.error('Fetch failed:', error);
+  console.error("Fetch failed:", error);
   setError(error.message);
 }
 ```
@@ -958,27 +1009,32 @@ try {
 ### Common Issues
 
 **1. Routes not working**
+
 - Check `BrowserRouter` is wrapping `Routes`
 - Verify route paths match navigation links
 - Check for missing `/` in paths
 
 **2. Styles not applying**
+
 - Ensure `ThemeProvider` wraps components
 - Check theme path in styled components
 - Verify CSS file is imported
 
 **3. State not persisting**
+
 - Check localStorage functions
 - Verify Jotai atom setup
 - Check browser localStorage quota
 
 **4. API requests failing**
+
 - Check backend is running
 - Verify CORS settings
 - Check `withCredentials: true` for cookies
 - Inspect network tab in DevTools
 
 **5. Fonts not loading**
+
 - Check WebFont.load configuration
 - Verify font names match Google Fonts
 - Check network tab for font requests

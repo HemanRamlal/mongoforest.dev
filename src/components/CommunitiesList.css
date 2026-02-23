@@ -1,146 +1,172 @@
-.community{
-  max-width:350px;
-  margin:var(--dimension-xl);
-  padding:var(--dimension-sm);
-  border-radius:5px;
-  border:1px solid var(--monochrome-color-sw);
-  box-shadow : var(--shadow-raised);
-  padding:var(--dimension-md);
+.community {
+  max-width: 350px;
+  margin: var(--dimension-xl);
+  padding: var(--dimension-sm);
+  border-radius: 5px;
+  border: 1px solid var(--monochrome-color-sw);
+  box-shadow: var(--shadow-raised);
+  padding: var(--dimension-md);
 }
 
-.community .heading{
+.community .heading {
   font: var(--font-md) "Poppins";
   color: var(--monochrome-color-tw);
-  text-align:left;
+  text-align: left;
 
   border-bottom: 1px solid var(--monochrome-color-sw);
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.community .heading .heading-controls{
-  display:flex;
-  color: var(--primary-color-tw);;
-  opacity:0.9;
+
+.community .heading .heading-controls {
+  display: flex;
+  color: var(--primary-color-tw);
+  opacity: 0.9;
   font: var(--font-lg) "Poppins";
-  margin-left:30px;
+  margin-left: 30px;
 }
-.community .heading .heading-controls > *{
-  width:30px;
-  height:30px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+
+.community .heading .heading-controls > * {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: 1px solid var(--secondary-color-fill);
-  margin:3px 3px;
+  margin: 3px 3px;
 }
-.community .heading .heading-controls > *:hover{
+
+.community .heading .heading-controls > *:hover {
   background: var(--secondary-color-fill);
-  transition-duration:200ms;
-  opacity:1;
+  transition-duration: 200ms;
+  opacity: 1;
 }
-.community .heading .heading-controls > *:active{
+
+.community .heading .heading-controls > *:active {
   background: var(--secondary-color-anti-brand);
-  transform:scale(0.95);
-  color: var(--primary-color-ts);;
+  transform: scale(0.95);
+  color: var(--primary-color-ts);
 }
-.community-list, .join-community-panel, .create-community-panel{
-  margin-top:20px;
+
+.community-list,
+.join-community-panel,
+.create-community-panel {
+  margin-top: 20px;
 }
-.community-list > *{
+
+.community-list > * {
   margin: var(--dimension-xs) 0;
-  transition:height 1s;
+  transition: height 1s;
 }
-.community-item{
-  color:var(--monochrome-color);
-  text-decoration:none;
-  display:flex;
-  width:100%;
-  justify-content:flex-start;
-  align-items:center;
+
+.community-item {
+  color: var(--monochrome-color);
+  text-decoration: none;
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
 }
-.community-name{
+
+.community-name {
   margin-left: var(--dimension-xs);
 }
-.community-logo{
-  border-radius:50%;
-  height:50px;
-  width:50px;
+
+.community-logo {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
 }
-.community-item .community-name::after{
-  content:"";
-  height:1px;
-  display:block;
-  background-color:var(--monochrome-color);
-  left:0;
-  bottom:0;
-  width:0;
+
+.community-item .community-name::after {
+  content: "";
+  height: 1px;
+  display: block;
+  background-color: var(--monochrome-color);
+  left: 0;
+  bottom: 0;
+  width: 0;
   transition-duration: 0.3s;
 }
-.community-item:hover .community-name::after{
-  width:100%;
+
+.community-item:hover .community-name::after {
+  width: 100%;
 }
-.community-user-stats{
-  display:flex;
-  flex-direction:column;
-  flex-grow:1;
-  align-items:flex-end;
+
+.community-user-stats {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: flex-end;
 }
-.community-user-stats .rank{
-  font:var(--font-lg) "Space Grotesk";
+
+.community-user-stats .rank {
+  font: var(--font-lg) "Space Grotesk";
 }
-.community-user-stats .percentile{
+
+.community-user-stats .percentile {
   font: var(--font-xxs) "Poppins";
   color: var(--monochrome-color-tw);
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
 
-.community .create-community-panel, .community .join-community-panel{
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-}
-.community .com-join-info{
-  font-size:0.8rem;
-  font-family:monospace;
-  color:gray;
-  text-align:center;
+.community .create-community-panel,
+.community .join-community-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.community .com-input-box{
-  display:flex;
+.community .com-join-info {
+  font-size: 0.8rem;
+  font-family: monospace;
+  color: gray;
+  text-align: center;
 }
 
-.com-join-btn, .com-create-btn{
-  text-align:center;
-  min-width:80px;
-  background:var(--primary-color-ss);
-  padding:7px 2px;
-  color:white;
-  font-family:"Poppins";
+.community .com-input-box {
+  display: flex;
 }
-.com-join-btn:hover, .com-create-btn:hover{
-  transform:scale(1.02);
-  transition-duration:200ms;
+
+.com-join-btn,
+.com-create-btn {
+  text-align: center;
+  min-width: 80px;
+  background: var(--primary-color-ss);
+  padding: 7px 2px;
+  color: white;
+  font-family: "Poppins";
 }
-.com-join-btn:active, .com-create-btn:active{
-  transform:scale(0.96);
-  transition-duration:200ms;
+
+.com-join-btn:hover,
+.com-create-btn:hover {
+  transform: scale(1.02);
+  transition-duration: 200ms;
 }
-.community .com-input-box > input{
-  min-width:160px;
-  max-width:220px;
-  padding:0px 10px;
-  font-family:Poppins;
-  border:1px solid gray;
-  border-right:none;
+
+.com-join-btn:active,
+.com-create-btn:active {
+  transform: scale(0.96);
+  transition-duration: 200ms;
 }
-.community .com-input-box > input:focus{
+
+.community .com-input-box > input {
+  min-width: 160px;
+  max-width: 220px;
+  padding: 0px 10px;
+  font-family: Poppins;
+  border: 1px solid gray;
+  border-right: none;
+}
+
+.community .com-input-box > input:focus {
   outline: none;
 }
-.community .control-active{
+
+.community .control-active {
   background: var(--secondary-color-anti-brand);
-  color: var(--primary-color-ts);;
+  color: var(--primary-color-ts);
 }

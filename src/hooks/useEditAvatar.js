@@ -1,12 +1,8 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-export default function useEditAvatar({
-  defaultAvatarURL, defaultAvatarFile
-}) {
+export default function useEditAvatar({ defaultAvatarURL, defaultAvatarFile }) {
   const [avatarURL, setAvatarURL] = useState(
-    defaultAvatarFile ?
-      URL.createObjectURL(defaultAvatarFile) :
-      defaultAvatarURL
+    defaultAvatarFile ? URL.createObjectURL(defaultAvatarFile) : defaultAvatarURL
   );
 
   const [avatarFile, setAvatarFile] = useState(defaultAvatarFile);

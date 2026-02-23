@@ -1,20 +1,38 @@
-import { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router';
-import { pushToast } from './Toasts/Toasts';
-import { motion } from 'motion/react';
-import slugify from '../utils/slugify';
-import api from '../api/axios';
+import { useState, useEffect } from "react";
+import { useNavigate, Link } from "react-router";
+import { pushToast } from "./Toasts/Toasts";
+import { motion } from "motion/react";
+import slugify from "../utils/slugify";
+import api from "../api/axios";
 import "./ProblemSet.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCheck, faCircle, faSort, faFilter, faBookmark, faDice, faMagnifyingGlass, faAngleLeft, faAnglesLeft, faAngleRight, faAnglesRight, faArrowDown19, faArrowDown91, faArrowDownAZ, faArrowDownZA, faArrowTrendUp, faArrowTrendDown } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCheck,
+  faCircle,
+  faSort,
+  faFilter,
+  faBookmark,
+  faDice,
+  faMagnifyingGlass,
+  faAngleLeft,
+  faAnglesLeft,
+  faAngleRight,
+  faAnglesRight,
+  faArrowDown19,
+  faArrowDown91,
+  faArrowDownAZ,
+  faArrowDownZA,
+  faArrowTrendUp,
+  faArrowTrendDown,
+} from "@fortawesome/free-solid-svg-icons";
 import problems from "../mockdata/problems.json";
 import Button from "./Button";
-import RangeSlider from 'react-range-slider-input';
-import 'react-range-slider-input/dist/style.css';
-import { faBorderNone } from '@fortawesome/free-solid-svg-icons';
-import { screenWidthAtom } from '../atoms/screenWidth';
-import { useAtomValue } from 'jotai';
-import useScreenWidth from '../hooks/useScreenWidth';
+import RangeSlider from "react-range-slider-input";
+import "react-range-slider-input/dist/style.css";
+import { faBorderNone } from "@fortawesome/free-solid-svg-icons";
+import { screenWidthAtom } from "../atoms/screenWidth";
+import { useAtomValue } from "jotai";
+import useScreenWidth from "../hooks/useScreenWidth";
 
 function compareDifficulty(A, B) {
   const a = A.difficulty;
@@ -45,9 +63,21 @@ function selectSortingMethod(status, forAsc, forDsc) {
 }
 function sortProblems(problems, sort) {
   const selectedCompareId = selectSortingMethod(sort.id, compareId, (A, B) => -compareId(A, B));
-  const selectedCompareTitle = selectSortingMethod(sort.title, compareTitle, (A, B) => -compareTitle(A, B));
-  const selectedCompareAccuracy = selectSortingMethod(sort.accuracy, compareAccuracy, (A, B) => -compareAccuracy(A, B));
-  const selectedCompareDifficulty = selectSortingMethod(sort.difficulty, compareDifficulty, (A, B) => -compareDifficulty(A, B));
+  const selectedCompareTitle = selectSortingMethod(
+    sort.title,
+    compareTitle,
+    (A, B) => -compareTitle(A, B)
+  );
+  const selectedCompareAccuracy = selectSortingMethod(
+    sort.accuracy,
+    compareAccuracy,
+    (A, B) => -compareAccuracy(A, B)
+  );
+  const selectedCompareDifficulty = selectSortingMethod(
+    sort.difficulty,
+    compareDifficulty,
+    (A, B) => -compareDifficulty(A, B)
+  );
 
   problems.sort(selectedCompareId);
   problems.sort(selectedCompareTitle);
@@ -55,19 +85,21 @@ function sortProblems(problems, sort) {
   problems.sort(selectedCompareDifficulty);
 }
 function sieve(problem, filter) {
-  filter.title = filter.title.replaceAll(/\s+/g, ' ');
+  filter.title = filter.title.replaceAll(/\s+/g, " ");
 
   const regex = new RegExp(filter.title, "gi");
-  return filter.status[problem.status] &&
+  return (
+    filter.status[problem.status] &&
     filter.accuracy.min <= +problem.accuracy &&
     filter.accuracy.max >= +problem.accuracy &&
     filter.difficulty[problem.difficulty] &&
     (regex.test(problem.title) || regex.test(problem.id))
+  );
 }
 export default function ProblemSet() {
   const [offset, setOffset] = useState(0);
   const [limit, setLimit] = useState(25);
-  const [pattern, setPattern] = useState('');
+  const [pattern, setPattern] = useState("");
   const [problems, setProblems] = useState([]);
   const [openMenu, setOpenMenu] = useState("none");
   const navigate = useNavigate();
@@ -75,55 +107,55 @@ export default function ProblemSet() {
     (async function () {
       try {
         const res = await api.get("/problem/all");
-        setProblems(res.data.map(
-          (problem) => {
+        setProblems(
+          res.data.map(problem => {
             return {
               id: problem.pid.toString(),
               difficulty: problem.difficulty,
               title: problem.title,
               slug: problem.slug,
-              accuracy: ((+problem.ac_rate) * 100).toFixed(2),
+              accuracy: (+problem.ac_rate * 100).toFixed(2),
               is_premium: problem.is_premium,
               status: problem.status,
-              tags: problem.tags
-            }
-          }
-        ));
+              tags: problem.tags,
+            };
+          })
+        );
         return true;
       } catch (error) {
         if (error.response) {
           pushToast({
             code: error.response.status,
-            ...error.response.data
+            ...error.response.data,
           });
         }
         return false;
       }
-    })()
-  }, [])
+    })();
+  }, []);
   const [sort, setSort] = useState({
-    'id': "asc",
-    'title': "nosort",
-    'accuracy': "nosort",
-    'difficulty': "nosort",
+    id: "asc",
+    title: "nosort",
+    accuracy: "nosort",
+    difficulty: "nosort",
   });
 
   const [filter, setFilter] = useState({
-    'status': {
-      'notAttempted': true,
-      'attempted': true,
-      'solved': true
+    status: {
+      notAttempted: true,
+      attempted: true,
+      solved: true,
     },
-    'difficulty': {
-      'easy': true,
-      'medium': true,
-      'hard': true
+    difficulty: {
+      easy: true,
+      medium: true,
+      hard: true,
     },
-    'accuracy': {
-      'min': 0,
-      'max': 100
+    accuracy: {
+      min: 0,
+      max: 100,
     },
-    'title': ""
+    title: "",
   });
 
   console.log(sort);
@@ -133,16 +165,17 @@ export default function ProblemSet() {
   }
 
   const filteredProblems = problems.filter(
-    problem => (problem.title.toLowerCase().includes(pattern.toLowerCase()) || problem.id.toString().includes(pattern.toLowerCase())) && sieve(problem, filter)
+    problem =>
+      (problem.title.toLowerCase().includes(pattern.toLowerCase()) ||
+        problem.id.toString().includes(pattern.toLowerCase())) &&
+      sieve(problem, filter)
   );
 
   sortProblems(filteredProblems, sort);
   const currentPage = offset / limit + 1;
-  const totalPages = Math.ceil(filteredProblems.length / limit)
+  const totalPages = Math.ceil(filteredProblems.length / limit);
 
-  const viewedProblems = filteredProblems
-    .slice(offset, offset + limit)
-
+  const viewedProblems = filteredProblems.slice(offset, offset + limit);
 
   function changePattern(e) {
     setPattern(e.target.value);
@@ -150,16 +183,14 @@ export default function ProblemSet() {
   function toggleSort(key) {
     if (sort[key] == "nosort") {
       sort[key] = "asc";
-    }
-    else if (sort[key] == "asc") {
-      sort[key] = "dsc"
-    }
-    else {
-      if (key == "id") sort[key] = "asc"
-      else sort[key] = "nosort"
+    } else if (sort[key] == "asc") {
+      sort[key] = "dsc";
+    } else {
+      if (key == "id") sort[key] = "asc";
+      else sort[key] = "nosort";
     }
     setSort({
-      ...sort
+      ...sort,
     });
   }
   function pickRandomProblem() {
@@ -194,56 +225,102 @@ export default function ProblemSet() {
     setOffset(currentPage == 1 ? 0 : limit * (currentPage - 2));
   }
   function nextPage() {
-    setOffset(currentPage == totalPages ? limit * (totalPages - 1) : limit * (currentPage));
+    setOffset(currentPage == totalPages ? limit * (totalPages - 1) : limit * currentPage);
   }
   function clearField(e) {
     e.target.value = "";
   }
-  return <>
-    <h1 class="problemset-greeter">Problemset</h1>
-    <div className="problemset">
-      <div className="problemset-control">
-        <div className="problemset-left">
-          <div className="problemset-search">
-            <input type="text" placeholder="Search ID or Title" value={pattern} onChange={changePattern} />
-            <div className="problemset-search-icon">
-              <FontAwesomeIcon icon={faMagnifyingGlass}></FontAwesomeIcon>
+  return (
+    <>
+      <h1 class="problemset-greeter">Problemset</h1>
+      <div className="problemset">
+        <div className="problemset-control">
+          <div className="problemset-left">
+            <div className="problemset-search">
+              <input
+                type="text"
+                placeholder="Search ID or Title"
+                value={pattern}
+                onChange={changePattern}
+              />
+              <div className="problemset-search-icon">
+                <FontAwesomeIcon icon={faMagnifyingGlass}></FontAwesomeIcon>
+              </div>
+            </div>
+            <SortMenu
+              openMenu={openMenu}
+              setOpenMenu={setOpenMenu}
+              sort={sort}
+              toggleSort={toggleSort}
+            />
+            <FilterMenu
+              openMenu={openMenu}
+              setOpenMenu={setOpenMenu}
+              filter={filter}
+              setFilter={setFilter}
+            />
+          </div>
+          <div className="problemset-right">
+            <div
+              className="problemset-control-btn problemset-pick-random"
+              title="Pick random problem"
+              onClick={pickRandomProblem}
+            >
+              <FontAwesomeIcon icon={faDice}></FontAwesomeIcon>
             </div>
           </div>
-          <SortMenu openMenu={openMenu} setOpenMenu={setOpenMenu} sort={sort} toggleSort={toggleSort} />
-          <FilterMenu openMenu={openMenu} setOpenMenu={setOpenMenu} filter={filter} setFilter={setFilter} />
         </div>
-        <div className="problemset-right">
-          <div className="problemset-control-btn problemset-pick-random" title="Pick random problem" onClick={pickRandomProblem}>
-            <FontAwesomeIcon icon={faDice}></FontAwesomeIcon>
+        <div className="problemset-list">
+          {viewedProblems.map(problem => (
+            <ProblemItem key={problem.id} problem={problem} />
+          ))}
+        </div>
+        <div className="problemset-pagination">
+          <div className="pagination-status">
+            Showing {(offset + 1).toString().padStart(4, " ")} -
+            {Math.min(offset + limit, filteredProblems.length)
+              .toString()
+              .padStart(4, " ")}{" "}
+            from {filteredProblems.length.toString().padStart(4, " ")}
+          </div>
+          <div className="pagination-controls">
+            <FontAwesomeIcon
+              onClick={() => {
+                setOffset(0);
+              }}
+              icon={faAnglesLeft}
+            ></FontAwesomeIcon>
+            <FontAwesomeIcon onClick={previousPage} icon={faAngleLeft}></FontAwesomeIcon>
+            <div className="pagination-current">
+              <input
+                inputMode="numeric"
+                placeholder={currentPage}
+                onChange={onCurrentPageChange}
+                onBlur={clearField}
+              />
+              of {totalPages}
+            </div>
+            <FontAwesomeIcon onClick={nextPage} icon={faAngleRight}></FontAwesomeIcon>
+            <FontAwesomeIcon
+              onClick={() => {
+                setOffset(limit * (totalPages - 1));
+              }}
+              icon={faAnglesRight}
+            ></FontAwesomeIcon>
+          </div>
+          <div className="pagination-size">
+            Rows per page :{" "}
+            <input
+              inputMode="numeric"
+              placeholder={limit}
+              onChange={onPageSizeChange}
+              onBlur={clearField}
+            />
           </div>
         </div>
       </div>
-      <div className="problemset-list">
-        {
-          viewedProblems.map(problem => <ProblemItem key={problem.id} problem={problem} />)
-        }
-      </div>
-      <div className="problemset-pagination">
-        <div className="pagination-status">
-          Showing {(offset + 1).toString().padStart(4, ' ')} -{(Math.min(offset + limit, filteredProblems.length)).toString().padStart(4, ' ')} from {(filteredProblems.length).toString().padStart(4, ' ')}
-        </div>
-        <div className="pagination-controls">
-          <FontAwesomeIcon onClick={() => { setOffset(0) }} icon={faAnglesLeft}></FontAwesomeIcon>
-          <FontAwesomeIcon onClick={previousPage} icon={faAngleLeft}></FontAwesomeIcon>
-          <div className="pagination-current">
-            <input inputMode="numeric" placeholder={currentPage} onChange={onCurrentPageChange} onBlur={clearField} />
-            of {totalPages}
-          </div>
-          <FontAwesomeIcon onClick={nextPage} icon={faAngleRight}></FontAwesomeIcon>
-          <FontAwesomeIcon onClick={() => { setOffset(limit * (totalPages - 1)) }} icon={faAnglesRight}></FontAwesomeIcon>
-        </div>
-        <div className="pagination-size">
-          Rows per page : <input inputMode="numeric" placeholder={limit} onChange={onPageSizeChange} onBlur={clearField} />
-        </div>
-      </div>
-    </div>
-  </>
+    </>
+  );
 }
 
 function SortIcon({ status, type }) {
@@ -267,58 +344,93 @@ function SortIcon({ status, type }) {
       icon = faArrowDownZA;
     }
   }
-  return <FontAwesomeIcon icon={icon} />
+  return <FontAwesomeIcon icon={icon} />;
 }
 function SortMenu({ openMenu, setOpenMenu, sort, toggleSort, className }) {
   function toggleOpen() {
     setOpenMenu(openMenu != "sort" ? "sort" : "none");
   }
-  return <div className={`problemset-menu sort-menu`}>
-    <div className="problemset-control-btn problemset-sort" onClick={toggleOpen} title="Sort Options">
-      <FontAwesomeIcon icon={faSort}></FontAwesomeIcon>
-    </div>
-    <motion.div className={`menu-items`}
-      initial={{
-        height: 0,
-        margin: 0,
-        padding: 0,
-        border: "none",
-        boxShadow: "none"
-      }}
-      style={{
-        originY: "top",
-        overflow: "hidden"
-      }}
-      animate={
-        openMenu == "sort" ? {
-          height: "auto",
-          boxShadow: "var(--shadow-elevated)",
-          border: "1px solid var(--primary-color-fill)"
-        } : {
+  return (
+    <div className={`problemset-menu sort-menu`}>
+      <div
+        className="problemset-control-btn problemset-sort"
+        onClick={toggleOpen}
+        title="Sort Options"
+      >
+        <FontAwesomeIcon icon={faSort}></FontAwesomeIcon>
+      </div>
+      <motion.div
+        className={`menu-items`}
+        initial={{
           height: 0,
           margin: 0,
           padding: 0,
           border: "none",
-          boxShadow: "none"
+          boxShadow: "none",
+        }}
+        style={{
+          originY: "top",
+          overflow: "hidden",
+        }}
+        animate={
+          openMenu == "sort"
+            ? {
+                height: "auto",
+                boxShadow: "var(--shadow-elevated)",
+                border: "1px solid var(--primary-color-fill)",
+              }
+            : {
+                height: 0,
+                margin: 0,
+                padding: 0,
+                border: "none",
+                boxShadow: "none",
+              }
         }
-      }
-      transition={{
-        duration: 0.2,
-        originY: "top"
-      }}>
-      <div className={`menu-item`} onClick={() => { toggleSort('id') }}>
-        Problem Id
-        <SortIcon status={sort.id} type="number" />
-      </div>
-      <div className={`menu-item`} onClick={() => { toggleSort('title') }}>Problem Title
-        <SortIcon status={sort.title} type="string" />
-      </div>
-      <div className="menu-item" onClick={() => { toggleSort('accuracy') }}>Accuracy
-        <SortIcon status={sort.accuracy} type="number" /></div>
-      <div className="menu-item" onClick={() => { toggleSort('difficulty') }}>Difficulty
-        <SortIcon status={sort.difficulty} type="enum" /></div>
-    </motion.div>
-  </div>
+        transition={{
+          duration: 0.2,
+          originY: "top",
+        }}
+      >
+        <div
+          className={`menu-item`}
+          onClick={() => {
+            toggleSort("id");
+          }}
+        >
+          Problem Id
+          <SortIcon status={sort.id} type="number" />
+        </div>
+        <div
+          className={`menu-item`}
+          onClick={() => {
+            toggleSort("title");
+          }}
+        >
+          Problem Title
+          <SortIcon status={sort.title} type="string" />
+        </div>
+        <div
+          className="menu-item"
+          onClick={() => {
+            toggleSort("accuracy");
+          }}
+        >
+          Accuracy
+          <SortIcon status={sort.accuracy} type="number" />
+        </div>
+        <div
+          className="menu-item"
+          onClick={() => {
+            toggleSort("difficulty");
+          }}
+        >
+          Difficulty
+          <SortIcon status={sort.difficulty} type="enum" />
+        </div>
+      </motion.div>
+    </div>
+  );
 }
 function FilterMenu({ openMenu, setOpenMenu, filter, setFilter }) {
   const [currentFilter, setCurrentFilter] = useState(filter);
@@ -332,132 +444,188 @@ function FilterMenu({ openMenu, setOpenMenu, filter, setFilter }) {
   }
   function applyFilter() {
     setFilter({
-      ...currentFilter
-    })
+      ...currentFilter,
+    });
   }
   function adjustRange([min, max]) {
     setCurrentFilter({
       ...currentFilter,
       accuracy: {
-        min, max
-      }
-    })
+        min,
+        max,
+      },
+    });
   }
-  return <div className="problemset-menu filter-menu">
-    <div className="problemset-control-btn problemset-filter" title="Filter Options" onClick={toggleOpen}>
-      <FontAwesomeIcon icon={faFilter}></FontAwesomeIcon>
-    </div>
-    <div className="menu-overlay">
-      <motion.div className={`menu-items filter-menu`}
-        initial={{
-          height: 0,
-          margin: 0,
-          padding: 0,
-          border: "none",
-          boxShadow: "none"
-        }}
-        style={{
-          originY: "top",
-        }}
-        animate={
-          openMenu == "filter" ? {
-            height: "auto",
-            padding: "0px",
-            boxShadow: "var(--shadow-elevated)",
-            border: "1px solid var(--primary-color-fill)"
-          } : {
+  return (
+    <div className="problemset-menu filter-menu">
+      <div
+        className="problemset-control-btn problemset-filter"
+        title="Filter Options"
+        onClick={toggleOpen}
+      >
+        <FontAwesomeIcon icon={faFilter}></FontAwesomeIcon>
+      </div>
+      <div className="menu-overlay">
+        <motion.div
+          className={`menu-items filter-menu`}
+          initial={{
             height: 0,
-            padding: 0,
             margin: 0,
+            padding: 0,
             border: "none",
-            boxShadow: "none"
+            boxShadow: "none",
+          }}
+          style={{
+            originY: "top",
+          }}
+          animate={
+            openMenu == "filter"
+              ? {
+                  height: "auto",
+                  padding: "0px",
+                  boxShadow: "var(--shadow-elevated)",
+                  border: "1px solid var(--primary-color-fill)",
+                }
+              : {
+                  height: 0,
+                  padding: 0,
+                  margin: 0,
+                  border: "none",
+                  boxShadow: "none",
+                }
           }
-        }
-        transition={{
-          duration: 0.2,
-          originY: "top"
-        }}>
-        <div className="menu-item">
-          <div style={{
-            marginTop: "12.5px"
-          }}>Status :</div>
-          <div className="flat-radio">
-            <div className={`flat-radio-item ${currentFilter.status.notAttempted ? "flat-radio-item-active" : ""}`} onClick={() => toggleOption(currentFilter.status, "notAttempted")}>
-              <div className="tag">Not  Attempted</div>
+          transition={{
+            duration: 0.2,
+            originY: "top",
+          }}
+        >
+          <div className="menu-item">
+            <div
+              style={{
+                marginTop: "12.5px",
+              }}
+            >
+              Status :
             </div>
-            <div className={`flat-radio-item ${currentFilter.status.attempted ? "flat-radio-item-active" : ""}`} onClick={() => toggleOption(currentFilter.status, "attempted")}>
-              <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon>
-              <div className="tag">Attempted</div>
-            </div>
-            <div className={`flat-radio-item ${currentFilter.status.solved ? "flat-radio-item-active" : ""}`} onClick={() => toggleOption(currentFilter.status, "solved")}>
-              <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
-              <div className="tag">Solved</div>
-            </div>
-          </div>
-        </div>
-        <div className="menu-item">
-          <div style={{
-            marginTop: "2.5px"
-          }}>
-            Difficulty :
-          </div>
-          <div className="flat-radio">
-            <div className={`flat-radio-item ${currentFilter.difficulty.easy ? "flat-radio-item-active" : ""}`} onClick={() => toggleOption(currentFilter.difficulty, "easy")}>
-              <div className="tag">Easy</div>
-            </div>
-            <div className={`flat-radio-item ${currentFilter.difficulty.medium ? "flat-radio-item-active" : ""}`} onClick={() => toggleOption(currentFilter.difficulty, "medium")}>
-              <div className="tag">Medium</div>
-            </div>
-            <div className={`flat-radio-item ${currentFilter.difficulty.hard ? "flat-radio-item-active" : ""}`} onClick={() => toggleOption(currentFilter.difficulty, "hard")}>
-              <div className="tag">Hard</div>
+            <div className="flat-radio">
+              <div
+                className={`flat-radio-item ${currentFilter.status.notAttempted ? "flat-radio-item-active" : ""}`}
+                onClick={() => toggleOption(currentFilter.status, "notAttempted")}
+              >
+                <div className="tag">Not Attempted</div>
+              </div>
+              <div
+                className={`flat-radio-item ${currentFilter.status.attempted ? "flat-radio-item-active" : ""}`}
+                onClick={() => toggleOption(currentFilter.status, "attempted")}
+              >
+                <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon>
+                <div className="tag">Attempted</div>
+              </div>
+              <div
+                className={`flat-radio-item ${currentFilter.status.solved ? "flat-radio-item-active" : ""}`}
+                onClick={() => toggleOption(currentFilter.status, "solved")}
+              >
+                <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
+                <div className="tag">Solved</div>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="menu-item">
-          <div style={{
-            marginTop: "5px"
-          }}>
-            Accuracy :
+          <div className="menu-item">
+            <div
+              style={{
+                marginTop: "2.5px",
+              }}
+            >
+              Difficulty :
+            </div>
+            <div className="flat-radio">
+              <div
+                className={`flat-radio-item ${currentFilter.difficulty.easy ? "flat-radio-item-active" : ""}`}
+                onClick={() => toggleOption(currentFilter.difficulty, "easy")}
+              >
+                <div className="tag">Easy</div>
+              </div>
+              <div
+                className={`flat-radio-item ${currentFilter.difficulty.medium ? "flat-radio-item-active" : ""}`}
+                onClick={() => toggleOption(currentFilter.difficulty, "medium")}
+              >
+                <div className="tag">Medium</div>
+              </div>
+              <div
+                className={`flat-radio-item ${currentFilter.difficulty.hard ? "flat-radio-item-active" : ""}`}
+                onClick={() => toggleOption(currentFilter.difficulty, "hard")}
+              >
+                <div className="tag">Hard</div>
+              </div>
+            </div>
           </div>
-          <div className="accuracy-adjust">
-            <div className="accuracy-min">{currentFilter.accuracy.min}</div>
-            <RangeSlider id="rangeslider" value={
-              [currentFilter.accuracy.min, currentFilter.accuracy.max]
-            } defaultValue={
-              [currentFilter.accuracy.min, currentFilter.accuracy.max]
-            }
-              onInput={adjustRange} />
-            <div className="accuracy-max">{currentFilter.accuracy.max}</div>
+          <div className="menu-item">
+            <div
+              style={{
+                marginTop: "5px",
+              }}
+            >
+              Accuracy :
+            </div>
+            <div className="accuracy-adjust">
+              <div className="accuracy-min">{currentFilter.accuracy.min}</div>
+              <RangeSlider
+                id="rangeslider"
+                value={[currentFilter.accuracy.min, currentFilter.accuracy.max]}
+                defaultValue={[currentFilter.accuracy.min, currentFilter.accuracy.max]}
+                onInput={adjustRange}
+              />
+              <div className="accuracy-max">{currentFilter.accuracy.max}</div>
+            </div>
           </div>
-        </div>
-        <Button primary small onClick={applyFilter}>Apply</Button>
-      </motion.div>
+          <Button primary small onClick={applyFilter}>
+            Apply
+          </Button>
+        </motion.div>
+      </div>
     </div>
-  </div>
+  );
 }
 function ProblemItem({ problem }) {
   useScreenWidth();
   const screenWidth = useAtomValue(screenWidthAtom);
-  return <div className="problemitem">
-    <div className={`problemitem-status`}>
-      {problem.status != "notAttempted" && <FontAwesomeIcon icon={problem.status == "solved" ? faCheck : faCircle} />}
-    </div>
-    <div className="problemitem-id">{problem.id.toString().padStart(3, '0')}</div>
-    {screenWidth > 500 && <>
-      <Link to={`/practice/${problem.slug}`} className="problemitem-title">{problem.title}</Link>
-      <div className="problemitem-accuracy" title={`Only ${problem.accuracy}% of all global user submissions were correct`}>{problem.accuracy}%</div>
-      <div className={`problemitem-difficulty difficulty-${problem.difficulty}`}>{problem.difficulty}</div>
-    </>
-    }
-    {screenWidth <= 500 && <>
-      <div className="problemitem-title">
-        <Link to={`/practice/${problem.slug}`} >{problem.title}</Link>
-        <div className="problemitem-badges">
-          <div className="problemitem-accuracy">{problem.accuracy}%</div>
-          <div className={`problemitem-difficulty difficulty-${problem.difficulty}`}>{problem.difficulty}</div>
-        </div>
+  return (
+    <div className="problemitem">
+      <div className={`problemitem-status`}>
+        {problem.status != "notAttempted" && (
+          <FontAwesomeIcon icon={problem.status == "solved" ? faCheck : faCircle} />
+        )}
       </div>
-    </>
-    }
-  </div>
+      <div className="problemitem-id">{problem.id.toString().padStart(3, "0")}</div>
+      {screenWidth > 500 && (
+        <>
+          <Link to={`/practice/${problem.slug}`} className="problemitem-title">
+            {problem.title}
+          </Link>
+          <div
+            className="problemitem-accuracy"
+            title={`Only ${problem.accuracy}% of all global user submissions were correct`}
+          >
+            {problem.accuracy}%
+          </div>
+          <div className={`problemitem-difficulty difficulty-${problem.difficulty}`}>
+            {problem.difficulty}
+          </div>
+        </>
+      )}
+      {screenWidth <= 500 && (
+        <>
+          <div className="problemitem-title">
+            <Link to={`/practice/${problem.slug}`}>{problem.title}</Link>
+            <div className="problemitem-badges">
+              <div className="problemitem-accuracy">{problem.accuracy}%</div>
+              <div className={`problemitem-difficulty difficulty-${problem.difficulty}`}>
+                {problem.difficulty}
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+    </div>
+  );
 }

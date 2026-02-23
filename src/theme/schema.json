@@ -1,75 +1,73 @@
 {
-  "global" : {
-    "font" : { 
-      "xxs" : { "size": 10, "lineHeight": 1.6 },
-      "xs" : { "size": 12, "lineHeight": 1.6 },
-      "sm" : { "size": 14, "lineHeight": 1.5 },
-      "md" : { "size": 16, "lineHeight": 1.5 },
-      "lg" : { "size": 20, "lineHeight": 1.4 },
-      "xl" : { "size": 24, "lineHeight": 1.33 },
-      "xxl" : { "size": 32, "lineHeight": 1.25 },
-      "xxxl" : { "size": 40, "lineHeight": 1.2 },
-      "xxxxl" : { "size": 54, "lineHeight": 1.1 },
-      "xxxxxl" : { "size": 72, "lineHeight": 1.1 }
+  "global": {
+    "font": {
+      "xxs": { "size": 10, "lineHeight": 1.6 },
+      "xs": { "size": 12, "lineHeight": 1.6 },
+      "sm": { "size": 14, "lineHeight": 1.5 },
+      "md": { "size": 16, "lineHeight": 1.5 },
+      "lg": { "size": 20, "lineHeight": 1.4 },
+      "xl": { "size": 24, "lineHeight": 1.33 },
+      "xxl": { "size": 32, "lineHeight": 1.25 },
+      "xxxl": { "size": 40, "lineHeight": 1.2 },
+      "xxxxl": { "size": 54, "lineHeight": 1.1 },
+      "xxxxxl": { "size": 72, "lineHeight": 1.1 }
     },
-    "dimension" : {
-      "xxs" : 4,
-      "xs" : 8,
-      "sm" : 16,
-      "md" : 24,
-      "lg" : 32,
-      "xl" : 48,
-      "xxl" : 80
+    "dimension": {
+      "xxs": 4,
+      "xs": 8,
+      "sm": 16,
+      "md": 24,
+      "lg": 32,
+      "xl": 48,
+      "xxl": 80
     },
-    "shadow" : {
-      "raised" : { "x": 0, "y": 1, "blur": 2, "spread": 0, "color" : "rgba(0, 0, 0, 0.3)"},
-      "elevated" : { "x": 0, "y": 1, "blur": 2, "spread": 1, "color" : "rgba(0, 0, 0, 0.3)" }
+    "shadow": {
+      "raised": { "x": 0, "y": 1, "blur": 2, "spread": 0, "color": "rgba(0, 0, 0, 0.3)" },
+      "elevated": { "x": 0, "y": 1, "blur": 2, "spread": 1, "color": "rgba(0, 0, 0, 0.3)" }
     }
   },
-  "data" : {
-    "light" : {
-      "name" : "light",
-      "color" : {
-        "a" : {
-          "brand" : "#1e8a36",
-          "text-strong" : "#00330A",
-          "text-weak" : "#146625",
-          "stroke-strong" : "#3f7f4c",
-          "stroke-weak" : "#72e58b",
-          "fill" : "#d3f9db",
-          "anti-brand" : "hsl(0, 0%, 98%)"
+  "data": {
+    "light": {
+      "name": "light",
+      "color": {
+        "a": {
+          "brand": "#1e8a36",
+          "text-strong": "#00330A",
+          "text-weak": "#146625",
+          "stroke-strong": "#3f7f4c",
+          "stroke-weak": "#72e58b",
+          "fill": "#d3f9db",
+          "anti-brand": "hsl(0, 0%, 98%)"
         },
-        "b" : {
-          "brand" : "#452D22",
-          "text-strong" : "#140600",
-          "text-weak" : "#4C3126",
-          "stroke-strong" : "#99634C",
-          "stroke-weak" : "#F29D79",
-          "fill" : "#F2E9E5",
-          "anti-brand" : "hsl(0, 0%, 98%)"
+        "b": {
+          "brand": "#452D22",
+          "text-strong": "#140600",
+          "text-weak": "#4C3126",
+          "stroke-strong": "#99634C",
+          "stroke-weak": "#F29D79",
+          "fill": "#F2E9E5",
+          "anti-brand": "hsl(0, 0%, 98%)"
         },
-        "mc" : {
-          "pure" : "hsl(0, 0%, 4%)",
-          "brand" : "hsl(0, 0%, 10%)",
-          "text-strong" : "hsl(0, 0%, 20%)",
-          "text-weak" : "hsl(0, 0%, 35%)",
-          "stroke-strong" : "hsl(0, 0%, 50%)",
-          "stroke-weak" : "hsl(0, 0%, 90%)",
-          "fill" : "hsl(0, 0%, 95%)",
-          "anti-brand" : "hsl(0, 0%, 98%)"
+        "mc": {
+          "pure": "hsl(0, 0%, 4%)",
+          "brand": "hsl(0, 0%, 10%)",
+          "text-strong": "hsl(0, 0%, 20%)",
+          "text-weak": "hsl(0, 0%, 35%)",
+          "stroke-strong": "hsl(0, 0%, 50%)",
+          "stroke-weak": "hsl(0, 0%, 90%)",
+          "fill": "hsl(0, 0%, 95%)",
+          "anti-brand": "hsl(0, 0%, 98%)"
         },
-        "system-color" : {
-          "red" : "hsl(162, 91%, 29%)",
-          "amber" : "hsl(42, 69%, 33%)",
-          "green" : "hsl(162, 91%, 25%)"
+        "system-color": {
+          "red": "hsl(162, 91%, 29%)",
+          "amber": "hsl(42, 69%, 33%)",
+          "green": "hsl(162, 91%, 25%)"
         }
       }
     },
-    "dark" : {
-      "name" : "dark",
-      "color" : {
-
-      }
+    "dark": {
+      "name": "dark",
+      "color": {}
     }
   }
 }
