@@ -4,8 +4,8 @@ import en from "javascript-time-ago/locale/en";
 import { useNavigate } from "react-router";
 import { getUserAtom } from "../atoms/user";
 import { useAtomValue } from "jotai";
-import { useQuery } from "@tanstack/react-query";
 import { lastUnsolvedQueryOptions } from "../hooks/queryOptions";
+import { useToastQuery } from "../hooks/toastHooks";
 import LastUnsolvedFallback from "./fallbacks/LastUnsolvedFallback";
 
 TimeAgo.addDefaultLocale(en);
@@ -28,7 +28,7 @@ function UnsolvedItem({ data }) {
 
 export default function LastUnsolved() {
   const user = useAtomValue(getUserAtom);
-  const { data, error, isPending, isError } = useQuery(
+  const { data, error, isPending, isError } = useToastQuery(
     lastUnsolvedQueryOptions({ usernamem: user.username })
   );
 

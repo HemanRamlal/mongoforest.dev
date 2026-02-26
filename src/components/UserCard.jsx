@@ -5,8 +5,9 @@ import { pushToast } from "../components/Toasts/Toasts";
 import { Link } from "react-router";
 import UserCardFallback from "./fallbacks/UserCardFallback";
 import _ from "lodash";
-import { useQueryClient, useQuery } from "@tanstack/react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import { userStatsQueryOptions } from "../hooks/queryOptions";
+import { useToastQuery } from "../hooks/toastHooks";
 import LinearProgress from "@mui/material/LinearProgress";
 function getTier(percentile) {
   if (percentile >= 99) return "Sage";
@@ -22,7 +23,7 @@ function getPercentage(n, d) {
   return ((n / d) * 100).toFixed(1);
 }
 export default function UserCard({ username }) {
-  const { data, error, isPending, isError, isFetching } = useQuery(
+  const { data, error, isPending, isError, isFetching } = useToastQuery(
     userStatsQueryOptions({
       username,
       pushToast,

@@ -5,8 +5,8 @@ import { pushToast } from "./components/Toasts/Toasts";
 import { formatDistance } from "date-fns";
 import { getUserAtom } from "./atoms/user";
 import { useAtomValue } from "jotai";
-import { useQuery } from "@tanstack/react-query";
 import { submissionsQueryOptions } from "./hooks/queryOptions";
+import { useToastQuery } from "./hooks/toastHooks";
 import SubmissionsPageFallback from "./components/fallbacks/SubmissionsPageFallback";
 import Pagination from "@mui/material/Pagination";
 import api from "./api/axios";
@@ -42,7 +42,7 @@ export default function Submissions({ problemSlug }) {
   const [view, setView] = useState(null);
   const [page, setPage] = useState(1);
 
-  const submissionsQuery = useQuery(
+  const submissionsQuery = useToastQuery(
     submissionsQueryOptions({
       username: user.username,
     })

@@ -28,7 +28,7 @@ import RangeSlider from "react-range-slider-input";
 import "react-range-slider-input/dist/style.css";
 import { screenWidthAtom } from "../atoms/screenWidth";
 import { problemsetQueryOptions } from "../hooks/queryOptions";
-import { useQuery } from "@tanstack/react-query";
+import { useToastQuery } from "../hooks/toastHooks";
 import { useAtomValue } from "jotai";
 import useScreenWidth from "../hooks/useScreenWidth";
 
@@ -129,7 +129,7 @@ export default function ProblemSet() {
     title: "",
   });
 
-  const problemsetQuery = useQuery(problemsetQueryOptions());
+  const problemsetQuery = useToastQuery(problemsetQueryOptions());
   const problems = problemsetQuery.data;
 
   if (!problems || problems.length == 0)

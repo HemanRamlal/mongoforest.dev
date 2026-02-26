@@ -24,8 +24,7 @@ import _ from "lodash";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import EditAvatar from "./EditAvatar";
 import { communityInfoQueryOptions, leaderboardQueryOptions } from "../hooks/queryOptions";
-import { useQuery } from "@tanstack/react-query";
-import { useToastMutation } from "../hooks/toastHooks";
+import { useToastMutation, useToastQuery } from "../hooks/toastHooks";
 /*
 Handle stale data
 */
@@ -44,7 +43,7 @@ export default function Leaderboard() {
   const [limit, setLimit] = useState(9999);
   const communityName = location.pathname.split("/").at(-1);
 
-  const communityInfoQuery = useQuery(
+  const communityInfoQuery = useToastQuery(
     communityInfoQueryOptions({
       communityName,
     })
@@ -52,7 +51,7 @@ export default function Leaderboard() {
   const communityInfo = communityInfoQuery.data;
   console.log(communityInfo);
 
-  const leaderboardQuery = useQuery(
+  const leaderboardQuery = useToastQuery(
     leaderboardQueryOptions({
       communityId: communityInfoQuery.data?.id,
       offset,
@@ -62,6 +61,10 @@ export default function Leaderboard() {
       },
     })
   );
+
+  if (leaderboardQuery.isError) {
+    navigate("/practice");
+  }
   const thisLeaderboardId = [
     "leaderboard",
     {
@@ -559,7 +562,7 @@ export default function Leaderboard() {
               </>
             )}
             {leaderboardQuery.isPending && <LeaderboardFallback />}
-            {leaderboardQuery.data &&
+            {leaderboardQuery.isSuccess &&
               leaderboardQuery.data.map(user => {
                 return (
                   <div

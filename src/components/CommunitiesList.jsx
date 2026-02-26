@@ -12,8 +12,7 @@ import {
   faSquarePollHorizontal,
 } from "@fortawesome/free-solid-svg-icons";
 import { pushToast } from "./Toasts/Toasts";
-import { useQuery } from "@tanstack/react-query";
-import { useToastMutation } from "../hooks/toastHooks";
+import { useToastMutation, useToastQuery } from "../hooks/toastHooks";
 import CommunitiesListFallback from "./fallbacks/CommunitiesListFallback";
 import { axiosResToToast } from "../hooks/toastObjects";
 import LinearProgress from "@mui/material/LinearProgress";
@@ -131,7 +130,7 @@ async function getCommunities(username) {
 function CommunitiesListView({ username }) {
   const [page, setPage] = useState(1);
   const limit = 3;
-  const { data, error, isPending, isFetching, isError } = useQuery({
+  const { data, error, isPending, isFetching, isError } = useToastQuery({
     queryKey: ["com-list", username],
     queryFn: () => getCommunities(username),
   });
