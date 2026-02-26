@@ -229,6 +229,12 @@ export default function CommunitiesList({ username }) {
                 onChange={e => {
                   setNewComName(e.target.value);
                 }}
+                onKeyDown={e => {
+                  if (e.key != "Enter") return;
+                  joinCommunityMutation.mutate({
+                    newComName,
+                  });
+                }}
               />
               <div
                 className="com-join-btn"
@@ -254,6 +260,12 @@ export default function CommunitiesList({ username }) {
                 disabled={createCommunityMutation.isPending}
                 onChange={e => {
                   setNewComName(e.target.value);
+                }}
+                onKeyDown={e => {
+                  if (e.key != "Enter") return;
+                  createCommunityMutation.mutate({
+                    newComName,
+                  });
                 }}
               />
               <div
