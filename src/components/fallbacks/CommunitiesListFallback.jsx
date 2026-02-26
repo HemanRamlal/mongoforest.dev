@@ -11,12 +11,9 @@ function LeaderboardItem() {
 export default function CommunitiesListFallback() {
   return (
     <>
-      <div className="community">
-        <div className="heading">Communities</div>
-        <LeaderboardItem key={1} />
-        <LeaderboardItem key={2} />
-        <LeaderboardItem key={3} />
-      </div>
+      <LeaderboardItem key={1} />
+      <LeaderboardItem key={2} />
+      <LeaderboardItem key={3} />
     </>
   );
 }
