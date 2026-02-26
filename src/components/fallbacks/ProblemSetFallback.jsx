@@ -22,6 +22,7 @@ export default function ProblemSetFallback() {
           width: "90%",
           margin: "auto",
         }}
+        className="problemset"
       >
         {Array.from("123456789012345").map(e => (
           <ProblemItemSkeleton />
