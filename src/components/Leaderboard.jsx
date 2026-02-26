@@ -24,8 +24,8 @@ import _ from "lodash";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import EditAvatar from "./EditAvatar";
 import { communityInfoQueryOptions, leaderboardQueryOptions } from "../hooks/queryOptions";
-import { youAreOfflineToast } from "../hooks/toastObjects";
-import { useQuery, useMutation } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
+import { useToastMutation } from "../hooks/toastHooks";
 /*
 Handle stale data
 */
@@ -177,7 +177,7 @@ export default function Leaderboard() {
     client.invalidateQueries(["community-info", { communityName }]);
   }
 
-  const avatarMutation = useMutation({
+  const avatarMutation = useToastMutation({
     mutationKey: ["community-info", communityName, "avatar"],
     mutationFn: communityInfoMutator,
     onMutate: onCommunityInfoMutate,
@@ -191,7 +191,7 @@ export default function Leaderboard() {
     onSettled: onCommunityInfoSettled,
   });
 
-  const nameMutation = useMutation({
+  const nameMutation = useToastMutation({
     mutationKey: ["community-info", communityName, "name"],
     mutationFn: communityInfoMutator,
     onMutate: onCommunityInfoMutate,
@@ -346,7 +346,7 @@ export default function Leaderboard() {
 
     client.invalidateQueries(thisLeaderboardId);
   }
-  const addMemberMutation = useMutation({
+  const addMemberMutation = useToastMutation({
     mutationKey: [...thisLeaderboardId, "addMember"],
     mutationFn: leaderboardMutator,
     onMutate: onLeaderboardMutate,
@@ -355,7 +355,7 @@ export default function Leaderboard() {
     onSettled: onLeaderboardSettled,
   });
 
-  const kickMemberMutation = useMutation({
+  const kickMemberMutation = useToastMutation({
     mutationKey: [...thisLeaderboardId, "kickMember"],
     mutationFn: leaderboardMutator,
     onMutate: onLeaderboardMutate,
@@ -364,7 +364,7 @@ export default function Leaderboard() {
     onSettled: onLeaderboardSettled,
   });
 
-  const demoteToMemberMutation = useMutation({
+  const demoteToMemberMutation = useToastMutation({
     mutationKey: ["community-info", communityName, "demoteToMember"],
     mutationFn: communityInfoMutator,
     onMutate: onCommunityInfoMutate,
@@ -373,7 +373,7 @@ export default function Leaderboard() {
     onSettled: onCommunityInfoSettled,
   });
 
-  const promoteToAdminMutation = useMutation({
+  const promoteToAdminMutation = useToastMutation({
     mutationKey: ["community-info", communityName, "promoteToAdmin"],
     mutationFn: communityInfoMutator,
     onMutate: onCommunityInfoMutate,
@@ -382,7 +382,7 @@ export default function Leaderboard() {
     onSettled: onCommunityInfoSettled,
   });
 
-  const joinCommunityMutation = useMutation({
+  const joinCommunityMutation = useToastMutation({
     mutationKey: ["leaderboard", thisLeaderboardId, "joinCommunity"],
     mutationFn: leaderboardMutator,
     onMutate: onLeaderboardMutate,
@@ -391,7 +391,7 @@ export default function Leaderboard() {
     onSettled: onLeaderboardSettled,
   });
 
-  const exitCommunityMutation = useMutation({
+  const exitCommunityMutation = useToastMutation({
     mutationKey: ["leaderboard", thisLeaderboardId, "communityMembership"],
     mutationFn: leaderboardMutator,
     onMutate: onLeaderboardMutate,

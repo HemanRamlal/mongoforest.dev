@@ -12,7 +12,8 @@ import {
   faSquarePollHorizontal,
 } from "@fortawesome/free-solid-svg-icons";
 import { pushToast } from "./Toasts/Toasts";
-import { useQuery, useMutation } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
+import { useToastMutation } from "../hooks/toastHooks";
 import CommunitiesListFallback from "./fallbacks/CommunitiesListFallback";
 import { axiosResToToast } from "../hooks/toastObjects";
 import LinearProgress from "@mui/material/LinearProgress";
@@ -45,13 +46,13 @@ function UseComListMutations(username, setMode, setNewComName) {
     await client.invalidateQueries(["com-list", username]);
   }
 
-  const joinCommunityMutation = useMutation({
+  const joinCommunityMutation = useToastMutation({
     mutationKey: ["com-list", username, "join-community"],
     mutationFn: joinCommunity,
     onSuccess: onSuccess,
   });
 
-  const createCommunityMutation = useMutation({
+  const createCommunityMutation = useToastMutation({
     mutationKey: ["com-list", username, "create-community"],
     mutationFn: createCommunity,
     onSuccess: onSuccess,
