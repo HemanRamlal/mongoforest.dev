@@ -113,6 +113,15 @@ export default function Navbar() {
         <NavLink to="/notifications" className="nav-link" text="Notifications">
           <FontAwesomeIcon icon={faBell} />
         </NavLink>*/}
+            {user && userMenu && (
+              <div
+                className="user-drop-overlay"
+                onClick={() => {
+                  console.log("hello");
+                  setUserMenu(false);
+                }}
+              ></div>
+            )}
             {user && (
               <div className="user-drop-container" onClick={toggleUserMenu}>
                 <NavLink
@@ -129,7 +138,7 @@ export default function Navbar() {
                 <AnimatePresence>
                   {userMenu && (
                     <motion.div
-                      className="user-drop"
+                      className={`user-drop ${userMenu ? "antioverlay" : ""}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}

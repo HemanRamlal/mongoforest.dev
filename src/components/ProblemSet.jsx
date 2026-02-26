@@ -94,6 +94,9 @@ function sieve(problem, filter) {
     (regex.test(problem.title) || regex.test(problem.id))
   );
 }
+function ProblemsetMenuOverlay({ setOpenMenu }) {
+  return <div className="problemset-menu-overlay" onClick={() => setOpenMenu("none")}></div>;
+}
 export default function ProblemSet() {
   const [offset, setOffset] = useState(0);
   const [limit, setLimit] = useState(25);
@@ -328,85 +331,88 @@ function SortMenu({ openMenu, setOpenMenu, sort, toggleSort, className }) {
     setOpenMenu(openMenu != "sort" ? "sort" : "none");
   }
   return (
-    <div className={`problemset-menu sort-menu`}>
-      <div
-        className="problemset-control-btn problemset-sort"
-        onClick={toggleOpen}
-        title="Sort Options"
-      >
-        <FontAwesomeIcon icon={faSort}></FontAwesomeIcon>
+    <>
+      {openMenu == "sort" && <ProblemsetMenuOverlay setOpenMenu={setOpenMenu} />}
+      <div className={`problemset-menu sort-menu ${openMenu == "sort" ? "antioverlay" : ""}`}>
+        <div
+          className="problemset-control-btn problemset-sort"
+          onClick={toggleOpen}
+          title="Sort Options"
+        >
+          <FontAwesomeIcon icon={faSort}></FontAwesomeIcon>
+        </div>
+        <motion.div
+          className={`menu-items`}
+          initial={{
+            height: 0,
+            margin: 0,
+            padding: 0,
+            border: "none",
+            boxShadow: "none",
+          }}
+          style={{
+            originY: "top",
+            overflow: "hidden",
+          }}
+          animate={
+            openMenu == "sort"
+              ? {
+                  height: "auto",
+                  boxShadow: "var(--shadow-elevated)",
+                  border: "1px solid var(--primary-color-fill)",
+                }
+              : {
+                  height: 0,
+                  margin: 0,
+                  padding: 0,
+                  border: "none",
+                  boxShadow: "none",
+                }
+          }
+          transition={{
+            duration: 0.2,
+            originY: "top",
+          }}
+        >
+          <div
+            className={`menu-item`}
+            onClick={() => {
+              toggleSort("id");
+            }}
+          >
+            Problem Id
+            <SortIcon status={sort.id} type="number" />
+          </div>
+          <div
+            className={`menu-item`}
+            onClick={() => {
+              toggleSort("title");
+            }}
+          >
+            Problem Title
+            <SortIcon status={sort.title} type="string" />
+          </div>
+          <div
+            className="menu-item"
+            onClick={() => {
+              toggleSort("accuracy");
+            }}
+          >
+            Accuracy
+            <SortIcon status={sort.accuracy} type="number" />
+          </div>
+          <div
+            className="menu-item"
+            onClick={() => {
+              toggleSort("difficulty");
+            }}
+          >
+            Difficulty
+            <SortIcon status={sort.difficulty} type="enum" />
+          </div>
+        </motion.div>
       </div>
-      <motion.div
-        className={`menu-items`}
-        initial={{
-          height: 0,
-          margin: 0,
-          padding: 0,
-          border: "none",
-          boxShadow: "none",
-        }}
-        style={{
-          originY: "top",
-          overflow: "hidden",
-        }}
-        animate={
-          openMenu == "sort"
-            ? {
-                height: "auto",
-                boxShadow: "var(--shadow-elevated)",
-                border: "1px solid var(--primary-color-fill)",
-              }
-            : {
-                height: 0,
-                margin: 0,
-                padding: 0,
-                border: "none",
-                boxShadow: "none",
-              }
-        }
-        transition={{
-          duration: 0.2,
-          originY: "top",
-        }}
-      >
-        <div
-          className={`menu-item`}
-          onClick={() => {
-            toggleSort("id");
-          }}
-        >
-          Problem Id
-          <SortIcon status={sort.id} type="number" />
-        </div>
-        <div
-          className={`menu-item`}
-          onClick={() => {
-            toggleSort("title");
-          }}
-        >
-          Problem Title
-          <SortIcon status={sort.title} type="string" />
-        </div>
-        <div
-          className="menu-item"
-          onClick={() => {
-            toggleSort("accuracy");
-          }}
-        >
-          Accuracy
-          <SortIcon status={sort.accuracy} type="number" />
-        </div>
-        <div
-          className="menu-item"
-          onClick={() => {
-            toggleSort("difficulty");
-          }}
-        >
-          Difficulty
-          <SortIcon status={sort.difficulty} type="enum" />
-        </div>
-      </motion.div>
-    </div>
+    </>
   );
 }
 function FilterMenu({ openMenu, setOpenMenu, filter, setFilter }) {
@@ -434,133 +440,136 @@ function FilterMenu({ openMenu, setOpenMenu, filter, setFilter }) {
     });
   }
   return (
-    <div className="problemset-menu filter-menu">
-      <div
-        className="problemset-control-btn problemset-filter"
-        title="Filter Options"
-        onClick={toggleOpen}
-      >
-        <FontAwesomeIcon icon={faFilter}></FontAwesomeIcon>
-      </div>
-      <div className="menu-overlay">
-        <motion.div
-          className={`menu-items filter-menu`}
-          initial={{
-            height: 0,
-            margin: 0,
-            padding: 0,
-            border: "none",
-            boxShadow: "none",
-          }}
-          style={{
-            originY: "top",
-          }}
-          animate={
-            openMenu == "filter"
-              ? {
-                  height: "auto",
-                  padding: "0px",
-                  boxShadow: "var(--shadow-elevated)",
-                  border: "1px solid var(--primary-color-fill)",
-                }
-              : {
-                  height: 0,
-                  padding: 0,
-                  margin: 0,
-                  border: "none",
-                  boxShadow: "none",
-                }
-          }
-          transition={{
-            duration: 0.2,
-            originY: "top",
-          }}
+    <>
+      {openMenu == "filter" && <ProblemsetMenuOverlay setOpenMenu={setOpenMenu} />}
+      <div className={`problemset-menu filter-menu ${openMenu == "filter" ? "antioverlay" : ""}`}>
+        <div
+          className="problemset-control-btn problemset-filter"
+          title="Filter Options"
+          onClick={toggleOpen}
         >
-          <div className="menu-item">
-            <div
-              style={{
-                marginTop: "12.5px",
-              }}
-            >
-              Status :
-            </div>
-            <div className="flat-radio">
+          <FontAwesomeIcon icon={faFilter}></FontAwesomeIcon>
+        </div>
+        <div className="menu-overlay">
+          <motion.div
+            className={`menu-items filter-menu`}
+            initial={{
+              height: 0,
+              margin: 0,
+              padding: 0,
+              border: "none",
+              boxShadow: "none",
+            }}
+            style={{
+              originY: "top",
+            }}
+            animate={
+              openMenu == "filter"
+                ? {
+                    height: "auto",
+                    padding: "0px",
+                    boxShadow: "var(--shadow-elevated)",
+                    border: "1px solid var(--primary-color-fill)",
+                  }
+                : {
+                    height: 0,
+                    padding: 0,
+                    margin: 0,
+                    border: "none",
+                    boxShadow: "none",
+                  }
+            }
+            transition={{
+              duration: 0.2,
+              originY: "top",
+            }}
+          >
+            <div className="menu-item">
               <div
-                className={`flat-radio-item ${currentFilter.status.notAttempted ? "flat-radio-item-active" : ""}`}
-                onClick={() => toggleOption(currentFilter.status, "notAttempted")}
+                style={{
+                  marginTop: "12.5px",
+                }}
               >
-                <div className="tag">Not Attempted</div>
+                Status :
               </div>
-              <div
-                className={`flat-radio-item ${currentFilter.status.attempted ? "flat-radio-item-active" : ""}`}
-                onClick={() => toggleOption(currentFilter.status, "attempted")}
-              >
-                <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon>
-                <div className="tag">Attempted</div>
-              </div>
-              <div
-                className={`flat-radio-item ${currentFilter.status.solved ? "flat-radio-item-active" : ""}`}
-                onClick={() => toggleOption(currentFilter.status, "solved")}
-              >
-                <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
-                <div className="tag">Solved</div>
-              </div>
-            </div>
-          </div>
-          <div className="menu-item">
-            <div
-              style={{
-                marginTop: "2.5px",
-              }}
-            >
-              Difficulty :
-            </div>
-            <div className="flat-radio">
-              <div
-                className={`flat-radio-item ${currentFilter.difficulty.easy ? "flat-radio-item-active" : ""}`}
-                onClick={() => toggleOption(currentFilter.difficulty, "easy")}
-              >
-                <div className="tag">Easy</div>
-              </div>
-              <div
-                className={`flat-radio-item ${currentFilter.difficulty.medium ? "flat-radio-item-active" : ""}`}
-                onClick={() => toggleOption(currentFilter.difficulty, "medium")}
-              >
-                <div className="tag">Medium</div>
-              </div>
-              <div
-                className={`flat-radio-item ${currentFilter.difficulty.hard ? "flat-radio-item-active" : ""}`}
-                onClick={() => toggleOption(currentFilter.difficulty, "hard")}
-              >
-                <div className="tag">Hard</div>
+              <div className="flat-radio">
+                <div
+                  className={`flat-radio-item ${currentFilter.status.notAttempted ? "flat-radio-item-active" : ""}`}
+                  onClick={() => toggleOption(currentFilter.status, "notAttempted")}
+                >
+                  <div className="tag">Not Attempted</div>
+                </div>
+                <div
+                  className={`flat-radio-item ${currentFilter.status.attempted ? "flat-radio-item-active" : ""}`}
+                  onClick={() => toggleOption(currentFilter.status, "attempted")}
+                >
+                  <FontAwesomeIcon icon={faCircle}></FontAwesomeIcon>
+                  <div className="tag">Attempted</div>
+                </div>
+                <div
+                  className={`flat-radio-item ${currentFilter.status.solved ? "flat-radio-item-active" : ""}`}
+                  onClick={() => toggleOption(currentFilter.status, "solved")}
+                >
+                  <FontAwesomeIcon icon={faCheck}></FontAwesomeIcon>
+                  <div className="tag">Solved</div>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="menu-item">
-            <div
-              style={{
-                marginTop: "5px",
-              }}
-            >
-              Accuracy :
+            <div className="menu-item">
+              <div
+                style={{
+                  marginTop: "2.5px",
+                }}
+              >
+                Difficulty :
+              </div>
+              <div className="flat-radio">
+                <div
+                  className={`flat-radio-item ${currentFilter.difficulty.easy ? "flat-radio-item-active" : ""}`}
+                  onClick={() => toggleOption(currentFilter.difficulty, "easy")}
+                >
+                  <div className="tag">Easy</div>
+                </div>
+                <div
+                  className={`flat-radio-item ${currentFilter.difficulty.medium ? "flat-radio-item-active" : ""}`}
+                  onClick={() => toggleOption(currentFilter.difficulty, "medium")}
+                >
+                  <div className="tag">Medium</div>
+                </div>
+                <div
+                  className={`flat-radio-item ${currentFilter.difficulty.hard ? "flat-radio-item-active" : ""}`}
+                  onClick={() => toggleOption(currentFilter.difficulty, "hard")}
+                >
+                  <div className="tag">Hard</div>
+                </div>
+              </div>
             </div>
-            <div className="accuracy-adjust">
-              <div className="accuracy-min">{currentFilter.accuracy.min}</div>
-              <RangeSlider
-                id="rangeslider"
-                value={[currentFilter.accuracy.min, currentFilter.accuracy.max]}
-                defaultValue={[currentFilter.accuracy.min, currentFilter.accuracy.max]}
-                onInput={adjustRange}
-              />
-              <div className="accuracy-max">{currentFilter.accuracy.max}</div>
+            <div className="menu-item">
+              <div
+                style={{
+                  marginTop: "5px",
+                }}
+              >
+                Accuracy :
+              </div>
+              <div className="accuracy-adjust">
+                <div className="accuracy-min">{currentFilter.accuracy.min}</div>
+                <RangeSlider
+                  id="rangeslider"
+                  value={[currentFilter.accuracy.min, currentFilter.accuracy.max]}
+                  defaultValue={[currentFilter.accuracy.min, currentFilter.accuracy.max]}
+                  onInput={adjustRange}
+                />
+                <div className="accuracy-max">{currentFilter.accuracy.max}</div>
+              </div>
             </div>
-          </div>
-          <Button primary small onClick={applyFilter}>
-            Apply
-          </Button>
-        </motion.div>
+            <Button primary small onClick={applyFilter}>
+              Apply
+            </Button>
+          </motion.div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 function ProblemItem({ problem }) {
