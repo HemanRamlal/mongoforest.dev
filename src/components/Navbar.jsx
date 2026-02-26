@@ -125,7 +125,7 @@ export default function Navbar() {
             {user && (
               <div className="user-drop-container" onClick={toggleUserMenu}>
                 <NavLink
-                  className="nav-link"
+                  className="nav-link interactive-ns"
                   text={
                     <span>
                       {user.username}

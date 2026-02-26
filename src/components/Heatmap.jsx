@@ -228,7 +228,7 @@ export default function Heatmap({ username }) {
             </select>
           </div>
         </div>
-        <div class="heatmap-visualizer"></div>
+        <div class="heatmap-visualizer def-cur-ns-ans"></div>
       </main>
       <div className="heatmap-stats">
         <div className="heatmap-stat heatmap-main-stat">

@@ -23,6 +23,7 @@ export default function EditAvatar({ avatarURL, onAvatarChange, loading }) {
         className="editable-avatar-input"
         type="file"
         disabled={loading}
+        title="Choose Image File"
         onChange={trackFile}
       />
       <img className="editable-avatar-img" src={avatarURL} alt="" />

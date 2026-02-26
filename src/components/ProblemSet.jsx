@@ -216,7 +216,7 @@ export default function ProblemSet() {
       <div className="problemset">
         <div className="problemset-control">
           <div className="problemset-left">
-            <div className="problemset-search">
+            <div className="problemset-search text-cur">
               <input
                 type="text"
                 placeholder="Search ID or Title"
@@ -242,7 +242,7 @@ export default function ProblemSet() {
           </div>
           <div className="problemset-right">
             <div
-              className="problemset-control-btn problemset-pick-random"
+              className="problemset-control-btn problemset-pick-random interactive-ns"
               title="Pick random problem"
               onClick={pickRandomProblem}
             >
@@ -335,7 +335,7 @@ function SortMenu({ openMenu, setOpenMenu, sort, toggleSort, className }) {
       {openMenu == "sort" && <ProblemsetMenuOverlay setOpenMenu={setOpenMenu} />}
       <div className={`problemset-menu sort-menu ${openMenu == "sort" ? "antioverlay" : ""}`}>
         <div
-          className="problemset-control-btn problemset-sort"
+          className="problemset-control-btn problemset-sort interactive-ns "
           onClick={toggleOpen}
           title="Sort Options"
         >
@@ -444,7 +444,7 @@ function FilterMenu({ openMenu, setOpenMenu, filter, setFilter }) {
       {openMenu == "filter" && <ProblemsetMenuOverlay setOpenMenu={setOpenMenu} />}
       <div className={`problemset-menu filter-menu ${openMenu == "filter" ? "antioverlay" : ""}`}>
         <div
-          className="problemset-control-btn problemset-filter"
+          className="problemset-control-btn interactive-ns problemset-filter"
           title="Filter Options"
           onClick={toggleOpen}
         >

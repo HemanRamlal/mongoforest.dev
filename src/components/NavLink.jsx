@@ -8,7 +8,7 @@ export default function NavLink({ to, className, children, text, onClick }) {
     return (
       <motion.span
         onClick={onClick}
-        className={`nav-link ${className}`}
+        className={`nav-link interactive-ns ${className}`}
         whileHover={{
           scale: 1.05,
         }}
@@ -27,7 +27,7 @@ export default function NavLink({ to, className, children, text, onClick }) {
     <Link to={to}>
       <motion.span
         onClick={onClick}
-        className={`nav-link ${className}`}
+        className={`nav-link interactive-ns ${className}`}
         animate={{
           scale: isActive ? 1.05 : 1,
         }}

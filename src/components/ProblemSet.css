@@ -99,6 +99,7 @@
 
 .problemset-search .problemset-search-icon {
   margin-right: 3px;
+  color: var(--monochrome-color-ss);
 }
 
 .problemset-control-btn {

@@ -22,6 +22,37 @@
   z-index: 2;
 }
 
+.def-cur-ns-ans * {
+  cursor: default;
+  user-select: none;
+}
+.def-cur-ns-par > * {
+  cursor: default;
+  user-select: none;
+}
+.def-cur-ns {
+  cursor: default;
+  user-select: none;
+}
+.ns {
+  user-select: none;
+}
+.text-cur {
+  cursor: text;
+}
+/*.interactive { --bad idea. interactive elements are prone to double click so make them non selectable unless they are links (which already use pointer cursor)
+  cursor: pointer;
+}*/
+
+.interactive-ns {
+  cursor: pointer;
+  user-select: none;
+}
+
+.interactive-ns-par > * {
+  cursor: pointer;
+  user-select: none;
+}
 .d-none {
   display: none !important;
 }

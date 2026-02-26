@@ -81,7 +81,7 @@ export default function UserCard({ username }) {
       </div>
       <div className="problem-stats">
         <div className="problem-stat-wrap">
-          <div className="easy plate">
+          <div className="easy plate def-cur-ns-par">
             <div className="solved">{solvedStats.easy_solved}</div>
             <div className="total">{solvedStats.easy_total}</div>
             <div className="label">
@@ -95,7 +95,7 @@ export default function UserCard({ username }) {
           </div>
         </div>
         <div className="problem-stat-wrap">
-          <div className="medium plate">
+          <div className="medium plate def-cur-ns-par">
             <div className="solved">{solvedStats.medium_solved}</div>
             <div className="total">{solvedStats.medium_total}</div>
             <div className="label">
@@ -109,7 +109,7 @@ export default function UserCard({ username }) {
           </div>
         </div>
         <div className="problem-stat-wrap">
-          <div className="hard plate">
+          <div className="hard plate def-cur-ns-par">
             <div className="solved">{solvedStats.hard_solved}</div>
             <div className="total">{solvedStats.hard_total}</div>
             <div className="label">

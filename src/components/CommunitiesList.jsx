@@ -83,7 +83,7 @@ function LeaderboardItem({ community }) {
       onClick={() => {
         navigate(`/leaderboard/${community.name}`);
       }}
-      className="community-item"
+      className="community-item interactive-ns"
     >
       <img src={community.avatar} className="community-logo" />
       <motion.div variants={variants} className="community-name">
@@ -190,9 +190,9 @@ export default function CommunitiesList({ username }) {
     <>
       <div className="community">
         <div className="heading">
-          <div className="heading-text">{selfView ? "Your" : ""} Communities</div>
+          <div className="heading-text def-cur-ns">{selfView ? "Your" : ""} Communities</div>
           {selfView && (
-            <div className="heading-controls">
+            <div className="heading-controls interactive-ns-par">
               <div
                 className={`view-communities ${mode == "view" ? "control-active" : ""}`}
                 onClick={() => setMode("view")}
@@ -237,14 +237,14 @@ export default function CommunitiesList({ username }) {
                 }}
               />
               <div
-                className="com-join-btn"
+                className="com-join-btn interactive-ns"
                 onClick={() => joinCommunityMutation.mutate({ newComName })}
               >
                 <FontAwesomeIcon icon={faDoorOpen} />
                 {joinCommunityMutation.isPending ? "Joining" : "Join"}
               </div>
             </div>
-            <div className="com-join-info">
+            <div className="com-join-info def-cur-ns">
               Currently you can only join communities if you already know their name, Community
               Explorer coming soon!
             </div>
@@ -269,7 +269,7 @@ export default function CommunitiesList({ username }) {
                 }}
               />
               <div
-                className="com-create-btn"
+                className="com-create-btn interactive-ns"
                 onClick={() => createCommunityMutation.mutate({ newComName })}
               >
                 <FontAwesomeIcon icon={faCirclePlus} />

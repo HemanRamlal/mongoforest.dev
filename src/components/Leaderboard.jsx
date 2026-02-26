@@ -451,7 +451,8 @@ export default function Leaderboard() {
             {!adminMode && <img src={communityInfoQuery.data.avatar} />}
             {!editingName && (
               <div
-                className="leaderboard-community-name"
+                className="leaderboard-community-name text-cur"
+                title="Edit community name"
                 onClick={() => {
                   if (adminMode) setEditingName(true);
                 }}
@@ -501,7 +502,7 @@ export default function Leaderboard() {
                   onKeyDown={handleAddUserKeyDown}
                 />
                 <div
-                  className={`add-member-submit ${addMemberMutation.isPending && "add-member-submit-disabled"}`}
+                  className={`add-member-submit interactive-ns ${addMemberMutation.isPending && "add-member-submit-disabled"}`}
                   onClick={
                     addMemberMutation.isPending
                       ? null
