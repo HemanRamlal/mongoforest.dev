@@ -1,8 +1,11 @@
 import "./ProblemView.css";
-import slugify from "./utils/slugify";
+import { useToastQuery } from "./hooks/toastHooks";
 import { useState, useEffect, useRef } from "react";
+import { getUserAtom } from "./atoms/user";
+import { useAtomValue } from "jotai";
 import { useParams } from "react-router";
 import { pushToast } from "./components/Toasts/Toasts";
+import { problemSubmissionsQueryOptions } from "./hooks/queryOptions";
 import api from "./api/axios";
 import {
   faBoltLightning,
@@ -68,85 +71,70 @@ function Samplecases({ testcases }) {
   );
 }
 function Submissions({ problemSlug, refreshKey }) {
-  const [submissions, setSubmissions] = useState([]);
-  const [viewing, setViewing] = useState(-1);
-  const [view, setView] = useState("");
-  const viewContainer = useRef(null);
-  useEffect(() => {
-    (async function () {
-      try {
-        const res = await api.get(`/problem/${problemSlug}/submissions`);
-        setSubmissions(res.data);
-        return true;
-      } catch (error) {
-        if (error.response) {
-          pushToast({
-            code: error.response.status,
-            ...error.response.data,
-          });
-        }
-        return false;
-      }
-    })();
-  }, [refreshKey]);
+  const [view, setView] = useState();
+  const user = useAtomValue(getUserAtom);
 
-  useEffect(() => {
-    if (viewing == -1) {
-      setView("");
-      return;
-    }
-    (async function () {
-      try {
-        const res = await api.get(`/problem/${problemSlug}/submission/${viewing}`);
-        setView(res.data);
-        return true;
-      } catch (error) {
-        if (error.response) {
-          pushToast({
-            code: error.response.status,
-            ...error.response.data,
-          });
-        }
-        return false;
-      }
-    })();
-  }, [viewing]);
+  const submissionsQuery = useToastQuery(
+    problemSubmissionsQueryOptions({
+      username: user.username,
+      problemSlug: problemSlug,
+    })
+  );
 
-  console.log("View");
-  console.log(view);
+  const submissions = submissionsQuery.data;
+  function smoothScrollToTop(container) {
+    const step = 10;
+    const planksTime = 2.5;
+    const intervalId = setInterval(() => {
+      console.log("runn");
+      const prevScrollY = container.scrollY;
+      container.scrollTo(container.scrollX, container.scrollY + step);
+      if (container.scrollY == prevScrollY) {
+        console.log("hello interval cleared");
+        clearInterval(intervalId);
+        return;
+      }
+    }, planksTime);
+  }
+
   return (
-    <div className="submissions">
-      <div className={`submitted-code ${viewing == -1 ? "d-none" : ""}`}>
-        <ReadOnlyEditor content={view.submitted_code} />
-      </div>
-      <div className="submissions-list">
-        <div className="submission-item submission-head">
-          <div className="submission-id">ID</div>
-          <div className="verdict">Verdict</div>
-          <div className="execTime">Exec. Time</div>
-          <div className="submission-timestamp">Submitted on</div>
+    submissions && (
+      <div className="submissions">
+        <div className={`submitted-code ${view ? "" : "d-none"}`}>
+          <ReadOnlyEditor content={view?.submitted_code} />
         </div>
-        {submissions.map(submission => (
-          <div
-            className={`submission-item ${viewing == submission.id ? "submission-item-active" : ""}`}
-            onClick={() => setViewing(submission.id)}
-          >
-            <div className="submission-id">
-              <span class="num">#{submission.id}</span>
-            </div>
-            <div className={`verdict verdict-${submission.verdict.toLowerCase()}`}>
-              {submission.verdict}
-            </div>
-            <div className="execTime">{(+submission.exectime).toFixed(0) + " ms"}</div>
-            <div className="submission-timestamp">
-              {formatDistance(new Date(submission.submitted_at), new Date(), {
-                addSuffix: true,
-              })}
-            </div>
+        <div className="submissions-list">
+          <div className="submission-item submission-head">
+            <div className="submission-id">ID</div>
+            <div className="verdict">Verdict</div>
+            <div className="execTime">Exec. Time</div>
+            <div className="submission-timestamp">Submitted on</div>
           </div>
-        ))}
+          {submissions.map(submission => (
+            <div
+              className={`submission-item ${view?.id == submission.id ? "submission-item-active" : ""}`}
+              onClick={() => {
+                setView(submission);
+                smoothScrollToTop(document.querySelector(".submission-read"));
+              }}
+            >
+              <div className="submission-id">
+                <span class="num">#{submission.id}</span>
+              </div>
+              <div className={`verdict verdict-${submission.verdict.toLowerCase()}`}>
+                {submission.verdict}
+              </div>
+              <div className="execTime">{(+submission.exectime).toFixed(0) + " ms"}</div>
+              <div className="submission-timestamp">
+                {formatDistance(new Date(submission.submitted_at), new Date(), {
+                  addSuffix: true,
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    )
   );
 }
 function Output({ runResult }) {

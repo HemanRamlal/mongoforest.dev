@@ -106,6 +106,11 @@ async function getLastUnsolved() {
   return res.data.slice(0, 5);
 }
 
+async function getProblemSubmissions(problemSlug) {
+  const res = await api.get(`/problem/${problemSlug}/submissions`);
+  return res.data;
+}
+
 export function leaderboardQueryOptions({ communityId, offset, limit, augment = {} } = {}) {
   return queryOptions({
     queryKey: ["leaderboard", { communityId, offset, limit }],
@@ -118,6 +123,14 @@ export function submissionsQueryOptions({ username, augment = {} } = {}) {
   return queryOptions({
     queryKey: ["submissions", username],
     queryFn: () => getSubmissions(),
+    ...augment,
+  });
+}
+
+export function problemSubmissionsQueryOptions({ username, problemSlug, augment = {} }) {
+  return queryOptions({
+    queryKey: ["problem-submissions", username, problemSlug],
+    queryFn: () => getProblemSubmissions(problemSlug),
     ...augment,
   });
 }
