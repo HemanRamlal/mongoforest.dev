@@ -2,7 +2,7 @@ import { queryOptions } from "@tanstack/react-query";
 import { getAvatarURL } from "../utils/blobUtils.js";
 import api from "../api/axios";
 
-async function fetchUserStats(username, pushToast) {
+async function fetchUserStats(username) {
   const defaultAvatarURL = "";
   const defaultSolvedStats = {
     easy_total: 0,
@@ -16,8 +16,7 @@ async function fetchUserStats(username, pushToast) {
   const defaultGlobalPercentile = 69;
   const defaultFirstName = "";
   const defaultLastName = "";
-  const user = (await api.get(`/user/public/${username}/info`, pushToast)).data;
-
+  const user = (await api.get(`/user/public/${username}/info`)).data;
   if (!user)
     return {
       avatarURL: defaultAvatarURL,
@@ -50,10 +49,10 @@ async function fetchUserStats(username, pushToast) {
   };
 }
 
-export function userStatsQueryOptions({ username, pushToast, augment = {} } = {}) {
+export function userStatsQueryOptions({ username, augment = {} } = {}) {
   return queryOptions({
     queryKey: ["user-stats", { username }],
-    queryFn: () => fetchUserStats(username, pushToast),
+    queryFn: () => fetchUserStats(username),
     ...augment,
   });
 }

@@ -1,7 +1,6 @@
 import "./UserCard.css";
 import userAvatarDefault from "../assets/user-avatar-default.png";
 import { getAvatarURL } from "../utils/blobUtils";
-import { pushToast } from "../components/Toasts/Toasts";
 import { Link } from "react-router";
 import UserCardFallback from "./fallbacks/UserCardFallback";
 import _ from "lodash";
@@ -26,7 +25,6 @@ export default function UserCard({ username }) {
   const { data, error, isPending, isError, isFetching } = useToastQuery(
     userStatsQueryOptions({
       username,
-      pushToast,
     })
   );
 
