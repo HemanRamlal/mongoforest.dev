@@ -43,31 +43,59 @@ function Statement({ statement, schema_data, schema_name, schema_description }) 
 }`;
   return (
     <div className="problem-statement">
-      <div className="problem-statement-content">{statement}</div>
-      <div class="schema-view" title={tooltip}>
-        <div className="schema-name">
-          Schema : {schema_name}
-          <FontAwesomeIcon icon={faQuestionCircle} />
+      {statement ? (
+        <div className="problem-statement-content">{statement}</div>
+      ) : (
+        <div className="problem-statement-content flasher problem-statement-content-skeleton"></div>
+      )}
+      {schema_data ? (
+        <div class="schema-view" title={tooltip}>
+          <div className="schema-name">
+            Schema : {schema_name}
+            <FontAwesomeIcon icon={faQuestionCircle} />
+          </div>
+          <div className="schema-description">{schema_description}</div>
+          <div className="schema-data">
+            <ReadOnlyEditor content={JSON.stringify(schema_data, null, 2)} />
+          </div>
         </div>
-        <div className="schema-description">{schema_description}</div>
-        <div className="schema-data">
-          <ReadOnlyEditor content={JSON.stringify(schema_data, null, 2)} />
+      ) : (
+        <div className="schema-view">
+          <div className="schema-name flasher schema-name-skeleton"></div>
+          <div className="schema-description flasher schema-description-skeleton"></div>
+          <div className="schema-data flasher schema-data-skeleton"></div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
 function Samplecases({ testcases }) {
+  function SamplecaseSkeleton() {
+    return (
+      <div className="testcase-container">
+        <div className="testcase-label flasher testcase-label-skeleton"></div>
+        <div className="testcase-view flasher testcase-view-skeleton"></div>
+      </div>
+    );
+  }
   return (
     <div className="testcases-viewer">
-      {testcases.map((testcase, idx) => (
-        <div className="testcase-container" key={idx}>
-          <div className="testcase-label">SampleCase #{idx + 1}:</div>
-          <div className="testcase-view">
-            <FullEditor content={JSON.stringify(testcase, null, 2)} />
+      {testcases ? (
+        testcases.map((testcase, idx) => (
+          <div className="testcase-container" key={idx}>
+            <div className="testcase-label">SampleCase #{idx + 1}:</div>
+            <div className="testcase-view">
+              <FullEditor content={JSON.stringify(testcase, null, 2)} />
+            </div>
           </div>
-        </div>
-      ))}
+        ))
+      ) : (
+        <>
+          <SamplecaseSkeleton />
+          <SamplecaseSkeleton />
+          <SamplecaseSkeleton />
+        </>
+      )}
     </div>
   );
 }
@@ -98,23 +126,25 @@ function Submissions({ problemSlug, isSubmitting }) {
     }, planksTime);
   }
 
-  function SubmissionItemSkeleton() {
-    return <div className="submission-item submission-item-skeleton flasher">Submitting...</div>;
+  function SubmissionItemSkeleton({ children }) {
+    return <div className="submission-item submission-item-skeleton flasher">{children}</div>;
   }
 
   if (submissionsQuery.isPending) {
     return (
-      <div className="submissions-list">
-        <div className="submission-item submission-head">
-          <div className="submission-id">ID</div>
-          <div className="verdict">Verdict</div>
-          <div className="execTime">Exec. Time</div>
-          <div className="submission-timestamp">Submitted on</div>
+      <div className="submissions">
+        <div className="submissions-list">
+          <div className="submission-item submission-head">
+            <div className="submission-id">ID</div>
+            <div className="verdict">Verdict</div>
+            <div className="execTime">Exec. Time</div>
+            <div className="submission-timestamp">Submitted on</div>
+          </div>
+          <SubmissionItemSkeleton />
+          <SubmissionItemSkeleton />
+          <SubmissionItemSkeleton />
+          <SubmissionItemSkeleton />
         </div>
-        <SubmissionItemSkeleton />
-        <SubmissionItemSkeleton />
-        <SubmissionItemSkeleton />
-        <SubmissionItemSkeleton />
       </div>
     );
   }
@@ -131,7 +161,7 @@ function Submissions({ problemSlug, isSubmitting }) {
             <div className="execTime">Exec. Time</div>
             <div className="submission-timestamp">Submitted on</div>
           </div>
-          {isSubmitting && <SubmissionItemSkeleton />}
+          {isSubmitting && <SubmissionItemSkeleton>Submitting...</SubmissionItemSkeleton>}
           {submissions.map(submission => (
             <div
               className={`submission-item interactive-ns ${view?.id == submission.id ? "submission-item-active" : ""}`}

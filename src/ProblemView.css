@@ -3,6 +3,9 @@
   display: flex;
 }
 
+.problem-statement-content-skeleton {
+  height: 50px;
+}
 .submission-read,
 .submission-write {
   overflow: scroll;
@@ -17,6 +20,15 @@
   font-weight: bold;
   color: var(--monochrome-color-tw);
   font: var(--font-sm) "poppins";
+}
+
+.testcase-label-skeleton {
+  height: 10px;
+  width: 50%;
+}
+
+.testcase-view-skeleton {
+  height: 150px;
 }
 
 .submission-read,
@@ -57,8 +69,21 @@
   cursor: help;
 }
 
+.schema-view .schema-name-skeleton {
+  height: 10px;
+  width: 50%;
+}
+
 .schema-description {
   font: var(--font-sm) "poppins";
+}
+
+.schema-view .schema-description-skeleton {
+  height: 50px;
+}
+
+.schema-view .schema-data-skeleton {
+  height: 150px;
 }
 
 .submissions .submissions-list {
@@ -83,6 +108,7 @@
 
 .submissions .submission-item-skeleton {
   height: 30px;
+  margin: 3px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -119,13 +145,6 @@
 
 .submissions .submission-item .submission-timestamp {
   text-align: right;
-}
-
-.submissions .flasher {
-  background: #e9e9e9 !important;
-  animation-name: flash;
-  animation-duration: 666ms;
-  animation-iteration-count: infinite;
 }
 
 .d-none {
