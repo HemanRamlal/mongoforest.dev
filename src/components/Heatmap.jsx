@@ -1,5 +1,7 @@
 import "./Heatmap.css";
 import { useState, useEffect } from "react";
+import { useToastQuery } from "../hooks/toastHooks";
+import { userInfoQueryOptions } from "../hooks/queryOptions";
 import * as dateFns from "date-fns";
 import * as d3 from "d3";
 import api from "../api/axios";
@@ -144,25 +146,19 @@ function putSvg(parentSelector, dateActivityMap, year) {
 }
 
 export default function Heatmap({ username }) {
-  const [user, setUser] = useState(null);
   const [mode, setMode] = useState("all-submissions"); //solved-problems
   const [heatmapYear, setHeatmapYear] = useState(() => {
     return new Date().getFullYear();
   });
   const [heatmapData, setHeatmapData] = useState([]);
 
-  useEffect(() => {
-    (async function () {
-      try {
-        const res = await api.get(`/user/public/${username}/info`);
-        setUser(res.data);
-      } catch (e) {
-        console.log("bruh what error is this");
-        console.log(e);
-        return;
-      }
-    })();
-  }, []);
+  const userInfoQuery = useToastQuery(
+    userInfoQueryOptions({
+      username: username,
+    })
+  );
+
+  const user = userInfoQuery.data;
 
   useEffect(() => {
     if (!user) return;
