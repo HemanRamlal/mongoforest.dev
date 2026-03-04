@@ -1,7 +1,6 @@
 import "./SubmissionsPage.css";
-import { useState, useEffect, use } from "react";
+import { useState } from "react";
 import { ReadOnlyEditor } from "./components/Editors";
-import { pushToast } from "./components/Toasts/Toasts";
 import { formatDistance } from "date-fns";
 import { getUserAtom } from "./atoms/user";
 import { useAtomValue } from "jotai";
@@ -9,7 +8,6 @@ import { submissionsQueryOptions } from "./hooks/queryOptions";
 import { useToastQuery } from "./hooks/toastHooks";
 import SubmissionsPageFallback from "./components/fallbacks/SubmissionsPageFallback";
 import Pagination from "@mui/material/Pagination";
-import api from "./api/axios";
 
 function smoothScrollToTop() {
   const step = 10;
