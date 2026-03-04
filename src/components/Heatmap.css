@@ -51,3 +51,8 @@
 .heatmap-stat-label {
   font: var(--font-md) "Poppins";
 }
+.heatmap-stat-value-skeleton {
+  width: 80px;
+  height: 40px;
+  margin: 0;
+}

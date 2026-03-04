@@ -1,13 +1,61 @@
 import "./Heatmap.css";
 import { useState, useEffect } from "react";
 import { useToastQuery } from "../hooks/toastHooks";
-import { userInfoQueryOptions } from "../hooks/queryOptions";
+import { userInfoQueryOptions, heatmapQueryOptions } from "../hooks/queryOptions";
 import * as dateFns from "date-fns";
 import * as d3 from "d3";
-import api from "../api/axios";
 
 function putSvg(parentSelector, dateActivityMap, year) {
+  if (!document.querySelector(parentSelector)) return;
   document.querySelector(parentSelector).innerHTML = "";
+
+  const grid = 20;
+  const pad = 0.2;
+  const width = 26 * grid;
+  const totalGaps = 5 * grid * 1.93;
+  const height = grid * 7;
+  const margin = { top: 20, left: 10, right: 10, bottom: 30 };
+
+  if (!dateActivityMap) {
+    const svgRoot = d3
+      .select(parentSelector)
+      .append("svg")
+      .attr("width", width + margin.left + margin.right + totalGaps)
+      .attr("height", height * 2 + margin.top * 2 + margin.bottom);
+
+    const g = svgRoot.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
+
+    const skeleton = g
+      .append("rect")
+      .attr("width", width + totalGaps)
+      .attr("height", height * 2)
+      .attr("rx", 6)
+      .attr("fill", "#e5e7eb");
+
+    g.append("text")
+      .attr("x", (width + totalGaps) / 2)
+      .attr("y", height)
+      .attr("text-anchor", "middle")
+      .attr("dominant-baseline", "middle")
+      .style("font-size", "38px")
+      .style("font-family", "Space Grotesk")
+      .style("fill", "#6b7280")
+      .text("Loading Heatmap...");
+
+    function flash() {
+      skeleton
+        .transition()
+        .duration(700)
+        .attr("opacity", 0.4)
+        .transition()
+        .duration(700)
+        .attr("opacity", 1)
+        .on("end", flash);
+    }
+
+    flash();
+    return;
+  }
   const days = [];
   for (let i = new Date(`${year} Jan 1`); dateFns.compareAsc(i, new Date(`${year + 1} Jan 1`)); ) {
     days.push(i);
@@ -28,13 +76,6 @@ function putSvg(parentSelector, dateActivityMap, year) {
       day,
     ];
   });
-
-  const grid = 20;
-  const pad = 0.2;
-  const width = 26 * grid;
-  const totalGaps = 5 * grid * 1.93;
-  const height = grid * 7;
-  const margin = { top: 20, left: 10, right: 10, bottom: 30 };
 
   const svgRoot = d3
     .select(parentSelector)
@@ -87,7 +128,6 @@ function putSvg(parentSelector, dateActivityMap, year) {
     })
     .join("rect")
     .attr("x", data => {
-      console.log(data[0]);
       return xBottom(data[0] == 1 ? 53 : data[0]) + grid * 2 * (dateFns.getMonth(data[3]) - 6);
     })
     .attr("y", data => {
@@ -150,7 +190,6 @@ export default function Heatmap({ username }) {
   const [heatmapYear, setHeatmapYear] = useState(() => {
     return new Date().getFullYear();
   });
-  const [heatmapData, setHeatmapData] = useState([]);
 
   const userInfoQuery = useToastQuery(
     userInfoQueryOptions({
@@ -160,23 +199,20 @@ export default function Heatmap({ username }) {
 
   const user = userInfoQuery.data;
 
-  useEffect(() => {
-    if (!user) return;
-    (async function () {
-      try {
-        const res = await api.get(`/user/public/${user.id}/info/heatmap/` + mode);
-        setHeatmapData(res.data);
-      } catch (e) {
-        console.log("bruh wtf is this error");
-        console.log(e);
-        console.log(e.response?.status + " Nah bro");
-      }
-    })();
-  }, [user, mode]);
+  const heatmapQuery = useToastQuery(
+    heatmapQueryOptions({
+      userId: user?.id,
+      mode: mode,
+      enabled: !!user,
+    })
+  );
+
+  const heatmapData = heatmapQuery.data;
 
   useEffect(() => {
     putSvg(".heatmap-visualizer", heatmapData, heatmapYear);
   }, [heatmapData, heatmapYear]);
+
   const yearList = [];
   for (let yearItem = 2025; yearItem <= new Date().getFullYear(); yearItem++) {
     yearList.push(yearItem);
@@ -228,20 +264,42 @@ export default function Heatmap({ username }) {
       </main>
       <div className="heatmap-stats">
         <div className="heatmap-stat heatmap-main-stat">
-          <div className="heatmap-stat-value">
-            {heatmapData.reduce((accumulator, dayStats) => {
-              console.log("------" + dayStats);
-              console.log(dayStats);
-              return (accumulator += dayStats.count);
-            }, 0)}
-          </div>
+          {heatmapData ? (
+            <div className="heatmap-stat-value">
+              {heatmapData?.reduce((accumulator, dayStats) => {
+                if (dateFns.getYear(new Date(dayStats.activity_date)) != heatmapYear)
+                  return accumulator;
+                return (accumulator += dayStats.count);
+              }, 0)}
+            </div>
+          ) : (
+            <div className="heatmap-stat-value flasher heatmap-stat-value-skeleton"></div>
+          )}
           <div className="heatmap-stat-label">
-            {mode == "all-submissions" ? "Total Submissions" : "Problems Solved"}
+            {(mode == "all-submissions" ? "Submissions" : "Problems Solved") + ` In ${heatmapYear}`}
+          </div>
+        </div>
+        <div className="heatmap-stat heatmap-main-stat">
+          {heatmapData ? (
+            <div className="heatmap-stat-value">
+              {heatmapData?.reduce((accumulator, dayStats) => {
+                return (accumulator += dayStats.count);
+              }, 0)}
+            </div>
+          ) : (
+            <div className="heatmap-stat-value flasher heatmap-stat-value-skeleton"></div>
+          )}
+          <div className="heatmap-stat-label">
+            {mode == "all-submissions" ? "Total Submissions" : "Total Problems Solved"}
           </div>
         </div>
         <div className="heatmap-stat heatmap-ac-stat">
-          <div className="heatmap-stat-value">{user ? (+user.ac_rate * 100).toFixed(2) : 0}%</div>
-          <div className="heatmap-stat-label">Acceptance Rate</div>
+          {user ? (
+            <div className="heatmap-stat-value">{user ? (+user.ac_rate * 100).toFixed(2) : 0}%</div>
+          ) : (
+            <div className="heatmap-stat-value heatmap-stat-value-skeleton flasher"></div>
+          )}
+          <div className="heatmap-stat-label">Overall Acceptance Rate</div>
         </div>
       </div>
     </div>

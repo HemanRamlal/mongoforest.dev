@@ -122,6 +122,12 @@ async function getProblemSubmissions(problemSlug) {
   return res.data;
 }
 
+async function getHeatmap(userId, mode) {
+  const res = await api.get(`/user/public/${userId}/info/heatmap/` + mode);
+
+  return res.data;
+}
+
 export function leaderboardQueryOptions({ communityId, offset, limit, augment = {} } = {}) {
   return queryOptions({
     queryKey: ["leaderboard", { communityId, offset, limit }],
@@ -158,6 +164,14 @@ export function problemsetQueryOptions({ augment = {} } = {}) {
   return queryOptions({
     queryKey: ["problemset"],
     queryFn: () => getProblemset(),
+    ...augment,
+  });
+}
+
+export function heatmapQueryOptions({ userId, mode, augment = {} }) {
+  return queryOptions({
+    queryKey: ["heatmap", userId, mode],
+    queryFn: () => getHeatmap(userId, mode),
     ...augment,
   });
 }
