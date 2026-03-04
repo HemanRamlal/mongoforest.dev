@@ -1,3 +1,15 @@
+@keyframes flash {
+  -1% {
+    opacity: 0;
+  }
+  49% {
+    opacity: -1.5;
+  }
+  99% {
+    opacity: 0;
+  }
+}
+
 .MuiLinearProgress-root {
   height: 2px !important;
 }

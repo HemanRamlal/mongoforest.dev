@@ -3,6 +3,7 @@ import { useToastQuery } from "./hooks/toastHooks";
 import { useState, useEffect, useRef } from "react";
 import { getUserAtom } from "./atoms/user";
 import { useAtomValue } from "jotai";
+import { useQueryClient } from "@tanstack/react-query";
 import { useParams } from "react-router";
 import { pushToast } from "./components/Toasts/Toasts";
 import { problemSubmissionsQueryOptions } from "./hooks/queryOptions";
@@ -70,7 +71,7 @@ function Samplecases({ testcases }) {
     </div>
   );
 }
-function Submissions({ problemSlug, refreshKey }) {
+function Submissions({ problemSlug, isSubmitting }) {
   const [view, setView] = useState();
   const user = useAtomValue(getUserAtom);
 
@@ -97,6 +98,26 @@ function Submissions({ problemSlug, refreshKey }) {
     }, planksTime);
   }
 
+  function SubmissionItemSkeleton() {
+    return <div className="submission-item submission-item-skeleton flasher">Submitting...</div>;
+  }
+
+  if (submissionsQuery.isPending) {
+    return (
+      <div className="submissions-list">
+        <div className="submission-item submission-head">
+          <div className="submission-id">ID</div>
+          <div className="verdict">Verdict</div>
+          <div className="execTime">Exec. Time</div>
+          <div className="submission-timestamp">Submitted on</div>
+        </div>
+        <SubmissionItemSkeleton />
+        <SubmissionItemSkeleton />
+        <SubmissionItemSkeleton />
+        <SubmissionItemSkeleton />
+      </div>
+    );
+  }
   return (
     submissions && (
       <div className="submissions">
@@ -110,9 +131,10 @@ function Submissions({ problemSlug, refreshKey }) {
             <div className="execTime">Exec. Time</div>
             <div className="submission-timestamp">Submitted on</div>
           </div>
+          {isSubmitting && <SubmissionItemSkeleton />}
           {submissions.map(submission => (
             <div
-              className={`submission-item ${view?.id == submission.id ? "submission-item-active" : ""}`}
+              className={`submission-item interactive-ns ${view?.id == submission.id ? "submission-item-active" : ""}`}
               onClick={() => {
                 setView(submission);
                 smoothScrollToTop(document.querySelector(".submission-read"));
@@ -209,11 +231,10 @@ export default function ProblemView() {
   const possibleReadModes = ["statement", "samplecases", "output", "submissions"];
   const [writeMode, setWriteMode] = useState("editing"); //ENUM: editing | running | submitting
   const [problemInfo, setProblemInfo] = useState({}); //pid, samplecases, schema_data, schema_name, statement, testcases
-  const editorContainer = useRef(null);
-  const [editor, setEditor] = useState(null);
   const [userCode, setUserCode] = useState("");
   const [runResult, setRunResult] = useState(null);
-  const [submissionsRefreshKey, setSubmissionsRefreshKey] = useState(crypto.randomUUID());
+  const queryClient = useQueryClient();
+  const user = useAtomValue(getUserAtom);
   console.log("problemInfo");
   console.log(problemInfo);
 
@@ -261,14 +282,19 @@ export default function ProblemView() {
   async function submitCode() {
     if (writeMode != "editing") return;
     setWriteMode("submitting");
+    setRunResult("");
+    setReadMode("submissions");
     try {
       await api.post(`/problem/${problemSlug}/submit`, {
         submittedCode: userCode,
       });
-      setRunResult("");
-      setReadMode("submissions");
       setWriteMode("editing");
-      setSubmissionsRefreshKey(crypto.randomUUID());
+      queryClient.invalidateQueries(
+        problemSubmissionsQueryOptions({
+          username: user.username,
+          problemSlug: problemSlug,
+        })
+      );
       return true;
     } catch (error) {
       if (error.response) {
@@ -292,7 +318,7 @@ export default function ProblemView() {
         <div className="read-tabs">
           {possibleReadModes.map(selectedMode => (
             <div
-              className={`nav-button ${readMode == selectedMode ? "active-tab" : ""}`}
+              className={`nav-button ns ${readMode == selectedMode ? "active-tab" : "interactive-ns"}`}
               onClick={() => setReadMode(selectedMode)}
             >
               {_.startCase(selectedMode)}
@@ -310,7 +336,7 @@ export default function ProblemView() {
           )) ||
             (readMode == "samplecases" && <Samplecases testcases={problemInfo.samplecases} />) ||
             (readMode == "submissions" && (
-              <Submissions problemSlug={problemSlug} refreshKey={submissionsRefreshKey} />
+              <Submissions problemSlug={problemSlug} isSubmitting={writeMode == "submitting"} />
             )) ||
             (readMode == "output" && <Output runResult={runResult || null} />)}
         </div>
