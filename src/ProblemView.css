@@ -46,6 +46,10 @@
   display: flex;
   margin-bottom: var(--dimension-md);
 }
+.submission-read .problem-head-skeleton {
+  width: 70%;
+  height: 20px;
+}
 
 .submission-read .problem-id,
 .submission-read .problem-title {

@@ -16,7 +16,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { formatDistance } from "date-fns";
-import _ from "lodash";
+import _, { head } from "lodash";
 import { FullEditor, ReadOnlyEditor } from "./components/Editors";
 
 function verdictFullForm(verdict) {
@@ -115,11 +115,9 @@ function Submissions({ problemSlug, isSubmitting }) {
     const step = 10;
     const planksTime = 2.5;
     const intervalId = setInterval(() => {
-      console.log("runn");
       const prevScrollY = container.scrollY;
       container.scrollTo(container.scrollX, container.scrollY + step);
       if (container.scrollY == prevScrollY) {
-        console.log("hello interval cleared");
         clearInterval(intervalId);
         return;
       }
@@ -196,7 +194,6 @@ function Output({ runResult }) {
   */
   const failCount = runResult
     ? runResult.outputs.reduce((acc, output, idx) => {
-        console.log(runResult.verdicts[idx]);
         return acc + (runResult.verdicts[idx] == "AC" ? 0 : 1);
       }, 0)
     : null;
@@ -210,8 +207,6 @@ function Output({ runResult }) {
         return acc;
       }, "")
     : null;
-  console.log(data);
-  console.log("failCount is " + failCount);
   return (
     <div className="outputs-viewer">
       {runResult && (
@@ -260,13 +255,11 @@ export default function ProblemView() {
   const [readMode, setReadMode] = useState("statement");
   const possibleReadModes = ["statement", "samplecases", "output", "submissions"];
   const [writeMode, setWriteMode] = useState("editing"); //ENUM: editing | running | submitting
-  const [problemInfo, setProblemInfo] = useState({}); //pid, samplecases, schema_data, schema_name, statement, testcases
+  const [problemInfo, setProblemInfo] = useState(); //pid, samplecases, schema_data, schema_name, statement, testcases
   const [userCode, setUserCode] = useState("");
   const [runResult, setRunResult] = useState(null);
   const queryClient = useQueryClient();
   const user = useAtomValue(getUserAtom);
-  console.log("problemInfo");
-  console.log(problemInfo);
 
   useEffect(() => {
     (async function () {
@@ -292,9 +285,8 @@ export default function ProblemView() {
     try {
       const res = await api.post(`/problem/${problemSlug}/run`, {
         submittedCode: userCode,
-        testcases: problemInfo.samplecases,
+        testcases: problemInfo?.samplecases,
       });
-      console.log(res.data);
       setRunResult(res.data);
       setReadMode("output");
       setWriteMode("editing");
@@ -337,14 +329,17 @@ export default function ProblemView() {
     }
   }
 
-  console.log(writeMode);
   return (
     <div className="problem-view">
       <div className="submission-read">
-        <div className="problem-head">
-          <div className="problem-id">{problemInfo.pid}. </div>
-          <div className="problem-title">{problemInfo.title}</div>
-        </div>
+        {problemInfo ? (
+          <div className="problem-head">
+            <div className="problem-id">{problemInfo.pid}. </div>
+            <div className="problem-title">{problemInfo.title}</div>
+          </div>
+        ) : (
+          <div className="problem-head flasher problem-head-skeleton" />
+        )}
         <div className="read-tabs">
           {possibleReadModes.map(selectedMode => (
             <div
@@ -358,13 +353,13 @@ export default function ProblemView() {
         <div className="read-display">
           {(readMode == "statement" && (
             <Statement
-              statement={problemInfo.statement}
-              schema_name={problemInfo.schema_name}
-              schema_data={problemInfo.schema_data}
-              schema_description={problemInfo.schema_description}
+              statement={problemInfo?.statement}
+              schema_name={problemInfo?.schema_name}
+              schema_data={problemInfo?.schema_data}
+              schema_description={problemInfo?.schema_description}
             />
           )) ||
-            (readMode == "samplecases" && <Samplecases testcases={problemInfo.samplecases} />) ||
+            (readMode == "samplecases" && <Samplecases testcases={problemInfo?.samplecases} />) ||
             (readMode == "submissions" && (
               <Submissions problemSlug={problemSlug} isSubmitting={writeMode == "submitting"} />
             )) ||
