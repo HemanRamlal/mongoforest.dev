@@ -4,10 +4,24 @@
   padding: 10px;
   justify-content: flex-end;
 
-  font: var(--font-xl) " Poppins";
+  font: var(--font-sm) " Space-Grotesk";
   align-items: baseline;
   gap: 10px;
   text-align: baseline;
+}
+.early-access-banner {
+  display: flex;
+  align-items: baseline;
+}
+.early-access-banner > * {
+  margin: 0;
+  padding: 0;
+  color: var(--primary-color-fill);
+  font-weight: lighter;
+}
+.early-access-banner h1 {
+  padding-right: 10px;
+  font-size: 1.5rem;
 }
 .footer .wordmark {
   margin-right: 25px;
