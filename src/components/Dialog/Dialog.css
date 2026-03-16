@@ -1,0 +1,90 @@
+.dialog-overlay {
+  z-index: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  opacity: 0.1;
+  background: black;
+}
+
+.dialog {
+  position: fixed;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  padding: var(--dimension-xs);
+  box-shadow: var(--shadow-raised);
+}
+
+.dialog .dialog-close {
+  position: fixed;
+  top: var(--dimension-xs);
+  right: var(--dimension-xs);
+
+  padding: var(--dimension-xs);
+}
+.dialog .dialog-close:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+.dialog .dialog-close:active {
+  transform: scale(1);
+}
+
+.dialog .dialog-title {
+  margin-top: var(--dimension-sm);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: baseline;
+}
+
+.dialog .dialog-title .dialog-title-icon {
+  font-size: 1.4rem;
+  padding: 0 var(--dimension-xs);
+}
+
+.dialog .dialog-message {
+  padding: var(--dimension-sm);
+}
+
+.dialog-interaction {
+  display: flex;
+  flex-direction: column;
+}
+
+.dialog-interaction .accept:hover {
+  background-color: rgba(0, 255, 0, 0.9);
+}
+.dialog-interaction .accept,
+.dialog-interaction .accept:active {
+  background-color: rgba(0, 255, 0, 0.6);
+}
+.dialog-interaction .reject:hover {
+  background-color: rgba(255, 0, 0, 0.8);
+}
+.dialog-interaction .reject,
+.dialog-interaction .reject:active {
+  background-color: rgba(255, 0, 0, 0.6);
+}
+
+.notify-options,
+.confirm-options,
+.prompt-options {
+  align-self: flex-end;
+}
+
+.dialog-interaction button {
+  padding: 4px var(--dimension-xs);
+  height: fit-content;
+  font-size: 0.9rem;
+}
+.dialog-interaction button:hover {
+  cursor: pointer;
+}
+.dialog-interaction button:active {
+  transform: scale(0.95);
+}

@@ -11,6 +11,7 @@ import themes from "./theme/schema.json";
 import Layout from "./Layout";
 import Practice from "./Practice";
 import Toasts from "./components/Toasts/Toasts.jsx";
+import Dialog from "./components/Dialog/Dialog.jsx";
 import ProblemSet from "./components/ProblemSet";
 import Leaderboard from "./components/Leaderboard";
 import LeaderboardFallback from "./components/fallbacks/CommunityFallback.jsx";
@@ -60,6 +61,7 @@ function App() {
     fontsLoaded && (
       <ThemeProvider theme={themes.data[theme]}>
         <Toasts />
+        <Dialog />
         <GlobalStyles />
         <BrowserRouter>
           <Routes>
