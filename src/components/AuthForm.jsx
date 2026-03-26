@@ -111,7 +111,7 @@ export default function AuthForm({ setAuthOverlay, authOffset }) {
     }
   }
   async function handleGoogleSign(e) {
-    window.location = `${import.meta.env.VITE_API_URI}/auth/signin/federated/google`;
+    window.location = `${import.meta.env.VITE_API_URL}/auth/signin/federated/google`;
   }
   async function handleGithubSign(e) {
     window.location = `${import.meta.env.VITE_API_URL}/auth/signin/federated/github`;
