@@ -1,13 +1,12 @@
 import "./CommunityFallback.css";
-export default function LeaderboardFallback() {
+export default function LeaderboardFallback({ limit }) {
+  const ar = new Array(limit).fill(0);
   return (
     <>
       <div className="leaderboard-fallback">
-        <div className="rect-flash"></div>
-        <div className="rect-flash"></div>
-        <div className="rect-flash"></div>
-        <div className="rect-flash"></div>
-        <div className="rect-flash"></div>
+        {ar.map(i => (
+          <div className="rect-flash"></div>
+        ))}
       </div>
     </>
   );

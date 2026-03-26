@@ -1,5 +1,6 @@
 import { useState, useEffect, use } from "react";
 import { useLocation, useNavigate } from "react-router";
+import TablePagination from "@mui/material/TablePagination";
 import { getUserAtom } from "../atoms/user";
 import { pushToast } from "./Toasts/Toasts";
 import { useAtomValue } from "jotai";
@@ -39,8 +40,8 @@ export default function Leaderboard() {
   const [newMemberName, setNewMemberName] = useState("");
   const [editingName, setEditingName] = useState(false);
   const [draftName, setDraftName] = useState(location.pathname.split("/").at(-1));
-  const [offset, setOffset] = useState(0);
-  const [limit, setLimit] = useState(9999);
+  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(10);
   const communityName = location.pathname.split("/").at(-1);
 
   const communityInfoQuery = useToastQuery(
@@ -53,13 +54,15 @@ export default function Leaderboard() {
   const leaderboardQuery = useToastQuery(
     leaderboardQueryOptions({
       communityId: communityInfoQuery.data?.id,
-      offset,
+      page,
       limit,
       augment: {
         enabled: !!communityInfoQuery.data,
       },
     })
   );
+
+  const totalMembers = leaderboardQuery.data?.[0]?.out_of;
 
   if (leaderboardQuery.isError) {
     navigate("/practice");
@@ -68,7 +71,7 @@ export default function Leaderboard() {
     "leaderboard",
     {
       communityId: communityInfo?.id,
-      offset,
+      page,
       limit,
     },
   ];
@@ -558,7 +561,7 @@ export default function Leaderboard() {
                 </span>
               </>
             )}
-            {leaderboardQuery.isPending && <LeaderboardFallback />}
+            {leaderboardQuery.isPending && <LeaderboardFallback limit={limit} />}
             {leaderboardQuery.isSuccess &&
               leaderboardQuery.data.map(user => {
                 return (
@@ -640,6 +643,27 @@ export default function Leaderboard() {
                   </div>
                 );
               })}
+            <TablePagination
+              component="div"
+              sx={{
+                "&": {
+                  backgroundColor: "#efefef",
+                  borderRadius: "0 0 10px 10px",
+                  width: "100%",
+                },
+              }}
+              count={totalMembers ?? Infinity}
+              page={page - 1}
+              rowsPerPage={limit}
+              onRowsPerPageChange={e => {
+                setLimit(Number(e.target.value));
+                setPage(1);
+              }}
+              rowsPerPageOptions={[5, 10, 25, 50, 100, 250, 500]}
+              onPageChange={(e, newPage) => {
+                setPage(newPage + 1);
+              }}
+            />
           </div>
         </div>
       )}

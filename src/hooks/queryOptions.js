@@ -86,8 +86,8 @@ export function communityInfoQueryOptions({ communityName, augment = {} } = {}) 
   });
 }
 
-async function getCommunityLeaderboard(communityId, offset, limit) {
-  const res = await api.post(`/community/${communityId}/leaderboard`, { offset, limit });
+async function getCommunityLeaderboard(communityId, page, limit) {
+  const res = await api.post(`/community/${communityId}/leaderboard`, { page, limit });
   return res.data;
 }
 
@@ -128,10 +128,10 @@ async function getHeatmap(userId, mode) {
   return res.data;
 }
 
-export function leaderboardQueryOptions({ communityId, offset, limit, augment = {} } = {}) {
+export function leaderboardQueryOptions({ communityId, page, limit, augment = {} } = {}) {
   return queryOptions({
-    queryKey: ["leaderboard", { communityId, offset, limit }],
-    queryFn: () => getCommunityLeaderboard(communityId, offset, limit),
+    queryKey: ["leaderboard", { communityId, page, limit }],
+    queryFn: () => getCommunityLeaderboard(communityId, page, limit),
     ...augment,
   });
 }
