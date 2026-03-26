@@ -1,13 +1,13 @@
 .control-button {
   color: inherit;
   border-radius: 4px;
-  padding: 7px;
+  padding: 7px 3px;
+  margin: 0;
   font-size: 1.05rem;
-  letter-spacing: 0.12rem;
   display: inline-block;
   font-weight: bold;
   font-family: monospace;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.07rem;
   background: #f4f4f4;
   border: 1px solid #999;
   cursor: pointer;

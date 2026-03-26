@@ -43,8 +43,6 @@
   border: 0;
 }
 .leaderboard-main-header {
-  display: grid;
-  grid-template-columns: 100px 1fr 100px;
   font-weight: bold;
   color: gray;
   font-size: 1rem;
@@ -54,8 +52,6 @@
 }
 
 .leaderboard-main-row {
-  display: grid;
-  grid-template-columns: 100px 1fr 100px;
   padding: 10px;
 }
 #leaderboard-main-row-active-user:nth-child(even) {
@@ -102,13 +98,33 @@
   transform: scale(0.9);
   transition-duration: 200ms;
 }
-.leaderboard-item-username-manage > * {
-  display: inline-block;
+.leaderboard-main-row > * {
+  display: flex;
+  flex-direction: column;
+  height: calc(100%-14px);
+  justify-content: center;
 }
-.leaderboard-item-username-manage > .control-button-overlay {
+.leaderboard-item-username,
+.leaderboard-item-username b {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.leaderboard-item-username-link {
+  color: black;
+  text-decoration: none;
+}
+.leaderboard-item-manage {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start !important;
+  justify-content: flex-end;
+}
+.leaderboard-item-manage > .control-button-overlay {
   transform: scale(0.7);
+  width: 130px;
+  margin-left: -12px;
 }
-.leaderboard-item-username-manage-text {
+.leaderboard-item-manage-text {
   font-family: monospace;
   padding: 3px;
 }

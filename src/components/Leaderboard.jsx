@@ -1,5 +1,5 @@
 import { useState, useEffect, use } from "react";
-import { useLocation, useNavigate } from "react-router";
+import { useLocation, useNavigate, Link } from "react-router";
 import TablePagination from "@mui/material/TablePagination";
 import { getUserAtom } from "../atoms/user";
 import { pushToast } from "./Toasts/Toasts";
@@ -546,10 +546,17 @@ export default function Leaderboard() {
             </div>
           )}
           <div className="leaderboard-main">
-            <div className="leaderboard-main-header">
+            <div
+              className="leaderboard-main-header"
+              style={{
+                display: "grid",
+                gridTemplateColumns: isAdmin ? "100px 150px 100px 1fr" : "100px 150px 100px",
+              }}
+            >
               <div className="leaderboard-main-header-rank">Rank</div>
               <div className="leaderboard-main-header-username">Username</div>
               <div className="leaderboard-main-header-score">Score</div>
+              {isAdmin && <div className="leaderboard-main-header-manage">Manage</div>}
             </div>
             {!leaderboardQuery.isPending && leaderboardQuery.isFetching && (
               <>
@@ -567,6 +574,10 @@ export default function Leaderboard() {
                 return (
                   <div
                     className={`leaderboard-main-row`}
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns: isAdmin ? "100px 150px 100px 1fr" : "100px 150px 100px",
+                    }}
                     id={
                       getUser && user.user_id == getUser.id
                         ? "leaderboard-main-row-active-user"
@@ -575,71 +586,77 @@ export default function Leaderboard() {
                   >
                     <div className="leaderboard-item-rank">{user.rank}</div>
                     <div className="leaderboard-item-username">
-                      {user.is_admin ? <b>{user.username}</b> : user.username}
-                      {adminMode && (
-                        <div className="leaderboard-item-username-manage">
-                          <ControlButton
-                            disabled={
-                              kickMemberMutation.isPending &&
-                              kickMemberMutation.variables.kickeeId == user.user_id
-                            }
-                            color={user.is_admin ? "orange" : "darkblue"}
-                            onClick={
-                              user.is_admin
-                                ? () => demoteToMemberMutation.mutate({ toDemote: user.user_id })
-                                : () =>
-                                    promoteToAdminMutation.mutate({
-                                      toPromote: user.user_id,
-                                    })
-                            }
-                          >
-                            <FontAwesomeIcon icon={user.is_admin ? faGavel : faCrown} />
-                            <span class="leaderboard-item-username-manage-text">
-                              {user.is_admin ? "Demote" : "Promote"}
-                            </span>
-                          </ControlButton>
-                          <ControlButton
-                            disabled={
-                              kickMemberMutation.isPending &&
-                              kickMemberMutation.variables.kickeeId == user.user_id
-                            }
-                            color="red"
-                            onClick={async () => {
-                              const variables = {
-                                kickeeId: user.user_id,
-                              };
-                              if (user.is_admin) {
-                                //Having non-member admins is allowed.
-                                //A non-member can still be admin! so just kick isnt enough we have to demote too.
-                                //We have to first kick then demote, because if we first demote then self kick wont work
-                                let didKick;
-                                try {
-                                  didKick = await kickMemberMutation.mutateAsync(variables);
-                                } catch (e) {
-                                  didKick = false;
-                                }
-                                if (didKick) {
-                                  demoteToMemberMutation.mutate({
-                                    toDemote: user.user_id,
-                                  });
-                                }
-                              } else {
-                                kickMemberMutation.mutate(variables);
-                              }
-                            }}
-                          >
-                            <FontAwesomeIcon icon={faUserMinus} />
-                            <span class={`leaderboard-item-username-manage-text`}>
-                              {kickMemberMutation.isPending &&
-                              kickMemberMutation.variables.kickeeId == user.user_id
-                                ? "Kicking"
-                                : "Kick"}
-                            </span>
-                          </ControlButton>
-                        </div>
-                      )}
+                      <Link
+                        to={`/profile/${user.username}`}
+                        className="leaderboard-item-username-link"
+                        title={`Goto ${user.username}'s profile`}
+                      >
+                        {user.is_admin ? <b>{user.username}</b> : user.username}
+                      </Link>
                     </div>
                     <div className="leaderboard-item-score">{user.score || 0}</div>
+                    {adminMode && (
+                      <div className="leaderboard-item-manage">
+                        <ControlButton
+                          disabled={
+                            kickMemberMutation.isPending &&
+                            kickMemberMutation.variables.kickeeId == user.user_id
+                          }
+                          color={user.is_admin ? "orange" : "darkblue"}
+                          onClick={
+                            user.is_admin
+                              ? () => demoteToMemberMutation.mutate({ toDemote: user.user_id })
+                              : () =>
+                                  promoteToAdminMutation.mutate({
+                                    toPromote: user.user_id,
+                                  })
+                          }
+                        >
+                          <FontAwesomeIcon icon={user.is_admin ? faGavel : faCrown} />
+                          <span class="leaderboard-item-username-manage-text">
+                            {user.is_admin ? "Demote" : "Promote"}
+                          </span>
+                        </ControlButton>
+                        <ControlButton
+                          disabled={
+                            kickMemberMutation.isPending &&
+                            kickMemberMutation.variables.kickeeId == user.user_id
+                          }
+                          color="red"
+                          onClick={async () => {
+                            const variables = {
+                              kickeeId: user.user_id,
+                            };
+                            if (user.is_admin) {
+                              //Having non-member admins is allowed.
+                              //A non-member can still be admin! so just kick isnt enough we have to demote too.
+                              //We have to first kick then demote, because if we first demote then self kick wont work
+                              let didKick;
+                              try {
+                                didKick = await kickMemberMutation.mutateAsync(variables);
+                              } catch (e) {
+                                didKick = false;
+                              }
+                              if (didKick) {
+                                demoteToMemberMutation.mutate({
+                                  toDemote: user.user_id,
+                                });
+                              }
+                            } else {
+                              kickMemberMutation.mutate(variables);
+                            }
+                          }}
+                        >
+                          <FontAwesomeIcon icon={faUserMinus} />
+                          <span class={`leaderboard-item-username-manage-text`}>
+                            {kickMemberMutation.isPending &&
+                            kickMemberMutation.variables.kickeeId == user.user_id
+                              ? "Kicking"
+                              : "Kick"}
+                          </span>
+                        </ControlButton>
+                      </div>
+                    )}
                   </div>
                 );
               })}
