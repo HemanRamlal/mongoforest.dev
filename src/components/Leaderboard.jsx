@@ -49,7 +49,6 @@ export default function Leaderboard() {
     })
   );
   const communityInfo = communityInfoQuery.data;
-  console.log(communityInfo);
 
   const leaderboardQuery = useToastQuery(
     leaderboardQueryOptions({
@@ -74,7 +73,6 @@ export default function Leaderboard() {
     },
   ];
 
-  console.log(leaderboardQuery.data);
   if (leaderboardQuery.data) {
     for (const user of leaderboardQuery.data) {
       const isAdmin = communityInfo.admins.includes(user.user_id);
@@ -154,11 +152,8 @@ export default function Leaderboard() {
     return rollback;
   }
   async function onCommunityInfoError(err, variables, rollback, { client }) {
-    console.log("some error bruv wtf");
-    console.log(err);
     const communityInfo = client.getQueryData(["community-info", { communityName }]);
 
-    console.log("here is the rollback" + JSON.stringify(rollback));
     if (rollback.avatar) {
       communityInfo.avatar = rollback.avatar;
     }
@@ -262,7 +257,6 @@ export default function Leaderboard() {
 
   async function onLeaderboardMutate(variables, { client }) {
     const communityInfo = client.getQueryData(["community-info", { communityName }]);
-    console.log("communityInfo is ", JSON.stringify(communityInfo, null, 2));
 
     if (!communityInfo)
       throw {
@@ -290,12 +284,9 @@ export default function Leaderboard() {
     //  leaderboard.
   }
   async function onLeaderboardError(err, variables, onMutateResult, { client }) {
-    console.log("leaderboard error bro");
     let toAdd = [],
       toDel = [];
     if (variables.newMemberName) {
-      console.log("This error in addMemberMutation");
-      console.log(err);
     } else if (variables.kickeeId) {
     } else if (variables.exitCommunity) {
     } else if (variables.joinCommunity) {
@@ -409,7 +400,6 @@ export default function Leaderboard() {
       communityInfoQuery.data.admins &&
       communityInfoQuery.data.admins.includes(getUser ? getUser.id : "dummy")
     ) {
-      console.log(`Making admin mode view for ${JSON.stringify(communityInfoQuery.data, null, 2)}`);
       setIsAdmin(true);
       setAdminMode(true);
     } else {
@@ -431,8 +421,13 @@ export default function Leaderboard() {
 
   function handleCommunityNameFieldEnter(e) {
     if (e.key == "Enter") {
-      nameMutation.mutate();
+      nameMutation.mutate({ name: draftName });
     }
+  }
+
+  function handleCommunityNameFieldBlur(e) {
+    setDraftName(communityInfoQuery.data.name);
+    setEditingName(false);
   }
 
   return (
@@ -475,6 +470,7 @@ export default function Leaderboard() {
                     setDraftName(e.target.value);
                   }}
                   onKeyDown={handleCommunityNameFieldEnter}
+                  onBlur={handleCommunityNameFieldBlur}
                 />
                 <button
                   className="leaderboard-community-name-edit"
