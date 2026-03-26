@@ -416,7 +416,7 @@ export default function Leaderboard() {
       setAdminMode(false);
       setIsAdmin(false);
     }
-  }, [communityInfoQuery.data]);
+  }, [communityInfoQuery.data?.admins]);
   useEffect(() => {
     if (!leaderboardQuery.data) return;
     setIsMember(getUser && leaderboardQuery.data.some(user => user.user_id == getUser.id));
