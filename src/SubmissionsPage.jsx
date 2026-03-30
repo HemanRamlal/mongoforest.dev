@@ -70,7 +70,7 @@ export default function Submissions({ problemSlug }) {
             return (
               <div
                 key={submission.id}
-                className={`submission-item ${view?.id == submission.id ? "submission-item-active" : ""}`}
+                className={`submission-item interactive-ns ${view?.id == submission.id ? "submission-item-active" : ""}`}
                 onClick={() => {
                   setView(submission);
                   smoothScrollToTop();

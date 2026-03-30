@@ -43,6 +43,12 @@
 .submissions-page .submission-item:nth-child(even) {
   background: rgb(0, 0, 0, 0.05);
 }
+
+.submissions-page .submission-item-active {
+  background: var(
+    --primary-color-fill
+  ) !important; /*without important tag the submission-item:nth-child overshadows this prop*/
+}
 .submissions-page .submission-item > * {
   padding: 5px;
 }
