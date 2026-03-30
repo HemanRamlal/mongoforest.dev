@@ -51,6 +51,8 @@ export default function Submissions({ problemSlug }) {
   }
 
   const submissions = submissionsQuery.data?.slice((page - 1) * 10, page * 10);
+  const selectedVerdictInfo = view ? getVerdictDisplay(view.verdict) : null;
+
   return (
     <div className="submissions-page-wrapper">
       <div className="submissions-page">
@@ -98,7 +100,23 @@ export default function Submissions({ problemSlug }) {
           />
         </div>
         <div className={`submitted-code ${!view ? "d-none" : ""}`}>
-          <h2 className="submission-greeter">Submission #{view?.id}</h2>
+          {view && (
+            <div className="submission-greeter-meta">
+              <span className={`submission-greeter-verdict ${selectedVerdictInfo.className}`}>
+                {selectedVerdictInfo.text}
+              </span>
+              <span className="submission-greeter-separator">•</span>
+              <span title="Execution Time">{(+view.exectime).toFixed(0)}ms</span>
+              <span className="submission-greeter-separator">•</span>
+              <span title="Submitted on">
+                {formatDistance(new Date(view.submitted_at), new Date(), {
+                  addSuffix: true,
+                })}
+              </span>
+              <span className="submission-greeter-separator">•</span>
+              <span title="Submission ID">#{view?.id}</span>
+            </div>
+          )}
           <ReadOnlyEditor content={view?.submitted_code} />
         </div>
       </div>
