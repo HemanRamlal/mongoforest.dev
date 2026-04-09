@@ -29,7 +29,7 @@
     "date-fns": "^4.1.0",
     "javascript-time-ago": "^2.5.12",
     "jotai": "^2.14.0",
-    "lodash": "^4.17.21",
+    "lodash": "^4.18.1",
     "motion": "^12.23.12",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
